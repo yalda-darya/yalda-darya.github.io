@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Name - Your Name</title>
+    <title>Asymmetric Moral Metaperceptions - Yalda Daryani</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -194,7 +194,6 @@
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
     <div class="navbar">
         <a href="index.html">Home</a>
         <a href="publications.html">Publications</a>
@@ -205,26 +204,21 @@
 
     <div class="content">
         <div class="project-header">
-            <h1 class="project-title">Project Title</h1>
-            <p class="project-subtitle">Brief one-line description of the project</p>
+            <h1 class="project-title">Asymmetric Moral Metaperceptions: Consequences for Political Polarization</h1>
+            <p class="project-subtitle">Investigating how misperceptions of opponents' moral values sustain political division and testing corrective interventions.</p>
             
             <div class="project-links">
-                <a href="#" target="_blank">Paper</a>
-                <a href="#" target="_blank">GitHub Code</a>
-                <a href="#" target="_blank">Demo</a>
-                <a href="#" target="_blank">Dataset</a>
-            </div>
+                <a href="Metapercetion_Paper.pdf" target="_blank">Full Paper (PDF)</a>
+                <a href="#" target="_blank">GitHub Code (WIP)</a>
+                </div>
             
-            <!-- Featured project image -->
-            <img src="project-image.jpg" alt="Project Image" class="project-image">
+            <img src="https://via.placeholder.com/1200x400?text=Visualization+of+Asymmetric+Moral+Perceptions+Across+Ideology" alt="Visualization of Moral Perceptions and Metaperceptions" class="project-image">
         </div>
         
         <div class="project-section">
             <h2>Overview</h2>
             <p>
-                Comprehensive description of your project. Explain the motivation, goals, and significance 
-                of this research. What problem does it solve? Why is it important? How does it advance 
-                the state of the art in your field?
+                [cite_start]This research identifies **moral metaperceptions**—beliefs about how ideological opponents evaluate one's own moral values—as a critical, overlooked factor fueling political polarization[cite: 16, 79, 1073]. [cite_start]We demonstrate that the political divide is sustained not only by what people believe, but also by what they **think others believe about them**[cite: 15]. [cite_start]Across four studies, we establish a robust pattern of **asymmetric inaccuracy** and show that correcting these misperceptions can significantly increase trust and reduce perceived threat between political groups[cite: 20, 22, 1081].
             </p>
         </div>
         
@@ -232,97 +226,101 @@
             <div class="column">
                 <h2>Key Contributions</h2>
                 <ul>
-                    <li>Major contribution 1 with brief explanation</li>
-                    <li>Major contribution 2 with brief explanation</li>
-                    <li>Major contribution 3 with brief explanation</li>
-                    <li>Highlight innovative methods or findings</li>
+                    [cite_start]<li>**Discovery of Asymmetric Moral Bias:** We found that liberals consistently **underestimate** how positively conservatives view their **binding values** (Loyalty, Authority, Purity), while conservatives tend to **overestimate** how positively liberals view their **individualizing values** (Care, Fairness)[cite: 20, 1078].</li>
+                    [cite_start]<li>**Multi-Method Validation:** We combined **Natural Language Processing (NLP)** on an $~11$ million tweet corpus (Study 1) with three large-scale, pre-registered **experimental studies** (Studies 2-4) to establish a comprehensive picture of this psychological mechanism[cite: 92, 1074].</li>
+                    [cite_start]<li>**Predictive Power of Mismatches:** We showed that these metaperceptual errors are robust predictors of reduced intergroup **trust** and heightened **perceived threat** across polarized issues like abortion and gun control[cite: 22, 1079].</li>
+                    [cite_start]<li>**Informational Intervention:** We demonstrated that a simple, **informational feedback intervention**—telling participants the outgroup rated them "better than expected"—is a **scalable** method to increase trust and reduce threat between partisans[cite: 22, 1081, 1082].</li>
                 </ul>
             </div>
             <div class="column">
-                <h2>Technologies Used</h2>
-                <p>Description of the methods, frameworks, and tools used in the project.</p>
+                <h2>Technologies & Methods</h2>
+                [cite_start]<p>The project leveraged state-of-the-art computational and experimental techniques across four studies to ensure robustness and generalizability[cite: 92].</p>
                 <div class="tech-stack">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">TensorFlow</span>
-                    <span class="tech-tag">PyTorch</span>
-                    <span class="tech-tag">SQL</span>
-                    <span class="tech-tag">R</span>
-                    <!-- Add more tech tags as needed -->
+                    <span class="tech-tag">Python (scikit-learn)</span>
+                    <span class="tech-tag">Natural Language Processing (NLP)</span>
+                    <span class="tech-tag">BERTweet & RoBERTa (Fine-tuning)</span>
+                    <span class="tech-tag">GPT-3.5 Turbo (Annotation)</span>
+                    <span class="tech-tag">Machine Learning (Random Forest)</span>
+                    <span class="tech-tag">Statistical Modeling (MANCOVA, Logistic Regression)</span>
+                    <span class="tech-tag">Large-Scale Experimental Design</span>
                 </div>
             </div>
         </div>
         
         <div class="project-section">
-            <h2>Methodology</h2>
+            <h2>Methodology Timeline (4 Studies)</h2>
             <div class="timeline">
                 <div class="timeline-item">
-                    <h3>Step 1: Data Collection & Processing</h3>
+                    <h3>Study 1: Identifying Moral Framing in Twitter Discourse (Computational)</h3>
                     <p>
-                        Describe how you collected, cleaned, and prepared the data for your research.
-                        Include any challenges faced and how you overcame them.
+                        Analyzed **10.9 million tweets** on the abortion debate to confirm that moral language use differs when discussing ingroup stance versus outgroup positions. [cite_start]Employed fine-tuned **BERTweet** for stance classification (Macro $F1=0.758$) and **RoBERTa** for moral foundation tagging, establishing the foundational role of morality in the conflict[cite: 120, 142, 151, 403].
                     </p>
                 </div>
                 
                 <div class="timeline-item">
-                    <h3>Step 2: Model Development</h3>
+                    <h3>Study 2 & 3: Measuring Asymmetric Misperceptions (Experimental)</h3>
                     <p>
-                        Explain the approach to model development. What algorithms or architectures did you use?
-                        Why did you choose these methods? What experiments did you run?
+                        Used a 2 (Group) x 3 (Condition: Ingroup, Outgroup, Metaperception) design to measure moral and social (Warmth, Competence, Social Distance) perceptions across the **abortion** and **gun control** issues. [cite_start]Quantified the mismatch between outgroup's *actual* rating and ingroup's *predicted* rating, confirming the asymmetric bias across different political contexts[cite: 436, 448, 677, 853].
                     </p>
                 </div>
                 
                 <div class="timeline-item">
-                    <h3>Step 3: Evaluation & Results</h3>
+                    <h3>Study 4: Testing Corrective Feedback (Intervention)</h3>
                     <p>
-                        Discuss how you evaluated your model or research findings. What metrics did you use?
-                        Summarize the key results and their implications.
+                        Conducted a $N > 1,200$ experiment where participants received false but plausible feedback (Better-Than-Expected, Worse-Than-Expected, Control) on how the outgroup morally evaluated them. [cite_start]Measured subsequent changes in **intergroup trust** and **perceived threat** as the primary outcomes[cite: 895, 902, 912, 1045].
                     </p>
                 </div>
                 
-                <!-- Add more timeline items as needed -->
             </div>
         </div>
         
         <div class="project-section">
-            <h2>Results</h2>
+            <h2>Results and Implications</h2>
             <p>
-                Detailed explanation of your research findings. You can include tables, charts, 
-                or visualizations to illustrate your results clearly.
+                [cite_start]The results provide clear evidence that **moral metaperceptions are malleable** and act as a leverage point for depolarization[cite: 1080].
             </p>
-            <!-- Add result visualizations here -->
+            <ul>
+                [cite_start]<li>**Correction Works:** Better-than-expected feedback significantly increased trust and reduced threat compared to worse-than-expected feedback across both ideological groups[cite: 953, 1000].</li>
+                [cite_start]<li>**Empathy Moderates:** The positive effects of the feedback intervention were strongest among **pro-life individuals higher in empathy**, who showed greater increases in trust and larger reductions in threat when receiving positive information[cite: 22, 1061, 1062].</li>
+                [cite_start]<li>**Policy Implication:** The findings suggest that interventions to reduce polarization should be **tailored** to address specific moral misperceptions for each group (e.g., addressing liberal pessimism vs. conservative optimism)[cite: 1088, 1093].</li>
+            </ul>
         </div>
         
         <div class="project-section">
             <h2>Publication</h2>
             <p>
-                If this project resulted in a publication, provide the details and citation information here.
+                This work was conducted as a major component of my doctoral research and is currently under review for publication.
             </p>
             <div class="citation">
-@article{lastname2023projectname,
-  title={Project Paper Title},
-  author={Your Name and Co-authors},
-  journal={Journal or Conference Name},
-  year={2023},
-  publisher={Publisher Name}
+@article{daryani2025asymmetric,
+  title={Asymmetric Moral Metaperceptions: Consequences for Political Polarization and Paths to Correction},
+  author={Daryani, Yalda and Hejabi, Parsa and Dehghani, Morteza},
+  journal={Department of Psychology, University of Southern California (Doctoral Research)},
+  year={2025},
+  note={Under Review for Peer-Reviewed Publication}
 }
             </div>
         </div>
         
         <div class="project-section">
             <h2>Team</h2>
-            <p>If this was a collaborative project, list the team members and their contributions.</p>
+            <p>This was a collaborative research project within the lab, with my primary contribution being the conceptualization, data analysis, and manuscript writing.</p>
             <div class="team-members">
                 <div class="team-member">
-                    <img src="profile.jpg" alt="Your Name">
-                    <p><strong>Your Name</strong></p>
-                    <p>Role</p>
+                    <img src="profile.jpg" alt="Yalda Daryani">
+                    <p><strong>Yalda Daryani</strong></p>
+                    <p>Lead Author & Researcher</p>
                 </div>
                 <div class="team-member">
-                    <img src="placeholder.jpg" alt="Collaborator Name">
-                    <p><strong>Collaborator</strong></p>
-                    <p>Role</p>
+                    <img src="placeholder.jpg" alt="Parsa Hejabi">
+                    <p><strong>Parsa Hejabi</strong></p>
+                    <p>Co-Author & Collaborator</p>
                 </div>
-                <!-- Add more team members as needed -->
+                <div class="team-member">
+                    <img src="placeholder.jpg" alt="Morteza Dehghani">
+                    <p><strong>Morteza Dehghani</strong></p>
+                    <p>Principal Investigator & Advisor</p>
+                </div>
             </div>
         </div>
     </div>
