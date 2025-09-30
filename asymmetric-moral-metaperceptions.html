@@ -208,7 +208,7 @@
     <div class="content">
         <div class="project-header">
             <h1 class="project-title">When We Get Each Other Wrong: Using NLP and Behavioral Experiments to Correct Misperceptions</h1>
-            <p class="project-subtitle">Analyzing 11M Tweets and 1,200 Participants to Understand and Correct Moral Biases</p>
+            <p class="project-subtitle">Analyzing 10M Tweets and 2,400 Participants to Understand and Correct Moral Biases</p>
             
             <div class="project-links">
                 <a href="#" target="_blank">GitHub Code (WIP)</a>
@@ -220,7 +220,7 @@
         <div class="project-section">
             <h2>Overview</h2>
             <p>
-                This project investigates how people misjudge their ideological opponents’ moral values and how these errors sustain division. Using computational analyses of <strong>10M+</strong> tweets and <strong>three large-scale experiments</strong>, I show that misperceptions of moral values increase distrust and perceived threat. Importantly, I test a <strong>scalable, data-driven intervention</strong> that improves intergroup trust.
+                This project examines how people misjudge what their political opponents think of their moral values and how these errors sustain division. Using computational analyses of <strong>10M+</strong> tweets and <strong>three large-scale experiments</strong>, I show that misperceptions of moral values increase distrust and perceived threat. Importantly, I test a <strong>scalable, data-driven intervention</strong> that improves intergroup trust.
             </p>
         </div>
         
@@ -228,23 +228,24 @@
             <div class="column">
                 <h2>Key Contributions</h2>
                 <ul>
-                    <li><strong>Discovery of Asymmetric Moral Bias:</strong> We found that liberals consistently <strong>underestimate</strong> how positively conservatives view their <strong>binding values</strong> (Loyalty, Authority, Purity), while conservatives tend to <strong>overestimate</strong> how positively liberals view their <strong>individualizing values</strong> (Care, Fairness).</li>
-                    <li><strong>Multi-Method Validation:</strong> We combined <strong>Natural Language Processing (NLP)</strong> on an $\sim$11 million tweet corpus (Study 1) with three large-scale, pre-registered <strong>experimental studies</strong> (Studies 2-4) to establish a comprehensive picture of this psychological mechanism.</li>
-                    <li><strong>Predictive Power of Mismatches:</strong> We showed that these metaperceptual errors are robust predictors of reduced intergroup <strong>trust</strong> and heightened <strong>perceived threat</strong> across polarized issues like abortion and gun control.</li>
-                    <li><strong>Informational Intervention:</strong> We demonstrated that a simple, <strong>informational feedback intervention</strong>—telling participants the outgroup rated them "better than expected"—is a <strong>scalable</strong> method to increase trust and reduce threat between partisans.</li>
+                    <li><strong>Large-Scale NLP & Social Media Analytics:</strong> Analyzed 10+M tweets utilizing machine learning and AI-based approaches to identify how moral language frames abortion debates.</li>
+                    <li><strong>Experimental Research Design:</strong> Conducted three preregistered experiments (N > 2,300) to test psychological mechanisms of misperception.</li>
+                    <li><strong>Predictive Modeling:</strong> Applied logistic regression & random forest models to quantify how moral framing predicts political stance.</li>
+                    <li><strong>Informational Intervention:</strong> Designed and validated a low-cost behavioral intervention that improved intergroup trust across divides.</li>
                 </ul>
             </div>
             <div class="column">
-                <h2>Technologies & Methods</h2>
+                <h2>My Research Toolkit</h2>
                 <p>The project leveraged state-of-the-art computational and experimental techniques across four studies to ensure robustness and generalizability.</p>
                 <div class="tech-stack">
-                    <span class="tech-tag">Python (scikit-learn)</span>
+                    <span class="tech-tag">R</span>
+                    <span class="tech-tag">Python</span>
                     <span class="tech-tag">Natural Language Processing (NLP)</span>
-                    <span class="tech-tag">BERTweet & RoBERTa (Fine-tuning)</span>
+                    <span class="tech-tag">Machine Learning (Random Forest, classification models)</span>
                     <span class="tech-tag">GPT-3.5 Turbo (Annotation)</span>
-                    <span class="tech-tag">Machine Learning (Random Forest)</span>
-                    <span class="tech-tag">Statistical Modeling (MANCOVA, Logistic Regression)</span>
-                    <span class="tech-tag">Large-Scale Experimental Design</span>
+                    <span class="tech-tag">Statistical Modeling (MANCOVA, regression, moderation)</span>
+                    <span class="tech-tag">Experimental Design & Causal Inference</span>
+                    <span class="tech-tag">Survey Design & Large-Scale Online Data Collection</span>
                 </div>
             </div>
         </div>
@@ -255,21 +256,22 @@
                 <div class="timeline-item">
                     <h3>Study 1: Identifying Moral Framing in Twitter Discourse (Computational)</h3>
                     <p>
-                        Analyzed <strong>10.9 million tweets</strong> on the abortion debate to confirm that moral language use differs when discussing ingroup stance versus outgroup positions. Employed fine-tuned <strong>BERTweet</strong> for stance classification (Macro $F1=0.758$) and <strong>RoBERTa</strong> for moral foundation tagging, establishing the foundational role of morality in the conflict.
+                        
+Analyzed <strong>10M million tweets</strong> on the abortion debate to confirm that moral language use differs when discussing ingroup stance versus outgroup positions. I <strong>created detailed annotation guidelines</strong> to train supervised models and conducted <strong>prompt engineering</strong> when using AI-assisted annotation. Employed fine-tuned <strong>BERTweet</strong> for stance classification (Macro F1 = 0.758) and <strong>RoBERTa</strong> for moral foundation tagging, establishing the foundational role of morality in the conflict. For data analysis, I applied both <strong>logistic regression</strong> and <strong>random forest models</strong> to validate predictive relationships and capture non-linear patterns.
                     </p>
                 </div>
                 
                 <div class="timeline-item">
                     <h3>Study 2 & 3: Measuring Asymmetric Misperceptions (Experimental)</h3>
                     <p>
-                        Used a 2 (Group) x 3 (Condition: Ingroup, Outgroup, Metaperception) design to measure moral and social (Warmth, Competence, Social Distance) perceptions across the <strong>abortion</strong> and <strong>gun control</strong> issues. Quantified the mismatch between outgroup's <em>actual</em> rating and ingroup's <em>predicted</em> rating, confirming the asymmetric bias across different political contexts.
+                        Used a <strong>2 (Group) x 3 (Condition: Ingroup, Outgroup, Metaperception)</strong> experimental design to measure moral and social perceptions, including <strong>warmth</strong>, <strong>competence</strong>, and <strong>social distance</strong>, across the <strong>abortion</strong> and <strong>gun control</strong> issues. Quantified the mismatch between the outgroup's <em>actual</em> rating and the ingroup's <em>predicted</em> rating, confirming robust asymmetric biases across political contexts. For data analysis, I applied <strong>MANCOVA</strong> and <strong>MANOVA</strong> to test group differences while controlling for ideology. This approach provided a rigorous assessment of both <strong>multivariate outcomes</strong> and <strong>interaction effects</strong>, offering a comprehensive picture of how misperceptions shape intergroup trust and perceived threat.
                     </p>
                 </div>
                 
                 <div class="timeline-item">
                     <h3>Study 4: Testing Corrective Feedback (Intervention)</h3>
                     <p>
-                        Conducted a $N > 1,200$ experiment where participants received false but plausible feedback (Better-Than-Expected, Worse-Than-Expected, Control) on how the outgroup morally evaluated them. Measured subsequent changes in <strong>intergroup trust</strong> and <strong>perceived threat</strong> as the primary outcomes.
+                        Conducted a N > 1,200 experiment where participants received false but plausible feedback (Better-Than-Expected, Worse-Than-Expected, Control) on how the outgroup morally evaluated them. Measured subsequent changes in <strong>intergroup trust</strong> and <strong>perceived threat</strong> as the primary outcomes.
                     </p>
                 </div>
                 
@@ -282,9 +284,9 @@
                 The results provide clear evidence that <strong>moral metaperceptions are malleable</strong> and act as a leverage point for depolarization.
             </p>
             <ul>
-                <li><strong>Correction Works:</strong> Better-than-expected feedback significantly increased trust and reduced threat compared to worse-than-expected feedback across both ideological groups.</li>
-                <li><strong>Empathy Moderates:</strong> The positive effects of the feedback intervention were strongest among <strong>pro-life individuals higher in empathy</strong>, who showed greater increases in trust and larger reductions in threat when receiving positive information.</li>
-                <li><strong>Policy Implication:</strong> The findings suggest that interventions to reduce polarization should be <strong>tailored</strong> to address specific moral misperceptions for each group (e.g., liberal pessimism vs. conservative optimism), possibly by combining empathy-building with metaperceptual corrections.</li>
+                <li><strong>Correction Works:</strong> Showing participants that the other side rated them more positively than expected increased trust and reduced threat.</li>
+                <li><strong>Empathy Matters:</strong> Interventions were most effective among high-empathy individuals, highlighting moderators of impact.</li>
+                <li><strong>Applied Insight:</strong> Demonstrates how psychological biases can be corrected with data-driven, scalable methods, relevant for addressing bias in workplaces, platforms, and AI systems.</li>
             </ul>
         </div>
         
@@ -293,20 +295,13 @@
             <p>
                 This work was conducted as a major component of my doctoral research and is currently under review for publication.
             </p>
-            <div class="citation">
-@article{daryani2025asymmetric,
-  title={Asymmetric Moral Metaperceptions: Consequences for Political Polarization and Paths to Correction},
-  author={Daryani, Yalda and Hejabi, Parsa and Dehghani, Morteza},
-  journal={Department of Psychology, University of Southern California (Doctoral Research)},
-  year={2025},
-  note={Under Review for Peer-Reviewed Publication}
-}
-            </div>
+
         </div>
         
         <div class="project-section">
             <h2>Team</h2>
-            <p>This was a collaborative research project, with my primary contribution being the conceptualization, data analysis, and manuscript writing.</p>
+            <p>This was a collaborative research project in which I served as the <strong>lead researcher</strong>. I worked closely with <strong>computer science collaborators</strong> who contributed to model development and technical implementation.
+</p>
             <div class="team-members">
                 <div class="team-member">
                     <img src="profile.jpg" alt="Yalda Daryani">
