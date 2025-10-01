@@ -67,14 +67,34 @@
 
     <div class="project-section">
       <h2>Overview</h2>
-      <p>
-        <strong>MFTCXplain</strong> introduces a <strong>3,000-tweet</strong> multilingual benchmark with <strong>human-annotated moral categories</strong> and <strong>span-level rationales</strong> to assess whether large language models can explain moral reasoning behind hate-speech decisions. We benchmark state-of-the-art models (e.g., LLaMA 3.3 70B, GPT-4o-mini) under zero-shot, few-shot, and chain-of-thought prompting and evaluate both <strong>predictions</strong> and <strong>explanations</strong>.
-      </p>
-      <div class="callout">
-        <strong>Headline finding:</strong> Models achieve strong F1 on hate-speech detection but underperform on moral sentiment prediction and rationale alignment—highlighting gaps in culturally grounded moral reasoning and explainability.
-      </div>
-    </div>
+      <p><strong>MFTCXplain</strong> tackles one of the central open questions in AI today: 
+    <em>How do large language models reason about morality across cultures?</em>
+  </p>
 
+  <p>
+    Grounded in <strong>social psychology</strong> and <strong>Moral Foundations Theory</strong>, this project brings a social-science lens to AI evaluation.
+    We introduce a multilingual benchmark of <strong>3,000 human-annotated tweets</strong> in English, Italian, Persian, and Portuguese—each labeled for 
+    hate speech, moral sentiment, and <strong>text-span rationales</strong>. Unlike prior benchmarks, MFTCXplain captures not only <em>what</em> is classified but also 
+    <em>why</em>, revealing culturally grounded moral framing patterns across languages.
+  </p>
+
+  <p><strong>From a social science perspective, MFTCXplain addresses three challenges:</strong></p>
+  <ul>
+    <li><strong>Cultural variability in morality:</strong> Hate speech and moral reasoning are deeply moralized but vary by language and cultural context.</li>
+    <li><strong>Explanations beyond detection:</strong> While LLMs perform well at hate speech detection, they struggle to capture the underlying moral reasoning—especially in underrepresented languages.</li>
+    <li><strong>Transparency &amp; ethical alignment:</strong> By evaluating <em>rationales</em>, we test whether model explanations align with human, culturally grounded moral judgments.</li>
+  </ul>
+
+  <p>
+    Our findings show that <strong>hate speech rarely occurs without moral sentiment</strong>. 
+    Yet even frontier models (e.g., GPT-4o, LLaMA) frequently <strong>misalign with human rationales</strong>, indicating limited capacity to internalize and reflect human moral reasoning across languages.
+  </p>
+
+  <p>
+    This work reflects my broader PhD focus at USC: <strong>bridging social science, cross-cultural psychology, and AI</strong> to build systems that are 
+    <strong>transparent</strong>, <strong>culturally aware</strong>, and <strong>ethically aligned</strong>.
+  </p>
+       
     <div class="project-section two-column">
       <div class="column">
         <h2>Key Contributions</h2>
