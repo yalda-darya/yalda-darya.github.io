@@ -54,12 +54,11 @@
   <div class="content">
     <div class="project-header">
       <h1 class="project-title">MFTCXplain: Multilingual Moral Reasoning Benchmark for LLMs</h1>
-      <p class="project-subtitle">Evaluating hate-speech <em>multi-hop explanations</em> and moral reasoning across English, Italian, Persian, and Portuguese using expert rationales grounded in Moral Foundations Theory.</p>
+      <p class="project-subtitle">Evaluating hate-speech explanations and moral reasoning across four languages</p>
 
       <div class="project-links">
-        <a href="MFTCXplain_Paper.pdf" target="_blank">Full Paper (PDF)</a>
-        <a href="https://arxiv.org/abs/2506.19073" target="_blank" rel="noopener">arXiv</a>
-        <a href="https://github.com/franciellevargas/MFTCXplain" target="_blank" rel="noopener">Dataset & Code</a>
+        <a href="https://arxiv.org/pdf/2506.19073" target="_blank">Full Paper</a>
+        <a href="https://github.com/franciellevargas/MFTCXplain" target="_blank" rel="noopener">Code &amp; Data</a>
       </div>
 
       <img src="MOLA.jpg" alt="MFTCXplain overview diagram" class="project-image" />
@@ -67,26 +66,25 @@
 
     <div class="project-section">
       <h2>Overview</h2>
-      <p><strong>MFTCXplain</strong> tackles one of the central open questions in AI today: 
-    <em>How do large language models reason about morality across cultures?</em>
+      <p><strong>MFTCXplain</strong> tackles one of the central open questions in AI today: How do large language models reason about morality across cultures?
   </p>
 
   <p>
-    Grounded in <strong>social psychology</strong> and <strong>Moral Foundations Theory</strong>, this project brings a social-science lens to AI evaluation.
-    We introduce a multilingual benchmark of <strong>3,000 human-annotated tweets</strong> in English, Italian, Persian, and Portuguese—each labeled for 
-    hate speech, moral sentiment, and <strong>text-span rationales</strong>. Unlike prior benchmarks, MFTCXplain captures not only <em>what</em> is classified but also 
+    Grounded in <strong>social, moral, and cultural psychology</strong>, this project brings a social-science lens to AI evaluation.
+    We introduce a multilingual benchmark of <strong>3,000 human-annotated tweets</strong> in English, Italian, Persian, and Portuguese, each labeled for 
+    hate speech, moral sentiment, and text-span rationales. Unlike prior benchmarks, MFTCXplain captures not only <em>what</em> is classified but also 
     <em>why</em>, revealing culturally grounded moral framing patterns across languages.
   </p>
 
   <p><strong>From a social science perspective, MFTCXplain addresses three challenges:</strong></p>
   <ul>
     <li><strong>Cultural variability in morality:</strong> Hate speech and moral reasoning are deeply moralized but vary by language and cultural context.</li>
-    <li><strong>Explanations beyond detection:</strong> While LLMs perform well at hate speech detection, they struggle to capture the underlying moral reasoning—especially in underrepresented languages.</li>
-    <li><strong>Transparency &amp; ethical alignment:</strong> By evaluating <em>rationales</em>, we test whether model explanations align with human, culturally grounded moral judgments.</li>
+    <li><strong>Explanations beyond detection:</strong> While LLMs perform well at hate speech detection, they struggle to capture the underlying moral reasoning, especially in underrepresented languages.</li>
+    <li><strong>Transparency &amp; ethical alignment:</strong> By evaluating rationales, we test whether model explanations align with human, culturally grounded moral judgments.</li>
   </ul>
 
   <p>
-    Our findings show that <strong>hate speech rarely occurs without moral sentiment</strong>. 
+    Our findings show that hate speech rarely occurs without moral sentiment. 
     Yet even frontier models (e.g., GPT-4o, LLaMA) frequently <strong>misalign with human rationales</strong>, indicating limited capacity to internalize and reflect human moral reasoning across languages.
   </p>
 
@@ -100,9 +98,9 @@
       <div class="column">
         <h2>Key Contributions</h2>
         <ul>
-          <li><strong>Conceptual design:</strong> Framed research questions using social psychology theory (Moral Foundations Theory), bridging behavioral science with AI evaluation.</li>
+          <li><strong>Conceptual design:</strong> Framed research questions using theorietical frameworks from social psychology, bridging behavioral science with AI evaluation.</li>
           <li><strong>Annotation framework:</strong> Developed guidelines rooted in social and cultural psychology to ensure high-quality, consistent annotations and reliable cross-cultural coding.</li>
-          <li><strong>Corpus creation:</strong> Assembled a multilingual dataset (English, Italian, Persian, Portuguese), focusing on underrepresented languages and culturally diverse contexts.</li>
+          <li><strong>Corpus creation:</strong> Assembled a multilingual dataset, focusing on underrepresented languages and culturally diverse contexts.</li>
           <li><strong>Data interpretation:</strong> Analyzed findings to uncover cultural variability in moral reasoning, identify gaps in LLM alignment, and translate insights into implications for transparency and ethical AI.</li>
           <li><strong>Collaborative research:</strong> Partnered with computer science collaborators on model benchmarking and technical implementation, ensuring integration of social science and computational approaches.</li>
         </ul>
@@ -139,13 +137,13 @@
 
         <div class="timeline-item">
           <h3>Benchmarking LLMs</h3>
-          <p>Evaluated models as <em>objective judges</em> across tasks: hate-speech detection, moral sentiment prediction, and rationale generation under <strong>zero-shot, few-shot, and CoT</strong> prompting.</p>
+          <p>Evaluated models as objective judges across tasks: hate-speech detection, moral sentiment prediction, and rationale generation under <strong>zero-shot, few-shot, and CoT</strong> prompting.</p>
         </div>
 
         <div class="timeline-item">
           <h3>Evaluation & Analysis</h3>
           <p>
-            Assessed performance via <strong>F1</strong> for hate and moral labels, and <strong>Jaccard/BERTScore</strong> for rationale alignment. Compared languages to surface cultural patterns in moral framing and model weaknesses.
+            Assessed performance via F1 for hate and moral labels, and Jaccard/BERTScore for rationale alignment. Compared languages to surface cultural patterns in moral framing and model weaknesses.
           </p>
         </div>
       </div>
@@ -154,7 +152,7 @@
     <div class="project-section">
       <h2>Results and Implications</h2>
       <ul>
-        <li><strong>Accuracy vs. reasoning gap:</strong> High F1 on hate detection; <strong>substantially lower</strong> for moral sentiment (often &lt; 0.35) and rationale alignment—especially in underrepresented languages.</li>
+        <li><strong>Accuracy vs. reasoning gap:</strong> High F1 on hate detection; <strong>substantially lower</strong> for moral sentiment (often &lt; 0.35) and rationale alignment, especially in underrepresented languages.</li>
         <li><strong>Cultural generalization is hard:</strong> Moral framing varies by language, challenging monolingual assumptions and highlighting the need for multilingual resources.</li>
         <li><strong>Applied takeaway:</strong> Progress on safety & integrity tasks requires <strong>explainable, culturally aware</strong> moral reasoning—beyond surface toxicity classification.</li>
       </ul>
@@ -162,13 +160,13 @@
 
     <div class="project-section">
       <h2>Publication</h2>
-      <p>This project is under active dissemination; paper and resources are publicly available.</p>
+      <p>Our paper got accepted into EMNLP Findings!</p>
       <div class="citation">
-@article{MFTCXplain2025,
-  title={MFTCXplain: A Multilingual Benchmark Dataset for Evaluating the Moral Reasoning of LLMs through Hate Speech Multi-hop Explanations},
-  year={2025},
-  note={Preprint, dataset and code available},
-  url={https://arxiv.org/abs/2506.19073}
+@article{trager2025mftcxplain,
+  title={MFTCXplain: A Multilingual Benchmark Dataset for Evaluating the Moral Reasoning of LLMs through Hate Speech Multi-hop Explanation},
+  author={Trager, Jackson and Vargas, Francielle and Alves, Diego and Guida, Matteo and Ngueajio, Mikel K and Agrawal, Ameeta and Plaza-del-Arco, Flor and Daryani, Yalda and Karimi-Malekabadi, Farzan},
+  journal={EMNLP Findings},
+  year={2025}
 }
       </div>
     </div>
@@ -176,7 +174,7 @@
     <div class="project-section">
       <h2>Team</h2>
       <p>
-        I served as the <strong>lead social scientist</strong> on this collaborative project, contributing to <strong>conceptualization</strong>, <strong>corpora assembly</strong>, <strong>annotation guideline creation</strong> (informed by social psychology theory and findings), and <strong>interpretation of results</strong>. I worked closely with <strong>computer science collaborators</strong> who contributed to model development and technical implementation.
+        I contributed as a collaborator on this project, focusing on conceptualization, corpora assembly, and annotation guideline creation (informed by social psychology theory and findings), as well as interpretation of results. I worked closely with computer science collaborators who led model development and technical implementation.
       </p>
 
       <div class="team-members">
@@ -187,14 +185,14 @@
         </div>
         <!-- Add co-authors as desired; placeholders below -->
         <div class="team-member">
-          <img src="teammate1.jpg" alt="Collaborator"/>
-          <p><strong>Collaborator A</strong></p>
-          <p>Computer Science</p>
+          <img src="jackson.jpg" alt="Collaborator"/>
+          <p><strong>Jackson Trager</strong></p>
+          <p>Lead Author</p>
         </div>
         <div class="team-member">
           <img src="teammate2.jpg" alt="Collaborator"/>
-          <p><strong>Collaborator B</strong></p>
-          <p>Computer Science</p>
+          <p><strong>Francielle Vargas</strong></p>
+          <p>Lead Author</p>
         </div>
       </div>
     </div>
