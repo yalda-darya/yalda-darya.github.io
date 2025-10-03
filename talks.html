@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talks and Presentations - Yalda Daryani</title>
+  <style>
+    /* Base Styles */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0;
+      color: #333;
+    }
+    
+    /* Navigation */
+    .navbar {
+      background-color: #f8f8f8;
+      padding: 15px 0;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      width: 100%;
+    }
+    
+    .navbar a {
+      color: #333;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+    
+    .navbar a:hover {
+      color: #0366d6;
+    }
+    
+    .content {
+      padding: 0 20px;
+    }
+    
+    /* Page Header */
+    .page-header {
+      text-align: center;
+      margin-bottom: 40px;
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 20px;
+    }
+    
+    .page-title {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    
+    .page-subtitle {
+      font-size: 1.1em;
+      color: #666;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    /* Section Styles */
+    .section-header {
+      border-bottom: 2px solid #eaecef;
+      padding-bottom: 10px;
+      margin-top: 50px;
+      margin-bottom: 30px;
+      color: #24292e;
+      display: flex;
+      align-items: center;
+    }
+    
+    .section-header i {
+      margin-right: 10px;
+      font-size: 1.5em;
+      color: #0366d6;
+    }
+    
+    /* Presentation Cards */
+    .presentations-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+    
+    .presentation-card {
+      border: 1px solid #e1e4e8;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      background-color: #fff;
+    }
+    
+    .presentation-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .presentation-image {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-bottom: 1px solid #e1e4e8;
+      display: block;
+    }
+    
+    .presentation-content {
+      padding: 20px;
+    }
+    
+    .presentation-title {
+      font-size: 1.3em;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #24292e;
+    }
+    
+    .presentation-meta {
+      margin-bottom: 10px;
+    }
+    
+    .presentation-date, .presentation-location {
+      color: #586069;
+      font-size: 0.9em;
+      margin-right: 15px;
+    }
+    
+    .presentation-date i, .presentation-location i {
+      margin-right: 5px;
+      color: #0366d6;
+    }
+    
+    .presentation-description {
+      color: #444;
+      margin-bottom: 15px;
+    }
+    
+    .presentation-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 15px;
+    }
+    
+    .tag {
+      background-color: #f1f8ff;
+      color: #0366d6;
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 0.8em;
+      border: 1px solid #c8e1ff;
+    }
+    
+    .presentation-links {
+      margin-top: 15px;
+      display: flex;
+      gap: 10px;
+    }
+    
+    .presentation-links a {
+      display: inline-block;
+      padding: 5px 10px;
+      background-color: #f6f8fa;
+      color: #0366d6;
+      text-decoration: none;
+      border-radius: 4px;
+      font-size: 0.9em;
+      border: 1px solid #e1e4e8;
+      transition: background-color 0.2s;
+    }
+    
+    .presentation-links a:hover {
+      background-color: #0366d6;
+      color: white;
+    }
+    
+    /* For mobile responsiveness */
+    @media (max-width: 768px) {
+      .presentations-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .presentation-card {
+        max-width: 100%;
+      }
+    }
+    
+    /* Font Awesome CDN for icons */
+  </style>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="publications.html">Publications</a>
+    <a href="service.html">Service</a>
+    <a href="talks.html">Talks and Presentations</a>
+    <a href="cv.html">Resume/CV</a>
+  </div>
+  
+  <div class="content">
+    <div class="page-header">
+      <h1 class="page-title">Talks & Presentations</h1>
+      <p class="page-subtitle">
+        My research has been presented at various academic conferences, workshops, and invited talks. 
+        This page showcases selected presentations that highlight my work on language, morality, and AI.
+      </p>
+    </div>
+    
+    <!-- Poster Presentations Section -->
+    <h2 class="section-header">
+      <i class="fas fa-image"></i> Poster Presentations
+    </h2>
+    
+    <div class="presentations-container">
+      <!-- Poster Presentation 1 -->
+      <div class="presentation-card">
+        <img src="poster1.jpg" alt="Poster presentation at Conference Name" class="presentation-image">
+        <div class="presentation-content">
+          <h3 class="presentation-title">Evaluating Moral Reasoning in Large Language Models</h3>
+          <div class="presentation-meta">
+            <span class="presentation-date"><i class="far fa-calendar"></i> June 15, 2024</span>
+            <span class="presentation-location"><i class="fas fa-map-marker-alt"></i> NLP Conference, San Francisco</span>
+          </div>
+          <p class="presentation-description">
+            This poster presented our framework for evaluating moral reasoning capabilities in large language models, 
+            with a focus on cross-cultural perspectives and ethical alignment across diverse contexts.
+          </p>
+          <div class="presentation-tags">
+            <span class="tag">Natural Language Processing</span>
+            <span class="tag">Ethics in AI</span>
+            <span class="tag">Moral Reasoning</span>
+          </div>
+          <div class="presentation-links">
+            <a href="#" target="_blank"><i class="far fa-file-pdf"></i> View Poster</a>
+            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Conference</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Poster Presentation 2 -->
+      <div class="presentation-card">
+        <img src="poster2.jpg" alt="Poster presentation at Conference Name" class="presentation-image">
+        <div class="presentation-content">
+          <h3 class="presentation-title">Cross-Cultural Perspectives on Hate Speech Detection</h3>
+          <div class="presentation-meta">
+            <span class="presentation-date"><i class="far fa-calendar"></i> February 23, 2024</span>
+            <span class="presentation-location"><i class="fas fa-map-marker-alt"></i> AAAI Workshop, Washington DC</span>
+          </div>
+          <p class="presentation-description">
+            Presented our multilingual benchmark for hate speech detection, highlighting the importance of
+            cultural context in evaluating model performance across different languages and communities.
+          </p>
+          <div class="presentation-tags">
+            <span class="tag">Hate Speech</span>
+            <span class="tag">Multilingual NLP</span>
+            <span class="tag">Cultural Context</span>
+          </div>
+          <div class="presentation-links">
+            <a href="#" target="_blank"><i class="far fa-file-pdf"></i> View Poster</a>
+            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Workshop</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Talks Section -->
+    <h2 class="section-header">
+      <i class="fas fa-microphone-alt"></i> Invited Talks
+    </h2>
+    
+    <div class="presentations-container">
+      <!-- Talk 1 -->
+      <div class="presentation-card">
+        <img src="talk1.jpg" alt="Giving a presentation at venue" class="presentation-image">
+        <div class="presentation-content">
+          <h3 class="presentation-title">Bridging Social Science and AI: Perspectives on Ethical Alignment</h3>
+          <div class="presentation-meta">
+            <span class="presentation-date"><i class="far fa-calendar"></i> October 5, 2024</span>
+            <span class="presentation-location"><i class="fas fa-map-marker-alt"></i> USC AI Ethics Symposium</span>
+          </div>
+          <p class="presentation-description">
+            Invited talk on integrating social science frameworks into AI development, with a focus
+            on creating culturally-aware, ethically aligned systems that better reflect human values.
+          </p>
+          <div class="presentation-tags">
+            <span class="tag">AI Ethics</span>
+            <span class="tag">Interdisciplinary Research</span>
+            <span class="tag">Social Science</span>
+          </div>
+          <div class="presentation-links">
+            <a href="#" target="_blank"><i class="far fa-file-powerpoint"></i> Slides</a>
+            <a href="#" target="_blank"><i class="fab fa-youtube"></i> Recording</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Talk 2 -->
+      <div class="presentation-card">
+        <img src="talk2.jpg" alt="Giving a presentation at venue" class="presentation-image">
+        <div class="presentation-content">
+          <h3 class="presentation-title">Language Models and Moral Reasoning: Challenges and Opportunities</h3>
+          <div class="presentation-meta">
+            <span class="presentation-date"><i class="far fa-calendar"></i> July 12, 2024</span>
+            <span class="presentation-location"><i class="fas fa-map-marker-alt"></i> Stanford NLP Group</span>
+          </div>
+          <p class="presentation-description">
+            Guest lecture on how large language models navigate moral reasoning tasks, exploring the
+            gap between statistical pattern recognition and authentic moral deliberation.
+          </p>
+          <div class="presentation-tags">
+            <span class="tag">Large Language Models</span>
+            <span class="tag">Moral Reasoning</span>
+            <span class="tag">AI Limitations</span>
+          </div>
+          <div class="presentation-links">
+            <a href="#" target="_blank"><i class="far fa-file-powerpoint"></i> Slides</a>
+            <a href="#" target="_blank"><i class="fas fa-link"></i> Abstract</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Conference Presentations Section -->
+    <h2 class="section-header">
+      <i class="fas fa-chalkboard-teacher"></i> Conference Presentations
+    </h2>
+    
+    <div class="presentations-container">
+      <!-- Conference Presentation -->
+      <div class="presentation-card">
+        <img src="conf1.jpg" alt="Presenting at conference" class="presentation-image">
+        <div class="presentation-content">
+          <h3 class="presentation-title">MFTCXplain: A Multilingual Benchmark for Moral Reasoning in LLMs</h3>
+          <div class="presentation-meta">
+            <span class="presentation-date"><i class="far fa-calendar"></i> May 18, 2024</span>
+            <span class="presentation-location"><i class="fas fa-map-marker-alt"></i> ACL Conference, Bangkok</span>
+          </div>
+          <p class="presentation-description">
+            Presented our paper on evaluating the moral reasoning capabilities of large language models
+            through a multilingual benchmark of hate speech explanations.
+          </p>
+          <div class="presentation-tags">
+            <span class="tag">Explainable AI</span>
+            <span class="tag">Moral Foundations Theory</span>
+            <span class="tag">Multilingual NLP</span>
+          </div>
+          <div class="presentation-links">
+            <a href="#" target="_blank"><i class="far fa-file-pdf"></i> Paper</a>
+            <a href="#" target="_blank"><i class="far fa-file-powerpoint"></i> Slides</a>
+            <a href="#" target="_blank"><i class="fab fa-github"></i> Code</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Upcoming Talks Section -->
+    <h2 class="section-header">
+      <i class="fas fa-calendar-alt"></i> Upcoming Talks
+    </h2>
+    
+    <div class="presentations-container">
+      <!-- Upcoming Talk -->
+      <div class="presentation-card">
+        <div class="presentation-content">
+          <h3 class="presentation-title">Ethical Considerations in Multilingual AI Systems</h3>
+          <div class="presentation-meta">
+            <span class="presentation-date"><i class="far fa-calendar"></i> December 8, 2025</span>
+            <span class="presentation-location"><i class="fas fa-map-marker-alt"></i> AI Ethics Workshop, Montreal</span>
+          </div>
+          <p class="presentation-description">
+            Invited talk on ensuring ethical alignment and cultural sensitivity in multilingual AI systems,
+            with particular focus on underrepresented languages and communities.
+          </p>
+          <div class="presentation-tags">
+            <span class="tag">AI Ethics</span>
+            <span class="tag">Multilingual AI</span>
+            <span class="tag">Inclusion</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
