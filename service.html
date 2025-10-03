@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Service & Leadership - Yalda Daryani</title>
+  <style>
+    /* Base Styles */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0;
+      color: #333;
+      background-color: #fcfcfc;
+    }
+    
+    /* Navigation */
+    .navbar {
+      background-color: #f8f8f8;
+      padding: 15px 0;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      width: 100%;
+    }
+    
+    .navbar a {
+      color: #333;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+    
+    .navbar a:hover {
+      color: #0366d6;
+    }
+    
+    .content {
+      padding: 0 20px;
+    }
+    
+    /* Page Header */
+    .page-header {
+      text-align: center;
+      margin-bottom: 50px;
+      border-bottom: 1px solid #eaecef;
+      padding-bottom: 20px;
+    }
+    
+    .page-title {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    
+    .page-subtitle {
+      font-size: 1.1em;
+      color: #666;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    /* Section Headers */
+    .section-header {
+      margin-top: 50px;
+      margin-bottom: 30px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .section-header::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 3px;
+      width: 70px;
+      background-color: #0366d6;
+    }
+    
+    /* Service Cards Layout */
+    .service-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+    
+    .service-card {
+      flex: 1;
+      min-width: 300px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+    
+    .service-card-header {
+      background-color: #0366d6;
+      color: white;
+      padding: 15px 20px;
+      position: relative;
+    }
+    
+    .service-card-header h3 {
+      margin: 0;
+      font-size: 1.4em;
+    }
+    
+    .service-date {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      background-color: rgba(255,255,255,0.2);
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 0.8em;
+    }
+    
+    .service-organization {
+      font-size: 0.9em;
+      opacity: 0.9;
+      margin-top: 5px;
+    }
+    
+    .service-card-body {
+      padding: 20px;
+    }
+    
+    .service-description {
+      margin-bottom: 20px;
+    }
+    
+    .service-highlights {
+      margin-top: 20px;
+    }
+    
+    .service-highlights h4 {
+      font-size: 1em;
+      margin-bottom: 10px;
+      color: #555;
+    }
+    
+    .highlight-list {
+      list-style-type: none;
+      padding-left: 5px;
+    }
+    
+    .highlight-list li {
+      position: relative;
+      padding-left: 25px;
+      margin-bottom: 10px;
+    }
+    
+    .highlight-list li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #0366d6;
+      font-weight: bold;
+    }
+    
+    .service-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 1px solid #eee;
+    }
+    
+    /* Impact Numbers */
+    .impact-stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin: 50px 0;
+      text-align: center;
+    }
+    
+    .stat-item {
+      flex: 1;
+      min-width: 150px;
+      padding: 20px;
+      margin: 10px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+    }
+    
+    .stat-number {
+      font-size: 2.5em;
+      font-weight: bold;
+      color: #0366d6;
+      margin-bottom: 10px;
+    }
+    
+    .stat-label {
+      font-size: 0.9em;
+      color: #666;
+    }
+    
+    /* Testimonials */
+    .testimonial {
+      background-color: #f8f9fa;
+      border-left: 4px solid #0366d6;
+      padding: 20px;
+      margin: 30px 0;
+      font-style: italic;
+      color: #555;
+    }
+    
+    .testimonial-author {
+      font-weight: bold;
+      font-style: normal;
+      margin-top: 10px;
+      text-align: right;
+      color: #333;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .service-card {
+        flex-basis: 100%;
+      }
+      
+      .stat-item {
+        flex-basis: 40%;
+      }
+    }
+  </style>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="publications.html">Publications</a>
+    <a href="service.html">Service</a>
+    <a href="talks.html">Talks and Presentations</a>
+    <a href="cv.html">Resume/CV</a>
+  </div>
+  
+  <div class="content">
+    <div class="page-header">
+      <h1 class="page-title">Service & Leadership</h1>
+      <p class="page-subtitle">
+        I am committed to service and mentorship within academic and professional communities. These experiences have shaped my collaborative approach to research and deepened my commitment to fostering diverse, inclusive environments.
+      </p>
+    </div>
+    
+    <!-- Mentorship Section -->
+    <h2 class="section-header">Mentorship</h2>
+    
+    <div class="service-container">
+      <!-- Mentorship Role 1 -->
+      <div class="service-card">
+        <img src="service-images/mentorship1.jpg" alt="Graduate Mentor Program" class="service-image">
+        <div class="service-card-header">
+          <h3>Graduate Research Mentor</h3>
+          <div class="service-organization">University Research Program</div>
+          <div class="service-date">2023 - Present</div>
+        </div>
+        <div class="service-card-body">
+          <div class="service-description">
+            Mentored undergraduate students in research methods and project development, guiding them through their first research experiences in computational social science.
+          </div>
+          <div class="service-highlights">
+            <h4>Key Responsibilities:</h4>
+            <ul class="highlight-list">
+              <li>Supervised 3 undergraduate research assistants on projects related to natural language processing and moral psychology</li>
+              <li>Provided weekly guidance on research methods, data analysis, and academic writing</li>
+              <li>Helped students develop independent research skills and prepare for graduate school applications</li>
+              <li>Created opportunities for students to present at undergraduate research symposiums</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Mentorship Role 2 -->
+      <div class="service-card">
+        <img src="service-images/mentorship2.jpg" alt="Peer Mentoring Program" class="service-image">
+        <div class="service-card-header">
+          <h3>Peer Academic Advisor</h3>
+          <div class="service-organization">Department of Computer Science</div>
+          <div class="service-date">2022 - 2023</div>
+        </div>
+        <div class="service-card-body">
+          <div class="service-description">
+            Served as a peer academic advisor for first-year graduate students, helping them navigate program requirements and build connections within the department.
+          </div>
+          <div class="service-highlights">
+            <h4>Key Responsibilities:</h4>
+            <ul class="highlight-list">
+              <li>Provided guidance to 5 incoming graduate students on course selection and research opportunities</li>
+              <li>Organized bi-weekly check-ins to address academic challenges and provide emotional support</li>
+              <li>Facilitated introductions to faculty members and research groups based on student interests</li>
+              <li>Created resource guides for common technical challenges and academic procedures</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Leadership Section -->
+    <h2 class="section-header">Leadership</h2>
+    
+    <div class="service-container">
+      <!-- Leadership Role 1 -->
+      <div class="service-card">
+        <img src="service-images/leadership1.jpg" alt="Student Club Leadership" class="service-image">
+        <div class="service-card-header">
+          <h3>Vice President</h3>
+          <div class="service-organization">Women in Computing Association</div>
+          <div class="service-date">2021 - 2022</div>
+        </div>
+        <div class="service-card-body">
+          <div class="service-description">
+            Helped lead a student organization dedicated to supporting women and underrepresented groups in computer science and technology fields.
+          </div>
+          <div class="service-highlights">
+            <h4>Achievements:</h4>
+            <ul class="highlight-list">
+              <li>Co-organized a speaker series featuring 10+ industry professionals and academic researchers</li>
+              <li>Established a mentorship program pairing undergraduate women with graduate students and industry mentors</li>
+              <li>Secured funding for members to attend the Grace Hopper Celebration and other tech conferences</li>
+              <li>Increased membership by 35% through targeted outreach and improved programming</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Leadership Role 2 -->
+      <div class="service-card">
+        <img src="service-images/leadership2.jpg" alt="Workshop Leadership" class="service-image">
+        <div class="service-card-header">
+          <h3>Workshop Coordinator</h3>
+          <div class="service-organization">AI Ethics Initiative</div>
+          <div class="service-date">2023</div>
+        </div>
+        <div class="service-card-body">
+          <div class="service-description">
+            Led the planning and execution of workshops focused on ethical considerations in AI development and implementation.
+          </div>
+          <div class="service-highlights">
+            <h4>Achievements:</h4>
+            <ul class="highlight-list">
+              <li>Designed and facilitated 3 interactive workshops on responsible AI development</li>
+              <li>Created curriculum materials addressing algorithmic bias, transparency, and cultural awareness</li>
+              <li>Collaborated with faculty from computer science, philosophy, and social science departments</li>
+              <li>Engaged over 80 participants from diverse academic and professional backgrounds</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Impact Statistics Section -->
+    <h2 class="section-header">Impact</h2>
+    
+    <div class="impact-stats">
+      <div class="stat-item">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Students Mentored</div>
+      </div>
+      
+      <div class="stat-item">
+        <div class="stat-number">5</div>
+        <div class="stat-label">Leadership Positions</div>
+      </div>
+      
+      <div class="stat-item">
+        <div class="stat-number">200+</div>
+        <div class="stat-label">Workshop Participants</div>
+      </div>
+      
+      <div class="stat-item">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Community Initiatives</div>
+      </div>
+    </div>
+    
+    <!-- Testimonials Section -->
+    <h2 class="section-header">Testimonials</h2>
+    
+    <div class="testimonial">
+      "Working with Yalda as my research mentor transformed my understanding of computational social science. Her guidance helped me develop my first independent research project and ultimately influenced my decision to pursue graduate studies."
+      <div class="testimonial-author">— Former Undergraduate Mentee</div>
+    </div>
+    
+    <div class="testimonial">
+      "Yalda's leadership in the AI Ethics workshops created a truly interdisciplinary space where students from different backgrounds could engage meaningfully with complex ethical questions. Her ability to translate technical concepts for non-technical audiences was particularly valuable."
+      <div class="testimonial-author">— Faculty Collaborator</div>
+    </div>
+    
+  </div>
+</body>
+</html>
