@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-assisted literature review, Yalda Daryani</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: #f8f7f4;
+    color: #1a1a18;
+    min-height: 100vh;
+    padding: 2rem 1rem 4rem;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; }
+
+  .top-label {
+    font-size: 11px; font-weight: 600; letter-spacing: .08em;
+    text-transform: uppercase; color: #888780; margin-bottom: .5rem;
+  }
+  .page-title {
+    font-size: 24px; font-weight: 600; color: #1a1a18;
+    margin-bottom: .4rem; line-height: 1.3;
+  }
+  .page-sub {
+    font-size: 15px; color: #5f5e5a; line-height: 1.65; margin-bottom: 2rem;
+  }
+
+  .card {
+    background: #fff;
+    border: 1px solid #e4e2db;
+    border-radius: 14px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: .75rem;
+  }
+  .phase-row { display: flex; align-items: center; gap: 10px; margin-bottom: .75rem; }
+  .badge {
+    font-size: 11px; font-weight: 600; padding: 3px 11px;
+    border-radius: 20px; white-space: nowrap;
+  }
+  .badge-blue   { background: #E6F1FB; color: #0C447C; }
+  .badge-teal   { background: #E1F5EE; color: #085041; }
+  .badge-amber  { background: #FAEEDA; color: #633806; }
+  .badge-violet { background: #EEE8FB; color: #3D1D82; }
+  .phase-title { font-size: 15px; font-weight: 600; color: #1a1a18; }
+  .body-text { font-size: 14px; color: #5f5e5a; line-height: 1.65; }
+
+  .notion-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: .75rem; }
+  .nfield { background: #f8f7f4; border-radius: 8px; padding: 8px 10px; }
+  .nkey { font-size: 11px; color: #888780; margin-bottom: 2px; }
+  .nval { font-size: 13px; color: #1a1a18; }
+
+  /* Topic tree */
+  .topic-tree { margin-top: .85rem; }
+  .big-topic {
+    border: 1px solid #e4e2db; border-radius: 10px;
+    overflow: hidden; margin-bottom: 8px;
+  }
+  .big-topic-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 14px; background: #f8f7f4; cursor: pointer; user-select: none;
+  }
+  .big-topic-header:hover { background: #f1efe8; }
+  .big-topic-left { display: flex; align-items: center; gap: 10px; }
+  .topic-icon { font-size: 16px; }
+  .big-topic-name { font-size: 13px; font-weight: 600; color: #1a1a18; }
+  .big-topic-count { font-size: 11px; color: #888780; }
+  .topic-chevron { font-size: 10px; color: #b4b2a9; transition: transform .2s; display: inline-block; }
+  .big-topic.open .topic-chevron { transform: rotate(90deg); }
+  .subtopics { display: none; padding: 0 14px 10px; }
+  .big-topic.open .subtopics { display: block; }
+  .subtopic { margin-top: 10px; }
+  .subtopic-name {
+    font-size: 11px; font-weight: 600; letter-spacing: .05em;
+    text-transform: uppercase; color: #888780; margin-bottom: 6px;
+    padding-bottom: 4px; border-bottom: 1px solid #f1efe8;
+  }
+  .paper-chip {
+    display: flex; align-items: flex-start; gap: 8px;
+    padding: 7px 10px; border-radius: 7px; margin-bottom: 4px;
+    background: #fff; border: 1px solid #e4e2db;
+    font-size: 12px; color: #1a1a18; line-height: 1.5;
+  }
+  .paper-chip:last-child { margin-bottom: 0; }
+  .paper-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #b4b2a9; flex-shrink: 0; margin-top: 5px;
+  }
+  .dot-blue   { background: #5AABEE; }
+  .dot-teal   { background: #2DB896; }
+  .dot-amber  { background: #E8A830; }
+  .dot-violet { background: #9B72E8; }
+  .dot-rose   { background: #E85A82; }
+  .paper-cite { color: #888780; font-size: 11px; display: block; margin-top: 2px; }
+  .tree-note { font-size: 12px; color: #888780; margin-top: .85rem; font-style: italic; }
+
+  .connector { text-align: center; color: #b4b2a9; font-size: 20px; margin: -.2rem 0; }
+
+  .purpose-tabs { display: flex; gap: 6px; margin-top: .75rem; flex-wrap: wrap; }
+  .ptab {
+    font-size: 12px; padding: 5px 12px; border-radius: 20px;
+    border: 1px solid #d3d1c7; background: transparent;
+    color: #5f5e5a; cursor: pointer; transition: background .12s;
+  }
+  .ptab.active, .ptab:hover { background: #f1efe8; border-color: #b4b2a9; }
+  .purpose-preview {
+    margin-top: .75rem; background: #f8f7f4; border-radius: 8px;
+    padding: .75rem 1rem; font-size: 13px; color: #5f5e5a;
+    line-height: 1.65; min-height: 56px;
+  }
+
+  .prompt-box { background: #f8f7f4; border-radius: 8px; padding: 1rem 1.25rem; margin-top: .75rem; }
+  .prompt-label {
+    font-size: 11px; font-weight: 600; letter-spacing: .04em;
+    text-transform: uppercase; color: #888780;
+    margin-bottom: .5rem; display: flex; align-items: center; gap: 6px;
+  }
+  .prompt-text {
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+    font-size: 12px; color: #1a1a18; line-height: 1.7; white-space: pre-wrap;
+  }
+
+  button {
+    font-family: inherit; cursor: pointer;
+    border: 1px solid #d3d1c7; border-radius: 8px;
+    background: transparent; color: #1a1a18;
+    padding: 7px 14px; font-size: 13px;
+    display: inline-flex; align-items: center; gap: 6px;
+    transition: background .12s;
+  }
+  button:hover { background: #f1efe8; }
+  button:disabled { opacity: .45; cursor: default; }
+  .copy-btn { margin-top: .6rem; font-size: 12px; color: #5f5e5a; }
+  .copy-btn.copied { color: #0F6E56; border-color: #5DCAA5; }
+
+  .synthesis-out {
+    display: none; margin-top: 1rem;
+    background: #fff; border: 1px solid #e4e2db;
+    border-radius: 10px; padding: 1rem 1.25rem;
+    font-size: 13.5px; color: #1a1a18; line-height: 1.8;
+  }
+  .synthesis-out.visible { display: block; }
+  .cursor {
+    display: inline-block; width: 2px; height: 14px;
+    background: #888780; margin-left: 2px; vertical-align: middle;
+    animation: blink .7s infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+  /* Prompt library */
+  .section-gap { margin-top: 1.75rem; margin-bottom: .5rem; }
+  .section-label {
+    font-size: 11px; font-weight: 600; letter-spacing: .08em;
+    text-transform: uppercase; color: #888780; margin-bottom: .75rem;
+  }
+  .prompt-library { margin-top: .85rem; }
+  .plib-item { border: 1px solid #e4e2db; border-radius: 8px; overflow: hidden; margin-bottom: 6px; }
+  .plib-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 9px 13px; background: #f8f7f4; cursor: pointer;
+    font-size: 13px; font-weight: 500; color: #1a1a18; user-select: none;
+  }
+  .plib-header:hover { background: #f1efe8; }
+  .plib-tag {
+    font-size: 10px; font-weight: 600; letter-spacing: .04em;
+    text-transform: uppercase; color: #888780;
+    background: #fff; border: 1px solid #e4e2db;
+    padding: 2px 8px; border-radius: 20px;
+  }
+  .plib-body {
+    display: none; padding: 10px 13px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 11.5px; color: #1a1a18; line-height: 1.7;
+    white-space: pre-wrap; background: #fff;
+    border-top: 1px solid #f1efe8;
+  }
+  .plib-item.open .plib-body { display: block; }
+  .plib-foot {
+    display: none; justify-content: flex-end;
+    padding: 6px 10px; background: #fff; border-top: 1px solid #f1efe8;
+  }
+  .plib-item.open .plib-foot { display: flex; }
+  .plib-copy { font-size: 11px; color: #5f5e5a; padding: 4px 10px; margin-top: 0; }
+
+  /* Tips */
+  .tip-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: .85rem; }
+  .tip-card {
+    background: #f8f7f4; border-radius: 8px; padding: 10px 12px;
+    font-size: 12px; color: #5f5e5a; line-height: 1.6;
+  }
+  .tip-card strong { display: block; font-size: 12px; color: #1a1a18; margin-bottom: 3px; }
+
+  .rationale {
+    margin-top: 1.5rem; padding: 1rem 1.25rem;
+    border: 1px solid #e4e2db; border-radius: 10px;
+    background: #f8f7f4; font-size: 13px; color: #5f5e5a; line-height: 1.65;
+  }
+  .rationale strong { color: #1a1a18; font-weight: 600; }
+
+  .footer { margin-top: 2.5rem; font-size: 12px; color: #b4b2a9; text-align: center; }
+
+  svg.icon { width: 14px; height: 14px; vertical-align: middle; fill: none;
+    stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  @media (max-width: 480px) {
+    .notion-grid, .tip-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="top-label">Research workflow</p>
+  <h1 class="page-title">How I use AI for literature review</h1>
+  <p class="page-sub">A four-phase process where human judgment drives every step and AI handles synthesis across many papers at once. Written by Yalda Daryani, CDT Research Intern.</p>
+
+  <!-- BEFORE: Notion database -->
+  <div class="card">
+    <div class="phase-row">
+      <span class="badge badge-violet">Before reading</span>
+      <span class="phase-title">Organising papers in Notion</span>
+    </div>
+    <p class="body-text">Before I read anything, I organise all papers into a Notion database. Each paper is a row. The database is structured around <strong>big topics</strong> (broad theoretical territories) and <strong>subtopics</strong> (specific mechanisms or phenomena within them). This forces me to situate a paper intellectually before I engage with it, and makes synthesis far easier later.</p>
+    <p class="body-text" style="margin-top:.55rem;">A big topic like <em>Cultural Evolution</em> contains subtopics such as <em>Language evolution</em>, <em>Norm transmission</em>, or <em>Risk-taking across generations</em>. Every paper is tagged to at least one subtopic, which rolls up to its parent big topic. Papers can appear under multiple big topics.</p>
+
+    <div class="topic-tree">
+
+      <div class="big-topic open" id="bt-cult">
+        <div class="big-topic-header" onclick="toggleTopic('bt-cult')">
+          <div class="big-topic-left">
+            <span class="topic-icon">🌱</span>
+            <span class="big-topic-name">Cultural Evolution</span>
+            <span class="big-topic-count">4 papers</span>
+          </div>
+          <span class="topic-chevron">&#9658;</span>
+        </div>
+        <div class="subtopics">
+          <div class="subtopic">
+            <div class="subtopic-name">Risk-taking &amp; intergenerational transmission</div>
+            <div class="paper-chip">
+              <span class="paper-dot dot-amber"></span>
+              <div>Development of risk behaviors and their cultural transmission
+                <span class="paper-cite">Perez Velilla, Beheim &amp; Smaldino &middot; 2025 &middot; Psychological Review</span>
+              </div>
+            </div>
+          </div>
+          <div class="subtopic">
+            <div class="subtopic-name">Language &amp; signal evolution</div>
+            <div class="paper-chip">
+              <span class="paper-dot dot-teal"></span>
+              <div>Evolution of identity signals for coordination in diverse societies
+                <span class="paper-cite">Gabriel, Bell &amp; Smaldino &middot; 2026 &middot; Evolutionary Human Sciences</span>
+              </div>
+            </div>
+            <div class="paper-chip">
+              <span class="paper-dot dot-rose"></span>
+              <div>Dynamics of covert signaling
+                <span class="paper-cite">Dunivin &amp; Smaldino &middot; 2024 &middot; Psychological Review</span>
+              </div>
+            </div>
+          </div>
+          <div class="subtopic">
+            <div class="subtopic-name">Norm transmission &amp; social learning</div>
+            <div class="paper-chip">
+              <span class="paper-dot dot-violet"></span>
+              <div>Social identity bias and network clustering in opinion dynamics
+                <span class="paper-cite">Steiglechner et al. &middot; 2023 &middot; J. Royal Society Interface</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="big-topic" id="bt-identity">
+        <div class="big-topic-header" onclick="toggleTopic('bt-identity')">
+          <div class="big-topic-left">
+            <span class="topic-icon">&#128219;</span>
+            <span class="big-topic-name">Social Identity &amp; Group Dynamics</span>
+            <span class="big-topic-count">3 papers</span>
+          </div>
+          <span class="topic-chevron">&#9658;</span>
+        </div>
+        <div class="subtopics">
+          <div class="subtopic">
+            <div class="subtopic-name">In-group bias &amp; network effects</div>
+            <div class="paper-chip">
+              <span class="paper-dot dot-blue"></span>
+              <div>Social identity bias and network clustering in opinion dynamics
+                <span class="paper-cite">Steiglechner et al. &middot; 2023 &middot; J. Royal Society Interface</span>
+              </div>
+            </div>
+          </div>
+          <div class="subtopic">
+            <div class="subtopic-name">Minority signaling &amp; covert coordination</div>
+            <div class="paper-chip">
+              <span class="paper-dot dot-rose"></span>
+              <div>Dynamics of covert signaling
+                <span class="paper-cite">Dunivin &amp; Smaldino &middot; 2024 &middot; Psychological Review</span>
+              </div>
+            </div>
+            <div class="paper-chip">
+              <span class="paper-dot dot-teal"></span>
+              <div>Evolution of identity signals for coordination in diverse societies
+                <span class="paper-cite">Gabriel, Bell &amp; Smaldino &middot; 2026 &middot; Evolutionary Human Sciences</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="big-topic" id="bt-abm">
+        <div class="big-topic-header" onclick="toggleTopic('bt-abm')">
+          <div class="big-topic-left">
+            <span class="topic-icon">&#129302;</span>
+            <span class="big-topic-name">Computational Modelling (ABM &amp; Game Theory)</span>
+            <span class="big-topic-count">4 papers</span>
+          </div>
+          <span class="topic-chevron">&#9658;</span>
+        </div>
+        <div class="subtopics">
+          <div class="subtopic">
+            <div class="subtopic-name">Agent-based models of opinion &amp; learning</div>
+            <div class="paper-chip">
+              <span class="paper-dot dot-blue"></span>
+              <div>Social identity bias and network clustering in opinion dynamics
+                <span class="paper-cite">Steiglechner et al. &middot; 2023 &middot; J. Royal Society Interface</span>
+              </div>
+            </div>
+            <div class="paper-chip">
+              <span class="paper-dot dot-amber"></span>
+              <div>Development of risk behaviors and their cultural transmission
+                <span class="paper-cite">Perez Velilla, Beheim &amp; Smaldino &middot; 2025 &middot; Psychological Review</span>
+              </div>
+            </div>
+          </div>
+          <div class="subtopic">
+            <div class="subtopic-name">Evolutionary game-theoretic models</div>
+            <div class="paper-chip">
+              <span class="paper-dot dot-teal"></span>
+              <div>Evolution of identity signals for coordination in diverse societies
+                <span class="paper-cite">Gabriel, Bell &amp; Smaldino &middot; 2026 &middot; Evolutionary Human Sciences</span>
+              </div>
+            </div>
+            <div class="paper-chip">
+              <span class="paper-dot dot-rose"></span>
+              <div>Dynamics of covert signaling
+                <span class="paper-cite">Dunivin &amp; Smaldino &middot; 2024 &middot; Psychological Review</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <p class="tree-note">Papers appear under every topic they belong to. Use Notion filters to pull only the rows relevant to a given subtopic before synthesising.</p>
+  </div>
+
+  <div class="connector">&#8595;</div>
+
+  <!-- PHASE 1 -->
+  <div class="card">
+    <div class="phase-row">
+      <span class="badge badge-blue">Phase 1</span>
+      <span class="phase-title">Deep reading (human only)</span>
+    </div>
+    <p class="body-text">I read every paper from beginning to end myself. Understanding is the work; AI does not touch this stage. As I read, I fill in a structured Notion template for each paper.</p>
+    <div class="notion-grid">
+      <div class="nfield"><div class="nkey">Research question</div><div class="nval">Core puzzle the paper addresses</div></div>
+      <div class="nfield"><div class="nkey">Methods</div><div class="nval">Design, sample, analysis approach</div></div>
+      <div class="nfield"><div class="nkey">Key findings</div><div class="nval">Main conclusions and effects</div></div>
+      <div class="nfield"><div class="nkey">Limitations</div><div class="nval">What the authors flag or miss</div></div>
+      <div class="nfield"><div class="nkey">Big topic tag</div><div class="nval">Top-level category in database</div></div>
+      <div class="nfield"><div class="nkey">Subtopic tag</div><div class="nval">Specific mechanism or phenomenon</div></div>
+      <div class="nfield"><div class="nkey">Relevance to me</div><div class="nval">Why I am reading this paper</div></div>
+      <div class="nfield"><div class="nkey">Highlighted sections</div><div class="nval">Tailored by reading purpose</div></div>
+      <div class="nfield"><div class="nkey">Cites / cited by</div><div class="nval">Key connections in the literature</div></div>
+      <div class="nfield"><div class="nkey">Status</div><div class="nval">Unread / In progress / Done / Revisit</div></div>
+    </div>
+  </div>
+
+  <div class="connector">&#8595;</div>
+
+  <!-- PHASE 2 -->
+  <div class="card">
+    <div class="phase-row">
+      <span class="badge badge-teal">Phase 2</span>
+      <span class="phase-title">Purpose-driven tailoring</span>
+    </div>
+    <p class="body-text">The template flexes based on why I am reading. I shift where I place emphasis so notes stay purposeful, not encyclopedic.</p>
+    <div class="purpose-tabs">
+      <button class="ptab active" onclick="showPurpose(this,'learn-method')">Learning a method</button>
+      <button class="ptab" onclick="showPurpose(this,'map-debate')">Mapping a debate</button>
+      <button class="ptab" onclick="showPurpose(this,'build-lit')">Building a lit review</button>
+      <button class="ptab" onclick="showPurpose(this,'policy')">Policy relevance</button>
+    </div>
+    <div class="purpose-preview" id="purpose-display">Skim intro. Focus heavily on methods section: design choices, assumptions, implementation details, parameter settings. Note what would need to change to apply this method to a new domain.</div>
+  </div>
+
+  <div class="connector">&#8595;</div>
+
+  <!-- PHASE 3 -->
+  <div class="card">
+    <div class="phase-row">
+      <span class="badge badge-amber">Phase 3</span>
+      <span class="phase-title">AI synthesis: Claude enters here</span>
+    </div>
+    <p class="body-text">Once notes are complete across several papers, I paste them into Claude and ask for synthesis. Claude works from my notes rather than the papers directly, so the intellectual judgment stays mine.</p>
+    <p class="body-text" style="margin-top:.55rem;">I always synthesise <em>within a subtopic first</em>, then across subtopics within a big topic. This keeps the synthesis grounded and prevents Claude from flattening genuinely distinct literatures into one vague summary.</p>
+
+    <div class="prompt-box">
+      <div class="prompt-label">
+        <svg class="icon" viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+        Core synthesis prompt
+      </div>
+      <div class="prompt-text" id="the-prompt">Below are my structured notes from 4 papers on computational models of identity, opinion dynamics, and social learning. Each entry follows the same template.
+
+Synthesize across these notes. Do not summarize each paper individually.
+
+Identify:
+1. The 2-3 dominant themes running through this literature
+2. Key tensions or contradictions between papers
+3. Methodological patterns or gaps
+4. Open questions this literature leaves unresolved
+
+Write in clear analytical prose. Flag genuine conflicts. Do not flatten disagreements.</div>
+      <button class="copy-btn" id="cpbtn" onclick="copyPrompt()">
+        <svg class="icon" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        <span id="cplabel">Copy prompt</span>
+      </button>
+    </div>
+
+    <div class="synthesis-out" id="synthOut"></div>
+  </div>
+
+  <!-- PROMPT LIBRARY -->
+  <div class="section-gap">
+    <p class="section-label">Prompt library</p>
+  </div>
+
+  <div class="card">
+    <p class="body-text">Beyond the core synthesis, these are the prompts I use most often at other moments in the review process. Expand any to copy.</p>
+
+    <div class="prompt-library">
+
+      <div class="plib-item" id="pl-gap">
+        <div class="plib-header" onclick="togglePrompt('pl-gap')">
+          <span>Gap analysis within a subtopic</span>
+          <span class="plib-tag">Gaps</span>
+        </div>
+        <div class="plib-body" id="pl-gap-body">Here are my notes from [N] papers tagged under [subtopic name].
+
+I want to understand what this cluster of work has NOT addressed.
+
+Identify:
+1. Populations, contexts, or mechanisms that appear only as assumptions or future work
+2. Methodological blind spots shared across papers
+3. Questions that multiple papers gesture toward but none fully address
+4. Anything I should be reading that seems conspicuously absent
+
+Be specific. Vague gaps ("more research needed") are not useful.</div>
+        <div class="plib-foot">
+          <button class="plib-copy copy-btn" onclick="copyBlock('pl-gap-body', this)">
+            <svg class="icon" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy
+          </button>
+        </div>
+      </div>
+
+      <div class="plib-item" id="pl-across">
+        <div class="plib-header" onclick="togglePrompt('pl-across')">
+          <span>Connecting two subtopics</span>
+          <span class="plib-tag">Cross-topic</span>
+        </div>
+        <div class="plib-body" id="pl-across-body">I have notes from two subtopics within [big topic name]:
+
+Subtopic A: [subtopic A name]
+[paste notes]
+
+Subtopic B: [subtopic B name]
+[paste notes]
+
+What does each body of work assume that the other could challenge? Where do they share unexplored common ground? Are there papers in one set whose methods or findings would directly change how I read the other?
+
+Write as a researcher deciding whether to merge or keep these two threads separate in a literature review.</div>
+        <div class="plib-foot">
+          <button class="plib-copy copy-btn" onclick="copyBlock('pl-across-body', this)">
+            <svg class="icon" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy
+          </button>
+        </div>
+      </div>
+
+      <div class="plib-item" id="pl-single">
+        <div class="plib-header" onclick="togglePrompt('pl-single')">
+          <span>Pressure-testing a single paper</span>
+          <span class="plib-tag">Deep dive</span>
+        </div>
+        <div class="plib-body" id="pl-single-body">Here are my notes on one paper:
+
+[paste single paper note]
+
+I want to stress-test this paper's contribution. Given what I have told you:
+1. What is the strongest version of the argument it makes?
+2. What would a skeptical reviewer flag?
+3. What would need to be true for its main finding to fail to generalize?
+4. What does it contribute methodologically vs. substantively?
+
+Do not be charitable for the sake of it. If the limitations undermine the claims, say so.</div>
+        <div class="plib-foot">
+          <button class="plib-copy copy-btn" onclick="copyBlock('pl-single-body', this)">
+            <svg class="icon" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy
+          </button>
+        </div>
+      </div>
+
+      <div class="plib-item" id="pl-draft">
+        <div class="plib-header" onclick="togglePrompt('pl-draft')">
+          <span>Draft a literature review paragraph</span>
+          <span class="plib-tag">Writing</span>
+        </div>
+        <div class="plib-body" id="pl-draft-body">Here are my synthesis notes on [subtopic name].
+
+Draft one literature review paragraph for an academic audience. The paragraph should:
+- Open with the core theoretical claim or puzzle the literature addresses
+- Integrate at least 3 papers as evidence, not as separate summaries
+- Name at least one unresolved tension
+- End with a sentence that opens toward my own research question: [insert your RQ here]
+
+Write in confident academic prose. Use hedging only where the evidence genuinely requires it. Do not use bullet points or headers.</div>
+        <div class="plib-foot">
+          <button class="plib-copy copy-btn" onclick="copyBlock('pl-draft-body', this)">
+            <svg class="icon" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- WHY THIS WORKS -->
+  <div class="rationale">
+    <strong>Why this works:</strong> AI handles pattern recognition across many notes simultaneously, something humans do slowly and with cognitive fatigue. But the notes encode my judgment: what mattered, what was weak, why I was reading each paper. Claude's synthesis reflects my intellectual frame, not a generic summarization of abstracts.
+  </div>
+
+  <!-- TIPS -->
+  <div class="section-gap">
+    <p class="section-label">Tips for your group</p>
+  </div>
+
+  <div class="card">
+    <p class="body-text">Things that took me a while to learn and would have saved time earlier.</p>
+    <div class="tip-grid">
+      <div class="tip-card">
+        <strong>Tag before you read</strong>
+        Assigning big topic and subtopic tags before opening a paper forces you to place it intellectually first. It also prevents your Notion database from becoming unsearchable.
+      </div>
+      <div class="tip-card">
+        <strong>Synthesise within subtopics first</strong>
+        Never paste papers from different big topics into a single synthesis prompt. The output will be superficial. Go subtopic by subtopic, then combine upward.
+      </div>
+      <div class="tip-card">
+        <strong>Your notes are the bottleneck</strong>
+        The quality of AI synthesis is entirely bounded by note quality. Thin notes produce thin synthesis. The Notion template is not optional; it is the system.
+      </div>
+      <div class="tip-card">
+        <strong>Status column saves hours</strong>
+        Keeping a Status field (Unread / In progress / Done / Revisit) lets you filter at a glance and prevents re-reading papers you have already processed.
+      </div>
+      <div class="tip-card">
+        <strong>Ask for contradictions explicitly</strong>
+        Claude defaults to finding agreement. If you want genuine tensions surfaced, say so in the prompt: "Flag genuine conflicts. Do not flatten disagreements."
+      </div>
+      <div class="tip-card">
+        <strong>Keep one relevance sentence honest</strong>
+        The "Relevance to me" field should say why you are reading this paper relative to your specific research question, not just what the paper is about. This is what makes synthesis feel like yours.
+      </div>
+    </div>
+  </div>
+
+  <p class="footer">Yalda Daryani &nbsp;&middot;&nbsp; CDT Research Intern &nbsp;&middot;&nbsp; 2025</p>
+
+</div>
+<script>
+const purposes = {
+  'learn-method': 'Skim intro. Focus heavily on methods section: design choices, assumptions, implementation details, parameter settings. Note what would need to change to apply this method to a new domain.',
+  'map-debate': "Focus on how authors position themselves relative to prior work. Extract the key citations they engage or push against, and note what assumption or framing they contest. Track where the field's center of gravity is and what counts as a live disagreement.",
+  'build-lit': 'Extract the argument structure: what gap does this paper claim to fill, and do I believe it? Note how findings relate to others I have read. Look for what is missing, undertheorized, or assumed rather than demonstrated.',
+  'policy': 'Focus on findings that translate to real-world conditions. Note what the authors claim for external validity and what assumptions may not hold outside the lab or simulation. Flag implications that are actionable vs. merely descriptive.'
+};
+
+function showPurpose(btn, key) {
+  document.querySelectorAll('.ptab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('purpose-display').textContent = purposes[key];
+}
+
+function toggleTopic(id) {
+  document.getElementById(id).classList.toggle('open');
+}
+
+function togglePrompt(id) {
+  document.getElementById(id).classList.toggle('open');
+}
+
+function copyPrompt() {
+  const text = document.getElementById('the-prompt').innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('cpbtn');
+    btn.classList.add('copied');
+    document.getElementById('cplabel').textContent = 'Copied!';
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      document.getElementById('cplabel').textContent = 'Copy prompt';
+    }, 2000);
+  });
+}
+
+function copyBlock(bodyId, btn) {
+  const text = document.getElementById(bodyId).innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.classList.add('copied');
+    const orig = btn.innerHTML;
+    btn.textContent = 'Copied!';
+    setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = orig; }, 2000);
+  });
+}
+</script>
+</body>
+</html>
