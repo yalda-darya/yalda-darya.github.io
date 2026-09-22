@@ -3,318 +3,855 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Service & Leadership - Yalda Daryani</title>
+
+  <title>Service | Yalda Daryani</title>
+
+  <meta
+    name="description"
+    content="Academic service, mentorship, leadership, and peer review by Yalda Daryani."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap"
+    rel="stylesheet"
+  >
+
   <style>
-    /* Base Styles */
+
+    :root {
+      --bg: #f6f4ef;
+      --paper: #ffffff;
+      --text: #252525;
+      --muted: #686868;
+      --line: #d8d6d0;
+      --accent: #1d665f;
+      --accent-light: #e5f0ee;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
       line-height: 1.6;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0;
-      color: #333;
-      background-color: #fcfcfc;
     }
-    
-    /* Navigation */
-    .navbar {
-      background-color: #f8f8f8;
-      padding: 15px 0;
-      text-align: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      margin-bottom: 30px;
-      width: 100%;
-    }
-    
-    .navbar a {
-      color: #333;
+
+    a {
+      color: inherit;
       text-decoration: none;
-      margin: 0 15px;
-      font-weight: 500;
-      font-size: 16px;
-      transition: color 0.3s;
     }
-    
-    .navbar a:hover {
-      color: #0366d6;
+
+    a:hover {
+      color: var(--accent);
     }
-    
-    .content {
-      padding: 0 20px;
-    }
-    
-    /* Page Header */
-    .page-header {
-      text-align: center;
-      margin-bottom: 50px;
-      border-bottom: 1px solid #eaecef;
-      padding-bottom: 20px;
-    }
-    
-    .page-title {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-      color: #333;
-    }
-    
-    .page-subtitle {
-      font-size: 1.1em;
-      color: #666;
-      max-width: 800px;
+
+    .container {
+      width: min(var(--max-width), calc(100% - 64px));
       margin: 0 auto;
     }
-    
-    /* Section Headers */
-    .section-header {
-      margin-top: 50px;
-      margin-bottom: 30px;
-      position: relative;
-      padding-bottom: 10px;
+
+
+    /* =========================================================
+       NAVIGATION
+       ========================================================= */
+
+    nav {
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    
-    .section-header::after {
+
+    .nav-inner {
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      width: min(var(--max-width), calc(100% - 64px));
+      margin: 0 auto;
+    }
+
+    .nav-name {
+      font-family: "Libre Baskerville", serif;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      position: relative;
+    }
+
+    .nav-links a.active::after {
       content: "";
       position: absolute;
+      bottom: -23px;
       left: 0;
-      bottom: 0;
-      height: 3px;
-      width: 70px;
-      background-color: #0366d6;
-    }
-    
-    /* Service Cards Layout */
-    .service-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      margin-bottom: 60px;
-    }
-    
-    .service-card {
-      flex: 1;
-      min-width: 300px;
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-    }
-    
-    .service-card-header {
-      background-color: #0366d6;
-      color: white;
-      padding: 15px 20px;
-      position: relative;
-    }
-    
-    .service-card-header h3 {
-      margin: 0;
-      font-size: 1.4em;
-    }
-    
-    .service-date {
-      position: absolute;
-      right: 20px;
-      top: 20px;
-      background-color: rgba(255,255,255,0.2);
-      padding: 3px 10px;
-      border-radius: 4px;
-      font-size: 0.8em;
-    }
-    
-    .service-organization {
-      font-size: 0.9em;
-      opacity: 0.9;
-      margin-top: 5px;
-    }
-    
-    .service-card-body {
-      padding: 20px;
-    }
-    
-    .service-description {
-      margin-bottom: 20px;
-    }
-    
-    .service-highlights {
-      margin-top: 20px;
-    }
-    
-    .service-highlights h4 {
-      font-size: 1em;
-      margin-bottom: 10px;
-      color: #555;
-    }
-    
-    .highlight-list {
-      list-style-type: none;
-      padding-left: 5px;
-    }
-    
-    .highlight-list li {
-      position: relative;
-      padding-left: 25px;
-      margin-bottom: 10px;
-    }
-    
-    .highlight-list li:before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: #0366d6;
-      font-weight: bold;
-    }
-    
-    .service-image {
       width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-bottom: 1px solid #eee;
+      height: 2px;
+      background: var(--accent);
     }
-    
-    /* Impact Numbers */
-    .impact-stats {
+
+    .cv-button {
+      background: var(--accent);
+      color: white !important;
+      padding: 11px 18px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .cv-button:hover {
+      background: #174f4a;
+    }
+
+
+    /* =========================================================
+       PAGE HEADER
+       ========================================================= */
+
+    .service-header {
+      padding: 74px 0 50px;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 17px;
+    }
+
+    .service-header h1 {
+      font-family: "Libre Baskerville", serif;
+      font-size: clamp(40px, 4vw, 56px);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+      margin: 0 0 20px;
+    }
+
+    .service-intro {
+      max-width: 850px;
+      color: #5e5e5e;
+      font-size: 15px;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+
+    /* =========================================================
+       SERVICE SECTIONS
+       ========================================================= */
+
+    .service-section {
+      padding: 38px 0 52px;
+    }
+
+    .service-section + .service-section {
+      border-top: 1px solid var(--line);
+    }
+
+    .section-heading {
+      margin-bottom: 23px;
+    }
+
+    .section-heading h2 {
+      font-family: "Libre Baskerville", serif;
+      font-size: 24px;
+      margin: 0 0 7px;
+    }
+
+    .section-heading p {
+      color: #727272;
+      font-size: 12px;
+      margin: 0;
+    }
+
+
+    /* =========================================================
+       SERVICE CARDS
+       ========================================================= */
+
+    .service-list {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      margin: 50px 0;
-      text-align: center;
+      flex-direction: column;
+      gap: 15px;
     }
-    
-    .stat-item {
-      flex: 1;
-      min-width: 150px;
-      padding: 20px;
-      margin: 10px;
-      background-color: #f8f9fa;
-      border-radius: 8px;
+
+    .service-card {
+      background: var(--paper);
+      border: 1px solid #e1ded7;
+      border-radius: 6px;
+
+      padding: 26px 30px;
+
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 30px;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
     }
-    
-    .stat-number {
-      font-size: 2.5em;
-      font-weight: bold;
-      color: #0366d6;
+
+    .service-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+
+
+    /* LEFT SIDE */
+
+    .service-meta {
+      padding-top: 2px;
+    }
+
+    .service-date {
+      font-size: 10px;
+      color: #777;
+      margin-bottom: 11px;
+    }
+
+    .service-organization {
+      font-family: "Libre Baskerville", serif;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .service-type {
+      font-size: 10px;
+      color: #858585;
+      margin-top: 6px;
+      line-height: 1.45;
+    }
+
+
+    /* RIGHT SIDE */
+
+    .service-content h3 {
+      font-family: "Libre Baskerville", serif;
+      font-size: 20px;
+      line-height: 1.35;
+      margin: 0 0 10px;
+    }
+
+    .service-description {
+      color: #5e5e5e;
+      font-size: 13px;
+      line-height: 1.65;
+      margin: 0 0 14px;
+    }
+
+    .service-content ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .service-content li {
+      color: #555;
+      font-size: 12.5px;
+      line-height: 1.6;
+      margin-bottom: 6px;
+    }
+
+    .service-content li:last-child {
+      margin-bottom: 0;
+    }
+
+
+    /* =========================================================
+       REVIEWER GRID
+       ========================================================= */
+
+    .reviewer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .reviewer-card {
+      background: white;
+      border: 1px solid #e1ded7;
+      border-radius: 6px;
+      padding: 23px;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .reviewer-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 18px rgba(0,0,0,0.05);
+    }
+
+    .reviewer-meta {
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
       margin-bottom: 10px;
     }
-    
-    .stat-label {
-      font-size: 0.9em;
-      color: #666;
+
+    .reviewer-card h3 {
+      font-family: "Libre Baskerville", serif;
+      font-size: 16px;
+      line-height: 1.4;
+      margin: 0 0 9px;
     }
-    
-    /* Testimonials */
-    .testimonial {
-      background-color: #f8f9fa;
-      border-left: 4px solid #0366d6;
-      padding: 20px;
-      margin: 30px 0;
-      font-style: italic;
-      color: #555;
+
+    .reviewer-card p {
+      color: #696969;
+      font-size: 12px;
+      line-height: 1.6;
+      margin: 0;
     }
-    
-    .testimonial-author {
-      font-weight: bold;
-      font-style: normal;
-      margin-top: 10px;
-      text-align: right;
-      color: #333;
+
+
+    /* =========================================================
+       SERVICE NOTE
+       ========================================================= */
+
+    .service-note {
+      margin: 12px 0 72px;
+
+      background: var(--accent-light);
+      border: 1px solid #d5e7e4;
+      border-radius: 6px;
+
+      padding: 22px 24px;
     }
-    
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
+
+    .service-note h3 {
+      font-family: "Libre Baskerville", serif;
+      font-size: 15px;
+      margin: 0 0 7px;
+    }
+
+    .service-note p {
+      color: #4f6662;
+      font-size: 12px;
+      line-height: 1.65;
+      margin: 0;
+      max-width: 820px;
+    }
+
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      background: var(--bg);
+      color: #777;
+      font-size: 11px;
+    }
+
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .nav-links {
+        gap: 18px;
+      }
+
       .service-card {
-        flex-basis: 100%;
+        grid-template-columns: 150px 1fr;
+        gap: 22px;
       }
-      
-      .stat-item {
-        flex-basis: 40%;
+
+      .reviewer-grid {
+        grid-template-columns: 1fr 1fr;
       }
+
     }
+
+
+    @media (max-width: 650px) {
+
+      .container,
+      .nav-inner {
+        width: min(100% - 36px, var(--max-width));
+      }
+
+      .nav-inner {
+        height: auto;
+        padding: 15px 0;
+
+        flex-direction: column;
+        gap: 14px;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a.active::after {
+        bottom: -8px;
+      }
+
+      .service-header {
+        padding: 50px 0 35px;
+      }
+
+      .service-header h1 {
+        font-size: 40px;
+      }
+
+      .service-intro {
+        font-size: 14px;
+      }
+
+      .service-card {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 23px;
+      }
+
+      .service-content h3 {
+        font-size: 19px;
+      }
+
+      .reviewer-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
   </style>
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
+
 <body>
-  <div class="navbar">
-    <a href="index.html">Home</a>
-    <a href="talks.html">Talks and Presentations</a>
-    <a href="service.html">Service</a>
-  </div>
-  
-  <div class="content">
-    <div class="page-header">
-      <h1 class="page-title">Service & Leadership</h1>
-      <p class="page-subtitle">
-        I am committed to service and mentorship within academic and professional communities. These experiences have shaped my collaborative approach to research and deepened my commitment to fostering diverse, inclusive environments.
-      </p>
-    </div>
-    
-    <!-- Mentorship Section -->
-    <h2 class="section-header">Mentorship</h2>
-    
-    <div class="service-container">
-      <!-- Mentorship Role 1 -->
-      <div class="service-card">
-        <div class="service-card-header">
-          <h3>Graduate Research Mentor</h3>
-          <div class="service-organization">Morality and Language Lab, USC</div>
-          <div class="service-date">2023 - Present</div>
-        </div>
-        <div class="service-card-body">
-          <div class="service-description">
-            Mentored undergraduate and master’s level research assistants, supporting their growth as early-career researchers 
-            in computational social science. 
-          </div>
-          <div class="service-highlights">
-            <h4>Key Responsibilities:</h4>
-            <ul class="highlight-list">
-              <li>Supervised research assistants on projects in social science and natural language processing</li>
-              <li>Guided students through the entire research process, from project design to execution</li>
-              <li>Trained students in data collection, cleaning, and management, with a focus on ethical handling and privacy considerations</li>
-              <li>Provided instruction on statistical analysis, coding practices, and academic writing</li>
-            </ul>
-          </div>
-        </div>
+
+
+  <!-- =========================================================
+       NAVIGATION
+       ========================================================= -->
+
+  <nav>
+
+    <div class="nav-inner">
+
+      <a href="index.html" class="nav-name">
+        Yalda Daryani
+      </a>
+
+      <div class="nav-links">
+
+        <a href="index.html">
+          About
+        </a>
+
+        <a href="research.html">
+          Research
+        </a>
+
+        <a href="experience.html">
+          Experience
+        </a>
+
+        <a href="talks.html">
+          Talks
+        </a>
+
+        <a href="service.html" class="active">
+          Service
+        </a>
+
+        <a
+          href="cv.pdf"
+          class="cv-button"
+          target="_blank"
+          rel="noopener"
+        >
+          CV (PDF)
+        </a>
+
       </div>
-      
+
     </div>
-    
-    <!-- Leadership Section -->
-    <h2 class="section-header">Leadership</h2>
-    
-    <div class="service-container">
-      <!-- Leadership Role 1 -->
-      <div class="service-card">
-        <div class="service-card-header">
-          <h3>Co-President</h3>
-          <div class="service-organization">Graduate Association for Students in Psychology (GASP), USC</div>
-          <div class="service-date">2025 - Present</div>
+
+  </nav>
+
+
+
+  <!-- =========================================================
+       PAGE HEADER
+       ========================================================= -->
+
+  <main>
+
+    <section class="service-header">
+
+      <div class="container">
+
+        <div class="eyebrow">
+          Service · Mentorship · Academic Community
         </div>
-        <div class="service-card-body">
-          <div class="service-description">
-            Help lead the graduate student association for psychology at USC, dedicated to building community, 
-            supporting professional development, and serving as the liaison between students and administration.
-          </div>
-          <div class="service-highlights">
-            <h4>Achievements:</h4>
-            <ul class="highlight-list">
-              <li>Organized department-wide events to bring together psychology students across all research areas</li>
-              <li>Oversaw new student orientation and the GASP Mentor-Mentee Program, helping incoming PhD students transition and connect with peers</li>
-              <li>Coordinated professional development workshops and shared resources to support graduate student success</li>
-              <li>Promoted a supportive department culture through the organization of community-building events and student gatherings</li>
-            </ul>
-          </div>
-        </div>
+
+        <h1>
+          Service
+        </h1>
+
+        <p class="service-intro">
+          I contribute to academic communities through mentorship,
+          graduate student leadership, and peer review. These roles allow
+          me to support early-career researchers, strengthen the research
+          community, and contribute to the evaluation and dissemination
+          of psychological science.
+        </p>
+
       </div>
-      
+
+    </section>
+
+
+
+    <!-- =========================================================
+         MENTORSHIP
+         ========================================================= -->
+
+    <section class="service-section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <h2>
+            Mentorship
+          </h2>
+
+          <p>
+            Supporting students and early-career researchers in behavioral
+            and computational research.
+          </p>
+
+        </div>
+
+
+        <div class="service-list">
+
+
+          <article class="service-card">
+
+            <div class="service-meta">
+
+              <div class="service-date">
+                2023 – Present
+              </div>
+
+              <div class="service-organization">
+                USC Morality &amp; Language Lab
+              </div>
+
+              <div class="service-type">
+                Graduate Research Mentor
+              </div>
+
+            </div>
+
+
+            <div class="service-content">
+
+              <h3>
+                Graduate Research Mentor
+              </h3>
+
+              <p class="service-description">
+                Mentor undergraduate and master's-level research assistants
+                working in computational social science and natural language
+                processing.
+              </p>
+
+              <ul>
+
+                <li>
+                  Supervise research assistants on projects involving
+                  social science and natural language processing.
+                </li>
+
+                <li>
+                  Guide students through the research process, from
+                  project design and data collection through analysis
+                  and interpretation.
+                </li>
+
+                <li>
+                  Train students in data collection, cleaning, management,
+                  statistical analysis, and coding practices.
+                </li>
+
+                <li>
+                  Provide feedback on academic writing and research
+                  communication.
+                </li>
+
+              </ul>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         LEADERSHIP
+         ========================================================= -->
+
+    <section class="service-section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <h2>
+            Leadership
+          </h2>
+
+          <p>
+            Building community and supporting graduate students within
+            the psychology department.
+          </p>
+
+        </div>
+
+
+        <div class="service-list">
+
+
+          <article class="service-card">
+
+            <div class="service-meta">
+
+              <div class="service-date">
+                2025 – Present
+              </div>
+
+              <div class="service-organization">
+                Graduate Association for Students in Psychology (GASP)
+              </div>
+
+              <div class="service-type">
+                University of Southern California
+              </div>
+
+            </div>
+
+
+            <div class="service-content">
+
+              <h3>
+                Co-President
+              </h3>
+
+              <p class="service-description">
+                Help lead the graduate student association for psychology
+                at USC, supporting community building, professional
+                development, and communication between graduate students
+                and department administration.
+              </p>
+
+              <ul>
+
+                <li>
+                  Organize department-wide events bringing together
+                  psychology graduate students across research areas.
+                </li>
+
+                <li>
+                  Oversee new student orientation and the GASP
+                  Mentor-Mentee Program.
+                </li>
+
+                <li>
+                  Coordinate professional development workshops and
+                  share resources to support graduate student success.
+                </li>
+
+                <li>
+                  Help foster a supportive graduate student community
+                  through social and professional events.
+                </li>
+
+              </ul>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         PEER REVIEW & ACADEMIC SERVICE
+         ========================================================= -->
+
+    <section class="service-section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <h2>
+            Peer review &amp; academic service
+          </h2>
+
+          <p>
+            Contributing to the evaluation of research and conference submissions.
+          </p>
+
+        </div>
+
+
+        <div class="reviewer-grid">
+
+
+          <!-- PLOS ONE -->
+
+          <article class="reviewer-card">
+
+            <div class="reviewer-meta">
+              Journal peer review
+            </div>
+
+            <h3>
+              PLOS ONE
+            </h3>
+
+            <p>
+              Served as a peer reviewer for submitted research manuscripts.
+            </p>
+
+          </article>
+
+
+          <!-- CURRENT PSYCHOLOGY -->
+
+          <article class="reviewer-card">
+
+            <div class="reviewer-meta">
+              Journal peer review
+            </div>
+
+            <h3>
+              Current Psychology
+            </h3>
+
+            <p>
+              Served as a peer reviewer for submitted research manuscripts.
+            </p>
+
+          </article>
+
+
+          <!-- SPSP -->
+
+          <article class="reviewer-card">
+
+            <div class="reviewer-meta">
+              Conference review
+            </div>
+
+            <h3>
+              SPSP Annual Convention
+            </h3>
+
+            <p>
+              Served as a reviewer for undergraduate poster submissions
+              for the annual convention.
+            </p>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         SERVICE NOTE
+         ========================================================= -->
+
+    <section class="container">
+
+      <div class="service-note">
+
+        <h3>
+          Academic service
+        </h3>
+
+        <p>
+          I am interested in contributing to research communities through
+          mentorship, peer review, graduate student leadership, and other
+          forms of academic service.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+
+  <footer>
+
+    <div class="container">
+      © 2026 Yalda Daryani · Los Angeles
     </div>
-  
-    
-  </div>
+
+  </footer>
+
+
 </body>
 </html>
