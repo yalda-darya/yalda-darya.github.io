@@ -28,7 +28,6 @@
       --line: #d8d6d0;
       --accent: #1d665f;
       --accent-light: #e5f0ee;
-      --card: #ffffff;
       --max-width: 1180px;
     }
 
@@ -38,6 +37,7 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 90px;
     }
 
     body {
@@ -123,7 +123,7 @@
     /* ================= PAGE INTRO ================= */
 
     .research-header {
-      padding: 74px 0 45px;
+      padding: 74px 0 48px;
     }
 
     .eyebrow {
@@ -144,29 +144,37 @@
     }
 
     .research-intro {
-      max-width: 790px;
+      max-width: 900px;
       color: #5e5e5e;
       font-size: 15px;
       line-height: 1.75;
       margin: 0;
     }
 
-    /* ================= FILTER TAGS ================= */
+    /* ================= RESEARCH THEME BUTTONS ================= */
 
     .research-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 25px;
+      gap: 10px;
+      margin-top: 27px;
     }
 
     .research-tag {
+      display: inline-block;
       border: 1px solid #aaa8a2;
-      border-radius: 20px;
-      padding: 6px 12px;
-      font-size: 11px;
+      border-radius: 22px;
+      padding: 8px 16px;
+      font-size: 13px;
       color: #4f4f4f;
       background: rgba(255,255,255,0.45);
+      transition: all 0.2s ease;
+    }
+
+    .research-tag:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
     }
 
     .research-tag.active {
@@ -175,10 +183,16 @@
       border-color: var(--accent);
     }
 
+    .research-tag.active:hover {
+      color: white;
+      background: #174f4a;
+    }
+
     /* ================= RESEARCH SECTIONS ================= */
 
     .research-section {
-      padding: 34px 0 42px;
+      padding: 48px 0 54px;
+      scroll-margin-top: 90px;
     }
 
     .research-section + .research-section {
@@ -186,12 +200,12 @@
     }
 
     .section-heading {
-      margin-bottom: 22px;
+      margin-bottom: 24px;
     }
 
     .section-heading h2 {
       font-family: "Libre Baskerville", serif;
-      font-size: 24px;
+      font-size: 25px;
       margin: 0 0 7px;
     }
 
@@ -201,7 +215,7 @@
       margin: 0;
     }
 
-    /* ================= FEATURED PROJECTS ================= */
+    /* ================= PROJECT GRID ================= */
 
     .project-grid {
       display: grid;
@@ -216,7 +230,7 @@
       padding: 22px;
       display: flex;
       flex-direction: column;
-      min-height: 250px;
+      min-height: 290px;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
@@ -274,6 +288,17 @@
       font-weight: 600;
     }
 
+    /* ================= TRUSTWORTHY AI ================= */
+
+    .trustworthy-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .trustworthy-grid .project-card {
+      max-width: 380px;
+    }
+
     /* ================= SECONDARY PROJECTS ================= */
 
     .secondary-grid {
@@ -329,10 +354,10 @@
       white-space: nowrap;
     }
 
-    /* ================= CTA ================= */
+    /* ================= BOTTOM NOTE ================= */
 
     .research-note {
-      margin: 30px 0 65px;
+      margin: 22px 0 70px;
       background: var(--accent-light);
       border: 1px solid #d5e7e4;
       border-radius: 6px;
@@ -405,7 +430,7 @@
       }
 
       .research-header {
-        padding: 50px 0 30px;
+        padding: 50px 0 35px;
       }
 
       .research-header h1 {
@@ -414,6 +439,15 @@
 
       .research-intro {
         font-size: 14px;
+      }
+
+      .research-tags {
+        gap: 8px;
+      }
+
+      .research-tag {
+        font-size: 12px;
+        padding: 7px 13px;
       }
 
       .project-grid {
@@ -465,7 +499,12 @@
           Service
         </a>
 
-        <a href="cv.pdf" class="cv-button" target="_blank" rel="noopener">
+        <a
+          href="cv.pdf"
+          class="cv-button"
+          target="_blank"
+          rel="noopener"
+        >
           CV (PDF)
         </a>
 
@@ -499,31 +538,30 @@
           data, computational methods, and cross-cultural research.
         </p>
 
+        <!-- THREE RESEARCH THEMES -->
+
         <div class="research-tags">
 
-          <span class="research-tag active">
-            All work
-          </span>
+          <a
+            href="#ai-culture"
+            class="research-tag active"
+          >
+            AI, culture &amp; evaluation
+          </a>
 
-          <span class="research-tag">
-            AI &amp; culture
-          </span>
-
-          <span class="research-tag">
+          <a
+            href="#trustworthy-ai"
+            class="research-tag"
+          >
             Trustworthy AI
-          </span>
+          </a>
 
-          <span class="research-tag">
-            Multilingual AI
-          </span>
-
-          <span class="research-tag">
-            Moral judgment
-          </span>
-
-          <span class="research-tag">
-            Cross-cultural psychology
-          </span>
+          <a
+            href="#cross-cultural"
+            class="research-tag"
+          >
+            Cross-cultural &amp; social psychology
+          </a>
 
         </div>
 
@@ -532,9 +570,14 @@
     </section>
 
 
-    <!-- ================= AI / CULTURE ================= -->
+    <!-- ========================================================= -->
+    <!-- AI, CULTURE & EVALUATION                                  -->
+    <!-- ========================================================= -->
 
-    <section class="research-section">
+    <section
+      class="research-section"
+      id="ai-culture"
+    >
 
       <div class="container">
 
@@ -571,8 +614,7 @@
               Evaluates whether frontier LLMs capture not only where cultures
               are today, but how they have changed over time. The study compares
               more than two decades of World Values Survey data across 40
-              countries with cultural trajectories produced by four state-of-the-art
-              LLMs.
+              countries with cultural trajectories produced by four frontier LLMs.
             </p>
 
             <div class="project-authors">
@@ -616,7 +658,7 @@
             </h3>
 
             <p class="project-description">
-              Examines how LLMs can contribute to cultural homogenization
+              Examines how LLMs may contribute to cultural homogenization
               through their representations, communication patterns, and
               effects on human behavior, and develops policy recommendations
               for preserving cultural diversity in AI systems.
@@ -685,11 +727,11 @@
               </a>
 
               <a
-                href="https://github.com/franciellevargas/MFTCXplain"
+                href="https://aclanthology.org/2025.findings-emnlp.851/"
                 target="_blank"
                 rel="noopener"
               >
-                Code
+                ACL Anthology
               </a>
 
             </div>
@@ -698,24 +740,36 @@
 
         </div>
 
+      </div>
 
-        <!-- TRUSTWORTHY AI -->
+    </section>
 
-        <div class="section-heading" style="margin-top: 38px;">
+
+    <!-- ========================================================= -->
+    <!-- TRUSTWORTHY AI                                             -->
+    <!-- ========================================================= -->
+
+    <section
+      class="research-section"
+      id="trustworthy-ai"
+    >
+
+      <div class="container">
+
+        <div class="section-heading">
 
           <h2>
             Trustworthy AI
           </h2>
 
           <p>
-            Research on how trustworthiness can be measured and demonstrated in deployed AI systems.
+            Research on how trustworthiness can be measured and demonstrated in AI systems.
           </p>
 
         </div>
 
 
-        <div class="project-grid">
-
+        <div class="trustworthy-grid">
 
           <!-- PROJECT 4 -->
 
@@ -770,9 +824,14 @@
     </section>
 
 
-    <!-- ================= CROSS-CULTURAL PSYCHOLOGY ================= -->
+    <!-- ========================================================= -->
+    <!-- CROSS-CULTURAL & SOCIAL PSYCHOLOGY                         -->
+    <!-- ========================================================= -->
 
-    <section class="research-section">
+    <section
+      class="research-section"
+      id="cross-cultural"
+    >
 
       <div class="container">
 
@@ -799,7 +858,7 @@
             <div>
 
               <div class="secondary-meta">
-                Nature Human Behaviour · 2026 · Registered Report
+                Nature Human Behaviour · 2025 · Registered Report
               </div>
 
               <h3 class="secondary-title">
@@ -808,9 +867,9 @@
 
               <p class="secondary-description">
                 A large-scale Registered Report measuring semantic priming
-                across 19 languages and 25,163 analyzed participants, providing
-                evidence for both robust semantic priming and variability across
-                languages.
+                across 19 languages and more than 25,000 participants,
+                examining both the robustness of the effect and variation
+                across languages.
               </p>
 
             </div>
@@ -844,8 +903,8 @@
 
               <p class="secondary-description">
                 A large-scale culturally diverse study examining how situational
-                factors, including intention and physical force, influence moral
-                judgments across Eastern, Southern, and Western countries.
+                factors influence moral judgments across Eastern, Southern,
+                and Western countries.
               </p>
 
             </div>
@@ -878,17 +937,15 @@
               </h3>
 
               <p class="secondary-description">
-                A research contest testing 30 interventions across four rounds
-                of data collection with more than 20,000 participants to identify
-                strategies for reducing discrimination based on physical
-                attractiveness.
+                A large-scale intervention contest testing strategies for
+                reducing attractiveness-based discrimination in social judgment.
               </p>
 
             </div>
 
             <a
               class="secondary-link"
-              href="https://doi.org/10.1037/pspa0000414"
+              href="https://psycnet.apa.org/record/2025-44718-001"
               target="_blank"
               rel="noopener"
             >
@@ -897,6 +954,7 @@
 
           </article>
 
+
         </div>
 
       </div>
@@ -904,7 +962,7 @@
     </section>
 
 
-    <!-- ================= RESEARCH NOTE ================= -->
+    <!-- ================= BOTTOM NOTE ================= -->
 
     <section class="container">
 
@@ -916,7 +974,7 @@
 
         <p>
           For papers, data, code, presentations, and project-specific materials,
-          see the individual project pages or get in touch.
+          see the individual project links or get in touch.
         </p>
 
       </div>
