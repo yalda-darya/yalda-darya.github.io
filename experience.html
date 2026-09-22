@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Experience | Yalda Daryani</title>
+
+  <meta
+    name="description"
+    content="Experience of Yalda Daryani in AI evaluation, trustworthy AI, cultural evolution, NLP, and behavioral research."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    :root {
+      --bg: #f6f4ef;
+      --paper: #ffffff;
+      --text: #252525;
+      --muted: #686868;
+      --line: #d8d6d0;
+      --accent: #1d665f;
+      --accent-light: #e5f0ee;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 64px));
+      margin: 0 auto;
+    }
+
+
+    /* ================= NAVIGATION ================= */
+
+    nav {
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: min(var(--max-width), calc(100% - 64px));
+      margin: 0 auto;
+    }
+
+    .nav-name {
+      font-family: "Libre Baskerville", serif;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      position: relative;
+    }
+
+    .nav-links a.active::after {
+      content: "";
+      position: absolute;
+      bottom: -23px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .cv-button {
+      background: var(--accent);
+      color: white !important;
+      padding: 11px 18px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .cv-button:hover {
+      background: #174f4a;
+    }
+
+
+    /* ================= PAGE INTRO ================= */
+
+    .experience-header {
+      padding: 74px 0 52px;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 17px;
+    }
+
+    .experience-header h1 {
+      font-family: "Libre Baskerville", serif;
+      font-size: clamp(40px, 4vw, 56px);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+      margin: 0 0 20px;
+    }
+
+    .experience-intro {
+      max-width: 850px;
+      color: #5e5e5e;
+      font-size: 15px;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+
+    /* ================= EXPERIENCE SECTIONS ================= */
+
+    .experience-section {
+      padding: 38px 0 50px;
+    }
+
+    .experience-section + .experience-section {
+      border-top: 1px solid var(--line);
+    }
+
+    .section-heading {
+      margin-bottom: 22px;
+    }
+
+    .section-heading h2 {
+      font-family: "Libre Baskerville", serif;
+      font-size: 24px;
+      margin: 0 0 7px;
+    }
+
+    .section-heading p {
+      font-size: 12px;
+      color: #727272;
+      margin: 0;
+    }
+
+
+    /* ================= EXPERIENCE CARDS ================= */
+
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .experience-card {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 30px;
+
+      background: var(--paper);
+      border: 1px solid #e1ded7;
+      border-radius: 6px;
+
+      padding: 27px 30px;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .experience-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+    }
+
+
+    /* LEFT COLUMN */
+
+    .experience-meta {
+      padding-top: 2px;
+    }
+
+    .experience-date {
+      font-size: 10px;
+      color: #777;
+      margin-bottom: 11px;
+    }
+
+    .experience-organization {
+      font-family: "Libre Baskerville", serif;
+      font-size: 14px;
+      line-height: 1.45;
+      margin-bottom: 6px;
+    }
+
+    .experience-affiliation {
+      font-size: 10px;
+      color: #777;
+      line-height: 1.5;
+    }
+
+
+    /* RIGHT COLUMN */
+
+    .experience-content h3 {
+      font-family: "Libre Baskerville", serif;
+      font-size: 21px;
+      line-height: 1.35;
+      margin: 0 0 8px;
+    }
+
+    .experience-content ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .experience-content li {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 6px;
+    }
+
+    .experience-content li:last-child {
+      margin-bottom: 0;
+    }
+
+
+    /* ================= SKILLS ================= */
+
+    .skills-section {
+      padding: 34px 0 75px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .skill-card {
+      background: #242320;
+      color: white;
+      border-radius: 6px;
+      padding: 24px 26px;
+      min-height: 155px;
+    }
+
+    .skill-label {
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #b9b6ae;
+      margin-bottom: 11px;
+    }
+
+    .skill-card h3 {
+      font-family: "Libre Baskerville", serif;
+      font-size: 16px;
+      margin: 0 0 10px;
+      color: white;
+    }
+
+    .skill-card p {
+      margin: 0;
+      color: #d7d4cc;
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      background: var(--bg);
+      color: #777;
+      font-size: 11px;
+    }
+
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 900px) {
+
+      .nav-links {
+        gap: 18px;
+      }
+
+      .experience-card {
+        grid-template-columns: 145px 1fr;
+        gap: 22px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    @media (max-width: 650px) {
+
+      .container,
+      .nav-inner {
+        width: min(100% - 36px, var(--max-width));
+      }
+
+      .nav-inner {
+        height: auto;
+        padding: 15px 0;
+        flex-direction: column;
+        gap: 14px;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a.active::after {
+        bottom: -8px;
+      }
+
+      .experience-header {
+        padding: 50px 0 35px;
+      }
+
+      .experience-header h1 {
+        font-size: 40px;
+      }
+
+      .experience-intro {
+        font-size: 14px;
+      }
+
+      .experience-card {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 23px;
+      }
+
+      .experience-content h3 {
+        font-size: 19px;
+      }
+
+      .experience-content li {
+        font-size: 12.5px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- ================= NAVIGATION ================= -->
+
+  <nav>
+
+    <div class="nav-inner">
+
+      <a href="index.html" class="nav-name">
+        Yalda Daryani
+      </a>
+
+      <div class="nav-links">
+
+        <a href="index.html">
+          About
+        </a>
+
+        <a href="research.html">
+          Research
+        </a>
+
+        <a href="experience.html" class="active">
+          Experience
+        </a>
+
+        <a href="talks.html">
+          Talks
+        </a>
+
+        <a href="service.html">
+          Service
+        </a>
+
+        <a
+          href="cv.pdf"
+          class="cv-button"
+          target="_blank"
+          rel="noopener"
+        >
+          CV (PDF)
+        </a>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+
+  <!-- ================= PAGE INTRO ================= -->
+
+  <main>
+
+    <section class="experience-header">
+
+      <div class="container">
+
+        <div class="eyebrow">
+          Experience · AI · Behavioral Science
+        </div>
+
+        <h1>
+          Experience
+        </h1>
+
+        <p class="experience-intro">
+          Applied research roles in AI evaluation and governance, alongside
+          graduate research on values, trust, cultural change, and human
+          judgment.
+        </p>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ========================================================= -->
+    <!-- FELLOWSHIPS & APPLIED RESEARCH                            -->
+    <!-- ========================================================= -->
+
+    <section class="experience-section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <h2>
+            Fellowships &amp; applied research
+          </h2>
+
+          <p>
+            Research at the intersection of artificial intelligence,
+            evaluation, governance, and policy.
+          </p>
+
+        </div>
+
+
+        <div class="experience-list">
+
+
+          <!-- GOOGLE PUBLIC POLICY FELLOWSHIP -->
+
+          <article class="experience-card">
+
+            <div class="experience-meta">
+
+              <div class="experience-date">
+                Summer 2026
+              </div>
+
+              <div class="experience-organization">
+                Center for Democracy &amp; Technology
+              </div>
+
+              <div class="experience-affiliation">
+                via Google Public Policy Fellowship
+              </div>
+
+            </div>
+
+
+            <div class="experience-content">
+
+              <h3>
+                Google Public Policy Fellow
+              </h3>
+
+              <ul>
+
+                <li>
+                  Led an evaluation of how frontier LLMs represent
+                  national cultural change over time.
+                </li>
+
+                <li>
+                  Benchmarked Claude, GPT, Gemini, and Qwen against
+                  two decades of World Values Survey data across
+                  40 countries.
+                </li>
+
+                <li>
+                  Designed the evaluation framework, including construct
+                  operationalization, prompting protocols, trend metrics,
+                  bootstrap confidence intervals, and permutation tests.
+                </li>
+
+                <li>
+                  Contributed research to a report on multilingual and
+                  multicultural safety risks of LLMs and wrote on
+                  sovereign AI.
+                </li>
+
+              </ul>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- DIGITAL TRUST COUNCIL -->
+
+          <article class="experience-card">
+
+            <div class="experience-meta">
+
+              <div class="experience-date">
+                2026
+              </div>
+
+              <div class="experience-organization">
+                Digital Trust Council
+              </div>
+
+            </div>
+
+
+            <div class="experience-content">
+
+              <h3>
+                Trustworthy AI Researcher
+              </h3>
+
+              <ul>
+
+                <li>
+                  Researched how AI systems can be independently
+                  assessed and certified as trustworthy.
+                </li>
+
+                <li>
+                  Conducted comparative analysis of international
+                  AI governance frameworks.
+                </li>
+
+                <li>
+                  Co-authored a report on independent certification
+                  for trustworthy AI.
+                </li>
+
+              </ul>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ========================================================= -->
+    <!-- GRADUATE RESEARCH                                          -->
+    <!-- ========================================================= -->
+
+    <section class="experience-section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <h2>
+            Graduate research
+          </h2>
+
+          <p>
+            Computational and behavioral research at USC.
+          </p>
+
+        </div>
+
+
+        <div class="experience-list">
+
+
+          <!-- USC MIND & SOCIETY CENTER -->
+
+          <article class="experience-card">
+
+            <div class="experience-meta">
+
+              <div class="experience-date">
+                [Start] – Present
+              </div>
+
+              <div class="experience-organization">
+                USC Mind &amp; Society Center
+              </div>
+
+            </div>
+
+
+            <div class="experience-content">
+
+              <h3>
+                Graduate Researcher
+              </h3>
+
+              <ul>
+
+                <li>
+                  Built agent-based models of moral and cultural
+                  value change.
+                </li>
+
+                <li>
+                  Studying how interacting with AI shapes identity
+                  and sense of self.
+                </li>
+
+              </ul>
+
+            </div>
+
+          </article>
+
+
+
+          <!-- USC MORALITY & LANGUAGE LAB -->
+
+          <article class="experience-card">
+
+            <div class="experience-meta">
+
+              <div class="experience-date">
+                2023 – 2026
+              </div>
+
+              <div class="experience-organization">
+                USC Morality &amp; Language Lab
+              </div>
+
+            </div>
+
+
+            <div class="experience-content">
+
+              <h3>
+                Graduate Researcher
+              </h3>
+
+              <ul>
+
+                <li>
+                  Classified moral framing in 10M+ tweets using
+                  fine-tuned transformer models and conducted three
+                  preregistered experiments (N &gt; 2,300) on moral
+                  misperceptions.
+                </li>
+
+                <li>
+                  Co-developed MFTCXplain, a multilingual moral
+                  reasoning benchmark for LLMs published in
+                  EMNLP Findings 2025.
+                </li>
+
+                <li>
+                  Mentored undergraduate and master's research
+                  assistants in NLP and data practices.
+                </li>
+
+              </ul>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ========================================================= -->
+    <!-- METHODS & TOOLS                                            -->
+    <!-- ========================================================= -->
+
+    <section class="skills-section">
+
+      <div class="container">
+
+        <div class="skills-grid">
+
+
+          <!-- METHODS -->
+
+          <div class="skill-card">
+
+            <div class="skill-label">
+              Methods
+            </div>
+
+            <h3>
+              Research methods
+            </h3>
+
+            <p>
+              Large-scale experiments &amp; surveys · psychometrics &
+              measurement invariance · bootstrap &amp; permutation tests ·
+              agent-based modeling
+            </p>
+
+          </div>
+
+
+          <!-- NLP & TOOLS -->
+
+          <div class="skill-card">
+
+            <div class="skill-label">
+              NLP &amp; Tools
+            </div>
+
+            <h3>
+              Computational tools
+            </h3>
+
+            <p>
+              Python · R · transformer classifiers · topic modeling on
+              millions of texts · LLM-assisted annotation
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <div class="container">
+
+      © 2026 Yalda Daryani · Los Angeles
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
