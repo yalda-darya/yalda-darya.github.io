@@ -6,14 +6,18 @@
 
   <title>Yalda Daryani</title>
 
-  <meta name="description"
-        content="Yalda Daryani is a PhD student in Social Psychology at USC studying human values, culture, and large language models.">
+  <meta
+    name="description"
+    content="Yalda Daryani is a PhD student in Social Psychology at USC studying human values, culture, and large language models."
+  >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Serif + clean sans-serif fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
     :root {
@@ -64,7 +68,7 @@
       margin: 0 auto;
     }
 
-    /* ---------------- NAVIGATION ---------------- */
+    /* ================= NAVIGATION ================= */
 
     nav {
       background: var(--bg);
@@ -122,7 +126,7 @@
       background: #174f4a;
     }
 
-    /* ---------------- HERO ---------------- */
+    /* ================= HERO ================= */
 
     .hero {
       padding: 74px 0 88px;
@@ -144,12 +148,14 @@
       margin-bottom: 24px;
     }
 
+    /* Smaller headline */
+
     .hero h1 {
       font-family: "Libre Baskerville", serif;
       font-weight: 400;
-      font-size: clamp(44px, 5vw, 70px);
-      line-height: 1.02;
-      letter-spacing: -0.04em;
+      font-size: clamp(38px, 4vw, 54px);
+      line-height: 1.08;
+      letter-spacing: -0.035em;
       max-width: 800px;
       margin: 0 0 26px;
     }
@@ -195,33 +201,23 @@
       border-color: var(--accent);
     }
 
+    /* Profile image */
+
     .headshot {
       width: 100%;
       aspect-ratio: 1 / 1;
       background: var(--image-bg);
       border-radius: 7px;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #777;
-      font-size: 12px;
     }
 
-    /*
-      Replace the placeholder below with your photo.
-
-      Example:
-      <img src="images/headshot.jpg" alt="Yalda Daryani">
-    */
-
-    .headshot-placeholder {
-      color: #89847b;
-      text-align: center;
-      font-size: 12px;
+    .headshot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    /* ---------------- SECTIONS ---------------- */
+    /* ================= SECTIONS ================= */
 
     section {
       padding: 62px 0;
@@ -247,7 +243,7 @@
       text-underline-offset: 4px;
     }
 
-    /* ---------------- RESEARCH THEMES ---------------- */
+    /* ================= RESEARCH THEMES ================= */
 
     .themes {
       background: white;
@@ -286,7 +282,7 @@
       line-height: 1.55;
     }
 
-    /* ---------------- SELECTED WORK ---------------- */
+    /* ================= SELECTED WORK ================= */
 
     .selected-work {
       background: var(--bg);
@@ -311,20 +307,13 @@
       box-shadow: 0 8px 22px rgba(0,0,0,0.06);
     }
 
-    .project-image {
-      aspect-ratio: 1.65 / 1;
-      background: var(--image-bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      text-align: center;
-      font-size: 11px;
-      color: #837e73;
-    }
+    /*
+      There are intentionally NO project images.
+      This keeps the cards easy to maintain when you add new projects.
+    */
 
     .project-content {
-      padding: 18px;
+      padding: 22px;
     }
 
     .project-meta {
@@ -337,16 +326,16 @@
 
     .project-title {
       font-family: "Libre Baskerville", serif;
-      font-size: 16px;
-      line-height: 1.35;
-      margin: 0 0 9px;
+      font-size: 17px;
+      line-height: 1.4;
+      margin: 0 0 10px;
     }
 
     .project-description {
-      font-size: 12px;
-      line-height: 1.55;
+      font-size: 13px;
+      line-height: 1.6;
       color: #666;
-      margin: 0 0 13px;
+      margin: 0 0 15px;
     }
 
     .project-links {
@@ -357,7 +346,7 @@
       text-underline-offset: 3px;
     }
 
-    /* ---------------- EXPERIENCE ---------------- */
+    /* ================= EXPERIENCE ================= */
 
     .experience {
       background: var(--bg);
@@ -402,7 +391,7 @@
       color: #777;
     }
 
-    /* ---------------- NEWS + RECOGNITION ---------------- */
+    /* ================= NEWS + RECOGNITION ================= */
 
     .bottom-section {
       background: white;
@@ -451,7 +440,7 @@
       text-underline-offset: 4px;
     }
 
-    /* ---------------- FOOTER ---------------- */
+    /* ================= FOOTER ================= */
 
     footer {
       padding: 28px 0;
@@ -461,7 +450,7 @@
       font-size: 11px;
     }
 
-    /* ---------------- MOBILE ---------------- */
+    /* ================= MOBILE ================= */
 
     @media (max-width: 900px) {
 
@@ -530,7 +519,7 @@
       }
 
       .hero h1 {
-        font-size: 42px;
+        font-size: 36px;
       }
 
       .theme-grid {
@@ -599,13 +588,13 @@
             <h1>
               I study how human values
               <span>change across time and cultures</span>
-              <span>and what large language</span>
+              <span>— and what large language</span>
               <span>models are doing to them.</span>
             </h1>
 
             <p class="hero-description">
               Quantitative behavioral scientist working on AI evaluation,
-              trust in AI, and multilingual & cultural safety. My focus is
+              trust in AI, and multilingual &amp; cultural safety. My focus is
               measurement: operationalizing constructs like trust, bias,
               harm and cultural alignment so evaluations capture what
               they claim to.
@@ -616,31 +605,48 @@
             </div>
 
             <div class="hero-links">
-              <a href="mailto:daryani@usc.edu">Email</a>
-              <a href="https://scholar.google.com/citations?user=Ebof6AMAAAAJ&hl=en" target="_blank">Google Scholar</a>
-              <a href="https://www.linkedin.com/in/yalda-daryani/" target="_blank">LinkedIn</a>
+
+              <a href="mailto:daryani@usc.edu">
+                Email
+              </a>
+
+              <a
+                href="https://scholar.google.com/citations?user=Ebof6AMAAAAJ&hl=en"
+                target="_blank"
+                rel="noopener"
+              >
+                Google Scholar
+              </a>
+
+              <a
+                href="https://github.com/yalda-darya"
+                target="_blank"
+                rel="noopener"
+              >
+                GitHub
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/yalda-daryani/"
+                target="_blank"
+                rel="noopener"
+              >
+                LinkedIn
+              </a>
+
             </div>
 
           </div>
 
 
-          <!-- HEADSHOT -->
+          <!-- ================= HEADSHOT ================= -->
 
           <div class="headshot">
 
-            <!-- Replace this with your photo:
-            
             <img
-              src="images/headshot.jpg"
+              src="profile.jpg"
               alt="Yalda Daryani"
-              style="width:100%;height:100%;object-fit:cover;"
             >
-
-            -->
-
-            <div class="headshot-placeholder">
-              [Headshot]
-            </div>
 
           </div>
 
@@ -679,7 +685,7 @@
             </div>
 
             <h3>
-              LLMs & culture
+              LLMs &amp; culture
             </h3>
 
             <p>
@@ -697,7 +703,7 @@
             </div>
 
             <h3>
-              Trust & reliance on AI
+              Trust &amp; reliance on AI
             </h3>
 
             <p>
@@ -715,7 +721,7 @@
             </div>
 
             <h3>
-              Multilingual & cultural safety
+              Multilingual &amp; cultural safety
             </h3>
 
             <p>
@@ -733,7 +739,7 @@
             </div>
 
             <h3>
-              AI, identity & society
+              AI, identity &amp; society
             </h3>
 
             <p>
@@ -772,13 +778,9 @@
         <div class="project-grid">
 
 
-          <!-- PROJECT 1 -->
+          <!-- ================= PROJECT 1 ================= -->
 
           <article class="project-card">
-
-            <div class="project-image">
-              [Key figure: model vs. WVS trend]
-            </div>
 
             <div class="project-content">
 
@@ -787,7 +789,7 @@
               </div>
 
               <h3 class="project-title">
-                [Title] Do frontier LLMs represent how national cultures change?
+                Do frontier LLMs represent how national cultures change?
               </h3>
 
               <p class="project-description">
@@ -796,9 +798,17 @@
               </p>
 
               <div class="project-links">
-                <a href="#">Case study</a>
-                <a href="#">Preprint</a>
-                <a href="#">Code</a>
+                <a href="#">
+                  Case study
+                </a>
+
+                <a href="#">
+                  Preprint
+                </a>
+
+                <a href="#">
+                  Code
+                </a>
               </div>
 
             </div>
@@ -806,13 +816,9 @@
           </article>
 
 
-          <!-- PROJECT 2 -->
+          <!-- ================= PROJECT 2 ================= -->
 
           <article class="project-card">
-
-            <div class="project-image">
-              [Key figure or diagram]
-            </div>
 
             <div class="project-content">
 
@@ -825,12 +831,16 @@
               </h3>
 
               <p class="project-description">
-                [One sentence: the central claim or finding in plain language.]
+                Examining how AI systems may standardize cultural representations
+                and what this means for policy and cultural diversity.
               </p>
 
               <div class="project-links">
-                <a href="#">Case study</a>
-                <a href="#">Paper</a>
+
+                <a href="#">
+                  Paper
+                </a>
+
               </div>
 
             </div>
@@ -838,13 +848,9 @@
           </article>
 
 
-          <!-- PROJECT 3 -->
+          <!-- ================= PROJECT 3 ================= -->
 
           <article class="project-card">
-
-            <div class="project-image">
-              [Key figure: predicted vs. actual ratings]
-            </div>
 
             <div class="project-content">
 
@@ -862,9 +868,19 @@
               </p>
 
               <div class="project-links">
-                <a href="#">Case study</a>
-                <a href="#">Code</a>
-                <a href="#">SPSP talk</a>
+
+                <a href="#">
+                  Case study
+                </a>
+
+                <a href="#">
+                  Code
+                </a>
+
+                <a href="#">
+                  SPSP talk
+                </a>
+
               </div>
 
             </div>
@@ -908,7 +924,7 @@
 
             <div class="experience-role">
               <strong>Google Public Policy Fellow</strong>
-              — Center for Democracy & Technology
+              — Center for Democracy &amp; Technology
             </div>
 
             <div class="experience-focus">
@@ -930,7 +946,7 @@
             </div>
 
             <div class="experience-focus">
-              AI governance & certification
+              AI governance &amp; certification
             </div>
 
           </div>
@@ -944,11 +960,11 @@
 
             <div class="experience-role">
               <strong>Graduate Researcher</strong>
-              — USC Mind & Society Center
+              — USC Mind &amp; Society Center
             </div>
 
             <div class="experience-focus">
-              Agent-based models · AI & identity
+              Agent-based models · AI &amp; identity
             </div>
 
           </div>
@@ -962,7 +978,7 @@
 
             <div class="experience-role">
               <strong>Graduate Researcher</strong>
-              — USC Morality & Language Lab
+              — USC Morality &amp; Language Lab
             </div>
 
             <div class="experience-focus">
@@ -988,7 +1004,7 @@
         <div class="bottom-grid">
 
 
-          <!-- NEWS -->
+          <!-- ================= NEWS ================= -->
 
           <div class="bottom-column">
 
@@ -1004,7 +1020,8 @@
               </div>
 
               <div>
-                First-author preprint on LLMs and national cultural change is now on arXiv.
+                First-author preprint on LLMs and national cultural change
+                is now on arXiv.
               </div>
 
             </div>
@@ -1017,7 +1034,8 @@
               </div>
 
               <div>
-                Joined the Center for Democracy & Technology as a Google Public Policy Fellow.
+                Joined the Center for Democracy &amp; Technology as a
+                Google Public Policy Fellow.
               </div>
 
             </div>
@@ -1056,7 +1074,7 @@
           </div>
 
 
-          <!-- RECOGNITION -->
+          <!-- ================= RECOGNITION ================= -->
 
           <div class="bottom-column" id="service">
 
@@ -1066,19 +1084,23 @@
 
 
             <div class="recognition-item">
-              <strong>Graduate Student Poster Award</strong>, SPSP · 2025
+              <strong>Graduate Student Poster Award</strong>,
+              SPSP · 2025
             </div>
 
             <div class="recognition-item">
-              <strong>Dornsife Ph.D. Academy Scholarship & Research Fund</strong> · 2024, 2025
+              <strong>Dornsife Ph.D. Academy Scholarship &amp; Research Fund</strong>
+              · 2024, 2025
             </div>
 
             <div class="recognition-item">
-              <strong>Dornsife/Graduate School Fellowship</strong>, USC · 2023
+              <strong>Dornsife/Graduate School Fellowship</strong>,
+              USC · 2023
             </div>
 
             <div class="recognition-item">
-              <strong>Outstanding Research Award</strong>, SPSP · 2021
+              <strong>Outstanding Research Award</strong>,
+              SPSP · 2021
             </div>
 
             <div class="recognition-item">
