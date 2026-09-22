@@ -3,363 +3,941 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Talks and Presentations - Yalda Daryani</title>
+
+  <title>Talks & Presentations | Yalda Daryani</title>
+
+  <meta
+    name="description"
+    content="Talks and presentations by Yalda Daryani on artificial intelligence, culture, moral judgment, and behavioral science."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap"
+    rel="stylesheet"
+  >
+
   <style>
-    /* Base Styles */
+
+    :root {
+      --bg: #f6f4ef;
+      --paper: #ffffff;
+      --text: #252525;
+      --muted: #686868;
+      --line: #d8d6d0;
+      --accent: #1d665f;
+      --accent-light: #e5f0ee;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
       line-height: 1.6;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0;
-      color: #333;
     }
-    
-    /* Navigation */
-    .navbar {
-      background-color: #f8f8f8;
-      padding: 15px 0;
-      text-align: center;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      margin-bottom: 30px;
-      width: 100%;
-    }
-    
-    .navbar a {
-      color: #333;
+
+    a {
+      color: inherit;
       text-decoration: none;
-      margin: 0 15px;
-      font-weight: 500;
-      font-size: 16px;
-      transition: color 0.3s;
     }
-    
-    .navbar a:hover {
-      color: #0366d6;
+
+    a:hover {
+      color: var(--accent);
     }
-    
-    .content {
-      padding: 0 20px;
-    }
-    
-    /* Page Header */
-    .page-header {
-      text-align: center;
-      margin-bottom: 40px;
-      border-bottom: 1px solid #eaecef;
-      padding-bottom: 20px;
-    }
-    
-    .page-title {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-      color: #333;
-    }
-    
-    .page-subtitle {
-      font-size: 1.1em;
-      color: #666;
-      max-width: 800px;
+
+    .container {
+      width: min(var(--max-width), calc(100% - 64px));
       margin: 0 auto;
     }
-    
-    /* Section Styles */
-    .section-header {
-      border-bottom: 2px solid #eaecef;
-      padding-bottom: 10px;
-      margin-top: 50px;
-      margin-bottom: 30px;
-      color: #24292e;
+
+
+    /* =========================================================
+       NAVIGATION
+       ========================================================= */
+
+    nav {
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      height: 68px;
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      width: min(var(--max-width), calc(100% - 64px));
+      margin: 0 auto;
     }
-    
-    .section-header i {
-      margin-right: 10px;
-      font-size: 1.5em;
-      color: #0366d6;
+
+    .nav-name {
+      font-family: "Libre Baskerville", serif;
+      font-size: 20px;
+      font-weight: 700;
     }
-    
-    /* Presentation Cards */
-    .presentations-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-      gap: 30px;
-      margin-bottom: 50px;
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      font-size: 14px;
     }
-    
-    .presentation-card {
-      border: 1px solid #e1e4e8;
-      border-radius: 8px;
-      overflow: hidden;
-      transition: transform 0.2s, box-shadow 0.2s;
-      background-color: #fff;
+
+    .nav-links a {
+      position: relative;
     }
-    
-    .presentation-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
-    
-    .presentation-image {
+
+    .nav-links a.active::after {
+      content: "";
+      position: absolute;
+      bottom: -23px;
+      left: 0;
       width: 100%;
-      height: 280px;
-      object-fit: cover;
-      border-bottom: 1px solid #e1e4e8;
-      display: block;
+      height: 2px;
+      background: var(--accent);
     }
-    
-    .presentation-content {
-      padding: 20px;
+
+    .cv-button {
+      background: var(--accent);
+      color: white !important;
+      padding: 11px 18px;
+      border-radius: 4px;
+      font-weight: 600;
     }
-    
-    .presentation-title {
-      font-size: 1.3em;
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: #24292e;
+
+    .cv-button:hover {
+      background: #174f4a;
     }
-    
-    .presentation-meta {
-      margin-bottom: 10px;
+
+
+    /* =========================================================
+       PAGE HEADER
+       ========================================================= */
+
+    .talks-header {
+      padding: 74px 0 48px;
     }
-    
-    .presentation-date, .presentation-location {
-      color: #586069;
-      font-size: 0.9em;
-      margin-right: 15px;
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 17px;
     }
-    
-    .presentation-date i, .presentation-location i {
-      margin-right: 5px;
-      color: #0366d6;
+
+    .talks-header h1 {
+      font-family: "Libre Baskerville", serif;
+      font-size: clamp(40px, 4vw, 56px);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+      margin: 0 0 20px;
     }
-    
-    .presentation-description {
-      color: #444;
+
+    .talks-intro {
+      max-width: 850px;
+      color: #5e5e5e;
+      font-size: 15px;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+
+    /* =========================================================
+       PRESENTATION SECTION
+       ========================================================= */
+
+    .talks-section {
+      padding: 38px 0 70px;
+    }
+
+    .section-heading {
+      margin-bottom: 24px;
+    }
+
+    .section-heading h2 {
+      font-family: "Libre Baskerville", serif;
+      font-size: 24px;
+      margin: 0 0 7px;
+    }
+
+    .section-heading p {
+      color: #727272;
+      font-size: 12px;
+      margin: 0;
+    }
+
+
+    /* =========================================================
+       FEATURED SPSP PRESENTATION
+       ========================================================= */
+
+    .featured-talk {
+      background: var(--paper);
+      border: 1px solid #e1ded7;
+      border-radius: 7px;
+      padding: 30px;
+      margin-bottom: 18px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.025);
+    }
+
+    .featured-label {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--accent);
+      border: 1px solid #d5e7e4;
+      border-radius: 4px;
+      padding: 5px 9px;
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       margin-bottom: 15px;
+      font-weight: 600;
     }
-    
-    .presentation-tags {
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 38px;
+      align-items: start;
+    }
+
+    .talk-meta {
+      font-size: 10px;
+      color: #777;
+      margin-bottom: 11px;
+    }
+
+    .talk-title {
+      font-family: "Libre Baskerville", serif;
+      font-size: 25px;
+      line-height: 1.35;
+      margin: 0 0 13px;
+    }
+
+    .talk-description {
+      color: #5f5f5f;
+      font-size: 13px;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .talk-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 15px;
+      gap: 7px;
+      margin-top: 18px;
     }
-    
-    .tag {
-      background-color: #f1f8ff;
-      color: #0366d6;
-      padding: 3px 10px;
-      border-radius: 12px;
-      font-size: 0.8em;
-      border: 1px solid #c8e1ff;
+
+    .talk-tag {
+      border: 1px solid #d2d0c9;
+      border-radius: 15px;
+      padding: 4px 9px;
+      font-size: 10px;
+      color: #676767;
     }
-    
-    .presentation-links {
-      margin-top: 15px;
-      display: flex;
+
+
+    /* =========================================================
+       PHOTO GALLERY
+       ========================================================= */
+
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 10px;
     }
-    
-    .presentation-links a {
-      display: inline-block;
-      padding: 5px 10px;
-      background-color: #f6f8fa;
-      color: #0366d6;
-      text-decoration: none;
-      border-radius: 4px;
-      font-size: 0.9em;
-      border: 1px solid #e1e4e8;
-      transition: background-color 0.2s;
+
+    .photo-gallery img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 5px;
+      background: #e7e2d8;
     }
-    
-    .presentation-links a:hover {
-      background-color: #0366d6;
-      color: white;
+
+    .photo-placeholder {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: #e7e2d8;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #858077;
+      font-size: 11px;
+      text-align: center;
+      padding: 15px;
     }
-    
-    /* For mobile responsiveness */
-    @media (max-width: 768px) {
-      .presentations-container {
+
+
+    /* =========================================================
+       REGULAR TALK CARDS
+       ========================================================= */
+
+    .talk-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .talk-card {
+      background: white;
+      border: 1px solid #e1ded7;
+      border-radius: 6px;
+      padding: 23px 26px;
+
+      display: grid;
+      grid-template-columns: 145px 1fr;
+      gap: 28px;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .talk-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 18px rgba(0,0,0,0.05);
+    }
+
+    .talk-date {
+      font-size: 10px;
+      color: #777;
+      line-height: 1.5;
+    }
+
+    .talk-venue {
+      font-family: "Libre Baskerville", serif;
+      font-size: 13px;
+      line-height: 1.45;
+      margin-top: 5px;
+    }
+
+    .talk-location {
+      font-size: 10px;
+      color: #858585;
+      margin-top: 4px;
+      line-height: 1.45;
+    }
+
+    .regular-talk-title {
+      font-family: "Libre Baskerville", serif;
+      font-size: 17px;
+      line-height: 1.4;
+      margin: 0 0 9px;
+    }
+
+    .regular-talk-description {
+      font-size: 12.5px;
+      color: #666;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+
+    /* =========================================================
+       TIMELINE LABEL
+       ========================================================= */
+
+    .year-divider {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin: 38px 0 18px;
+    }
+
+    .year-divider span {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #777;
+      white-space: nowrap;
+    }
+
+    .year-divider::after {
+      content: "";
+      height: 1px;
+      background: var(--line);
+      flex: 1;
+    }
+
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      background: var(--bg);
+      color: #777;
+      font-size: 11px;
+    }
+
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .nav-links {
+        gap: 18px;
+      }
+
+      .featured-grid {
         grid-template-columns: 1fr;
       }
-      
-      .presentation-card {
-        max-width: 100%;
+
+      .photo-gallery {
+        max-width: 600px;
       }
     }
-    
-    /* Font Awesome CDN for icons */
+
+
+    @media (max-width: 650px) {
+
+      .container,
+      .nav-inner {
+        width: min(100% - 36px, var(--max-width));
+      }
+
+      .nav-inner {
+        height: auto;
+        padding: 15px 0;
+        flex-direction: column;
+        gap: 14px;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a.active::after {
+        bottom: -8px;
+      }
+
+      .talks-header {
+        padding: 50px 0 35px;
+      }
+
+      .talks-header h1 {
+        font-size: 40px;
+      }
+
+      .talks-intro {
+        font-size: 14px;
+      }
+
+      .featured-talk {
+        padding: 22px;
+      }
+
+      .talk-title {
+        font-size: 21px;
+      }
+
+      .talk-card {
+        grid-template-columns: 1fr;
+        gap: 13px;
+        padding: 22px;
+      }
+
+      .photo-gallery {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
   </style>
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
+
 <body>
-  <div class="navbar">
-    <a href="index.html">Home</a>
-    <a href="talks.html">Talks and Presentations</a>
-    <a href="service.html">Service</a>
-  </div>
-  
-  <div class="content">
-    <div class="page-header">
-      <h1 class="page-title">Talks & Presentations</h1>
-      <p class="page-subtitle">
-        My research has been presented at various academic conferences, workshops, and invited talks. 
-        This page showcases selected presentations and talks. 
-      </p>
+
+
+  <!-- =========================================================
+       NAVIGATION
+       ========================================================= -->
+
+  <nav>
+
+    <div class="nav-inner">
+
+      <a href="index.html" class="nav-name">
+        Yalda Daryani
+      </a>
+
+      <div class="nav-links">
+
+        <a href="index.html">
+          About
+        </a>
+
+        <a href="research.html">
+          Research
+        </a>
+
+        <a href="experience.html">
+          Experience
+        </a>
+
+        <a href="talks.html" class="active">
+          Talks
+        </a>
+
+        <a href="service.html">
+          Service
+        </a>
+
+        <a
+          href="cv.pdf"
+          class="cv-button"
+          target="_blank"
+          rel="noopener"
+        >
+          CV (PDF)
+        </a>
+
+      </div>
+
     </div>
-    
-    <!-- Poster Presentations Section -->
-    <h2 class="section-header">
-      <i class="fas fa-image"></i> Poster Presentations
-    </h2>
-    
-    <div class="presentations-container">
-      <!-- Poster Presentation 1 -->
-      <div class="presentation-card">
-        <img src="talks-images/spsp24.jpg" alt="Poster presentation at SPSP" class="presentation-image">
-        <div class="presentation-content">
-          <h3 class="presentation-title">Cutural Perceptions of Honor</h3>
-          <div class="presentation-meta">
-            <span class="presentation-date"><i class="far fa-calendar"></i> February 08, 2024</span>
-            <span class="presentation-location"><i class="fas fa-map-marker-alt"></i> SPSP Annual Convention, San Diego</span>
-          </div>
-          <p class="presentation-description">
-            This poster presented our research on cultural difference in perception of honor and how those differences can
-            lead to various real-world outcomes. 
-          </p>
-          <div class="presentation-tags">
-            <span class="tag">Experimental Design</span>
-            <span class="tag">Survey Data</span>
-            <span class="tag">Judgement and Perception</span>
-          </div>
-          <div class="presentation-links">
-            <a href="#" target="_blank"><i class="far fa-file-pdf"></i> View Poster</a>
-            <a href="https://spsp.org/sites/default/files/2024-02/SPSP-2024-Convention-Program.pdf" target="_blank"><i class="fas fa-external-link-alt"></i> Conference</a>
-          </div>
+
+  </nav>
+
+
+
+  <!-- =========================================================
+       PAGE INTRO
+       ========================================================= -->
+
+  <main>
+
+    <section class="talks-header">
+
+      <div class="container">
+
+        <div class="eyebrow">
+          Talks · Conferences · Presentations
         </div>
+
+        <h1>
+          Talks &amp; Presentations
+        </h1>
+
+        <p class="talks-intro">
+          I present research on artificial intelligence, culture, moral
+          judgment, and behavioral science at academic conferences and
+          research events. This page highlights selected presentations
+          and invited talks.
+        </p>
+
       </div>
-      
-      <!-- Poster Presentation 2 -->
-      <div class="presentation-card">
-        <img src="talks-images/spsp25.jpg" alt="Poster presentation at Conference Name" class="presentation-image">
-        <div class="presentation-content">
-          <h3 class="presentation-title">Moral Underpinnings of Attitudes Towards Abortion</h3>
-          <div class="presentation-meta">
-            <span class="presentation-date"><i class="far fa-calendar"></i> February 23, 2025</span>
-            <span class="presentation-location"><i class="fas fa-map-marker-alt"></i> SPSP Annual Convention, Denver</span>
-          </div>
-          <p class="presentation-description">
-This poster present our research that examines the moral foundations underlying abortion attitudes by analyzing 11 million tweets.
-            Using NLP models, we identified how moral language shifts depending on whether groups describe themselves or 
-            their outgroups, offering insights for communication and policymaking. This poster won the Best Graduate Poster Award! 
-            
+
+    </section>
+
+
+
+    <!-- =========================================================
+         SELECTED PRESENTATIONS
+         ========================================================= -->
+
+    <section class="talks-section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <h2>
+            Selected presentations
+          </h2>
+
+          <p>
+            Recent talks and conference presentations.
           </p>
-          <div class="presentation-tags">
-            <span class="tag">Text Analysis</span>
-            <span class="tag">Social Media Analysis</span>
-            <span class="tag">Framing Effects</span>
-          </div>
-          <div class="presentation-links">
-            <a href="#" target="_blank"><i class="far fa-file-pdf"></i> View Poster</a>
-            <a href="https://spsp.org/sites/default/files/2025-02/SPSP-2025-Convention-Program_1.pdf" target="_blank"><i class="fas fa-external-link-alt"></i> Conference</a>
-          </div>
+
         </div>
+
+
+        <!-- =====================================================
+             SPSP 2026 FEATURED PRESENTATION
+             ===================================================== -->
+
+        <article class="featured-talk">
+
+          <div class="featured-label">
+            Featured · February 2026
+          </div>
+
+          <div class="featured-grid">
+
+
+            <!-- TEXT -->
+
+            <div>
+
+              <div class="talk-meta">
+                February 28, 2026 · SPSP Annual Convention · Chicago, IL
+              </div>
+
+              <h2 class="talk-title">
+                When Perception Meets Reality: How Moral
+                Metaperceptions Shape Intergroup Relations in
+                Political Divides
+              </h2>
+
+              <p class="talk-description">
+                Presented research examining how people believe political
+                outgroups evaluate their moral values and how these
+                metaperceptions shape intergroup relationships. The project
+                combines computational analysis of more than 10 million
+                tweets with three experimental studies and an intervention
+                designed to test whether correcting inaccurate metaperceptions
+                can change trust and threat perceptions.
+              </p>
+
+              <div class="talk-tags">
+
+                <span class="talk-tag">
+                  Moral metaperceptions
+                </span>
+
+                <span class="talk-tag">
+                  Political polarization
+                </span>
+
+                <span class="talk-tag">
+                  NLP
+                </span>
+
+                <span class="talk-tag">
+                  Experiments
+                </span>
+
+                <span class="talk-tag">
+                  Intergroup relations
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <!-- PHOTOS -->
+
+            <div class="photo-gallery">
+
+              <!--
+                Upload your SPSP photos to the repository as:
+
+                talks-images/spsp26-1.jpg
+                talks-images/spsp26-2.jpg
+
+                Then these images will appear automatically.
+              -->
+
+              <img
+                src="talks-images/spsp26-1.jpg"
+                alt="Yalda Daryani presenting at SPSP 2026"
+              >
+
+              <img
+                src="talks-images/spsp26-2.jpg"
+                alt="Yalda Daryani at the SPSP 2026 Annual Convention"
+              >
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- =====================================================
+             BSPA 2026
+             ===================================================== -->
+
+        <article class="talk-card">
+
+          <div>
+
+            <div class="talk-date">
+              June 7–8, 2026
+            </div>
+
+            <div class="talk-venue">
+              Behavioral Science &amp; Policy Association Annual Conference
+            </div>
+
+            <div class="talk-location">
+              Harvard Kennedy School · Cambridge, MA
+            </div>
+
+          </div>
+
+
+          <div>
+
+            <h3 class="regular-talk-title">
+              The Homogenizing Engine: AI's Role in Standardizing Culture
+              and the Path to Policy
+            </h3>
+
+            <p class="regular-talk-description">
+              Presented research on how artificial intelligence systems may
+              contribute to cultural homogenization and discussed the
+              implications for AI evaluation, cultural diversity, and policy.
+            </p>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- =====================================================
+             2025
+             ===================================================== -->
+
+        <div class="year-divider">
+          <span>2025</span>
+        </div>
+
+
+        <div class="talk-list">
+
+
+          <!-- SUMMER SCHOOL -->
+
+          <article class="talk-card">
+
+            <div>
+
+              <div class="talk-date">
+                July 14, 2025
+              </div>
+
+              <div class="talk-venue">
+                USC Summer School Program
+              </div>
+
+              <div class="talk-location">
+                University of Southern California
+              </div>
+
+            </div>
+
+
+            <div>
+
+              <h3 class="regular-talk-title">
+                Research Methods in Psychological Science:
+                Foundations and Applications
+              </h3>
+
+              <p class="regular-talk-description">
+                Invited lecture providing an overview of core research
+                methods in psychological science, including experimental
+                and correlational designs, validity and reliability,
+                and the role of measurement in testing psychological theory.
+              </p>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+
+
+        <!-- =====================================================
+             2024
+             ===================================================== -->
+
+        <div class="year-divider">
+          <span>2024</span>
+        </div>
+
+
+        <div class="talk-list">
+
+
+          <!-- TEXT AS DATA -->
+
+          <article class="talk-card">
+
+            <div>
+
+              <div class="talk-date">
+                March 21, 2024
+              </div>
+
+              <div class="talk-venue">
+                USC
+              </div>
+
+              <div class="talk-location">
+                PSYC 100 Course
+              </div>
+
+            </div>
+
+
+            <div>
+
+              <h3 class="regular-talk-title">
+                Text as Data in Psychological Research
+              </h3>
+
+              <p class="regular-talk-description">
+                Invited lecture introducing undergraduate students to the
+                use of text as data in psychological research, including
+                methods for extracting psychological constructs from
+                large-scale text and an overview of NLP and machine
+                learning approaches.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <!-- HONOR -->
+
+          <article class="talk-card">
+
+            <div>
+
+              <div class="talk-date">
+                February 8, 2024
+              </div>
+
+              <div class="talk-venue">
+                SPSP Annual Convention
+              </div>
+
+              <div class="talk-location">
+                San Diego, CA
+              </div>
+
+            </div>
+
+
+            <div>
+
+              <h3 class="regular-talk-title">
+                Cultural Perceptions of Honor
+              </h3>
+
+              <p class="regular-talk-description">
+                Presented research examining cultural differences in the
+                perception of honor and how these differences can contribute
+                to variation in social judgment and real-world outcomes.
+              </p>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+
+
+        <!-- =====================================================
+             2025 SPSP POSTER
+             ===================================================== -->
+
+        <div class="year-divider">
+          <span>Additional presentations</span>
+        </div>
+
+
+        <div class="talk-list">
+
+
+          <article class="talk-card">
+
+            <div>
+
+              <div class="talk-date">
+                February 23, 2025
+              </div>
+
+              <div class="talk-venue">
+                SPSP Annual Convention
+              </div>
+
+              <div class="talk-location">
+                Denver, CO
+              </div>
+
+            </div>
+
+
+            <div>
+
+              <h3 class="regular-talk-title">
+                Moral Underpinnings of Attitudes Towards Abortion
+              </h3>
+
+              <p class="regular-talk-description">
+                Presented research examining the moral foundations underlying
+                abortion attitudes using large-scale social media data and
+                natural language processing to examine patterns in moral
+                language and framing.
+              </p>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
       </div>
+
+    </section>
+
+  </main>
+
+
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+
+  <footer>
+
+    <div class="container">
+
+      © 2026 Yalda Daryani · Los Angeles
+
     </div>
-    
-    <!-- Talks Section -->
-    <h2 class="section-header">
-      <i class="fas fa-microphone-alt"></i> Invited Talks
-    </h2>
-    
-    <div class="presentations-container">
-      <!-- Talk 1 -->
-      <div class="presentation-card">
-        <img src="talks-images/usc.jpg" alt="Giving a presentation at venue" class="presentation-image">
-        <div class="presentation-content">
-          <h3 class="presentation-title">Text as Data in Psychological Research</h3>
-          <div class="presentation-meta">
-            <span class="presentation-date"><i class="far fa-calendar"></i> March 21, 2024</span>
-            <span class="presentation-location"><i class="fas fa-map-marker-alt"></i> USC, PSYC 100 Course</span>
-          </div>
-          <p class="presentation-description">
- Invited lecture introducing undergraduate students to how text can be used as data in psychological research. 
-            The talk covered methods for extracting psychological constructs from large-scale text sources, and provided an 
-            overview of NLP and machine learning approaches. 
-          </p>
-          <div class="presentation-tags">
-            <span class="tag">Text Analysis</span>
-            <span class="tag">Psychological Measurement</span>
-            <span class="tag">Natural Language Processing</span>
-          </div>
-          <div class="presentation-links">
-            <a href="#" target="_blank"><i class="far fa-file-powerpoint"></i> Slides</a>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Talk 2 -->
-      <div class="presentation-card">
-        <img src="talks-images/usc.jpg" alt="Giving a presentation at venue" class="presentation-image">
-        <div class="presentation-content">
-          <h3 class="presentation-title">Research Methods in Psychological Science: Foundations and Applications</h3>
-          <div class="presentation-meta">
-            <span class="presentation-date"><i class="far fa-calendar"></i> July 14, 2025</span>
-            <span class="presentation-location"><i class="fas fa-map-marker-alt"></i> USC Summer School Program</span>
-          </div>
-          <p class="presentation-description">
-Invited lecture providing an overview of core research methods in psychological science. The talk introduced students 
-            to the logic of experimental and correlational designs, issues of validity and reliability, and the role of 
-            measurement in testing psychological theory.
-          </p>
-          <div class="presentation-tags">
-            <span class="tag">Research Methods</span>
-            <span class="tag">Behavioral Science</span>
-            <span class="tag">Measurement</span>
-          </div>
-          <div class="presentation-links">
-            <a href="#" target="_blank"><i class="far fa-file-powerpoint"></i> Slides</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-  
-   
-   <!-- Conference Presentations Section -->
-    <h2 class="section-header">
-      <i class="fas fa-chalkboard-teacher"></i> Conference Presentations
-    </h2>
-    
-    <div class="presentations-container">
-      <!-- Conference Presentation -->
-      <div class="presentation-card">
-        <img src="conf1.jpg" alt="Presenting at conference" class="presentation-image">
-        <div class="presentation-content">
-          <h3 class="presentation-title">When Perception Meets Reality: How Moral Metaperceptions Shape Intergroup Relations in Political Divides</h3>
-          <div class="presentation-meta">
-            <span class="presentation-date"><i class="far fa-calendar"></i> February 28, 2026</span>
-            <span class="presentation-location"><i class="fas fa-map-marker-alt"></i> SPSP Annual Convention</span>
-          </div>
-          <p class="presentation-description">
-Presenting my paper on false metaperceptions
-          </p>
-          <div class="presentation-tags">
-            <span class="tag">Text Analysis</span>
-            <span class="tag">Experimental Method</span>
-            <span class="tag">Interventions</span>
-          </div>
-          <div class="presentation-links">
-            <a href="#" target="_blank"><i class="far fa-file-pdf"></i> Paper</a>
-            <a href="#" target="_blank"><i class="far fa-file-powerpoint"></i> Slides</a>
-            <a href="#" target="_blank"><i class="fab fa-github"></i> Code</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
+  </footer>
+
+
 </body>
 </html>
