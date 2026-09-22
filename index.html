@@ -1,207 +1,1112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yalda Daryani - Research Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0;
-            color: #333;
-        }
-        
-        /* Navigation Bar Styles */
-        .navbar {
-            background-color: #f8f8f8;
-            padding: 15px 0;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-            width: 100%;
-        }
-        
-        .navbar a {
-            color: #333;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 500;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
-        
-        .navbar a:hover {
-            color: #0366d6;
-        }
-        
-        .content {
-            padding: 0 20px;
-        }
-        
-        .profile-container {
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-        
-        /* Updated profile image style for perfect circle */
-        .profile-image {
-            width: 250px;
-            height: 250px;
-            margin-right: 40px;
-            border-radius: 50%;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .profile-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
-        
-        .profile-content {
-            flex: 1;
-            min-width: 300px;
-        }
-        
-        .social-icons {
-            margin-top: 15px;
-        }
-        
-        .social-icons a {
-            margin-right: 15px;
-            text-decoration: none;
-            display: inline-block;
-        }
-        
-        .social-icons img {
-            width: 30px;
-            height: 30px;
-            transition: transform 0.2s;
-        }
-        
-        .social-icons img:hover {
-            transform: scale(1.1);
-        }
-        
-        .card-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-        
-        .card {
-            flex: 1;
-            min-width: 300px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            padding: 20px;
-        }
-        
-        .news-section {
-            margin-top: 40px;
-            text-align: center;
-        }
-        
-        .news-item {
-            text-align: left;
-            margin-bottom: 20px;
-        }
-        
-        h1, h2, h3 {
-            color: #444;
-        }
-        
-        a {
-            color: #0366d6;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Yalda Daryani</title>
+
+  <meta name="description"
+        content="Yalda Daryani is a PhD student in Social Psychology at USC studying human values, culture, and large language models.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Serif + clean sans-serif fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f6f4ef;
+      --paper: #ffffff;
+      --text: #252525;
+      --muted: #686868;
+      --line: #d8d6d0;
+      --accent: #1d665f;
+      --accent-light: #e5f0ee;
+      --card: #ffffff;
+      --image-bg: #e7e2d8;
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 64px));
+      margin: 0 auto;
+    }
+
+    /* ---------------- NAVIGATION ---------------- */
+
+    nav {
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: min(var(--max-width), calc(100% - 64px));
+      margin: 0 auto;
+    }
+
+    .nav-name {
+      font-family: "Libre Baskerville", serif;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      position: relative;
+    }
+
+    .nav-links a.active::after {
+      content: "";
+      position: absolute;
+      bottom: -23px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .cv-button {
+      background: var(--accent);
+      color: white !important;
+      padding: 11px 18px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .cv-button:hover {
+      background: #174f4a;
+    }
+
+    /* ---------------- HERO ---------------- */
+
+    .hero {
+      padding: 74px 0 88px;
+      background: var(--bg);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-family: "Libre Baskerville", serif;
+      font-weight: 400;
+      font-size: clamp(44px, 5vw, 70px);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      max-width: 800px;
+      margin: 0 0 26px;
+    }
+
+    .hero h1 span {
+      display: block;
+    }
+
+    .hero-description {
+      max-width: 740px;
+      font-size: 16px;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+
+    .internship-note {
+      display: inline-block;
+      background: var(--accent-light);
+      border: 1px solid #d6e7e4;
+      color: #275852;
+      padding: 8px 13px;
+      border-radius: 5px;
+      font-size: 13px;
+      margin-bottom: 26px;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .hero-links a {
+      border: 1px solid #aaa8a2;
+      padding: 7px 13px;
+      border-radius: 4px;
+      font-size: 13px;
+      background: rgba(255,255,255,0.35);
+    }
+
+    .hero-links a:hover {
+      border-color: var(--accent);
+    }
+
+    .headshot {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: var(--image-bg);
+      border-radius: 7px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #777;
+      font-size: 12px;
+    }
+
+    /*
+      Replace the placeholder below with your photo.
+
+      Example:
+      <img src="images/headshot.jpg" alt="Yalda Daryani">
+    */
+
+    .headshot-placeholder {
+      color: #89847b;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    /* ---------------- SECTIONS ---------------- */
+
+    section {
+      padding: 62px 0;
+    }
+
+    .section-title-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 26px;
+    }
+
+    .section-title {
+      font-family: "Libre Baskerville", serif;
+      font-weight: 700;
+      font-size: 25px;
+      margin: 0;
+    }
+
+    .section-link {
+      font-size: 12px;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* ---------------- RESEARCH THEMES ---------------- */
+
+    .themes {
+      background: white;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .theme-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+    }
+
+    .theme {
+      border-top: 2px solid var(--accent);
+      padding-top: 13px;
+    }
+
+    .theme-number {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.14em;
+      margin-bottom: 8px;
+    }
+
+    .theme h3 {
+      font-family: "Libre Baskerville", serif;
+      font-size: 16px;
+      margin: 0 0 8px;
+    }
+
+    .theme p {
+      margin: 0;
+      font-size: 13px;
+      color: #666;
+      line-height: 1.55;
+    }
+
+    /* ---------------- SELECTED WORK ---------------- */
+
+    .selected-work {
+      background: var(--bg);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid #e3e0d9;
+      border-radius: 6px;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+    }
+
+    .project-image {
+      aspect-ratio: 1.65 / 1;
+      background: var(--image-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+      font-size: 11px;
+      color: #837e73;
+    }
+
+    .project-content {
+      padding: 18px;
+    }
+
+    .project-meta {
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .project-title {
+      font-family: "Libre Baskerville", serif;
+      font-size: 16px;
+      line-height: 1.35;
+      margin: 0 0 9px;
+    }
+
+    .project-description {
+      font-size: 12px;
+      line-height: 1.55;
+      color: #666;
+      margin: 0 0 13px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 12px;
+      font-size: 11px;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* ---------------- EXPERIENCE ---------------- */
+
+    .experience {
+      background: var(--bg);
+    }
+
+    .experience-list {
+      background: white;
+      border: 1px solid #e3e0d9;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .experience-row {
+      display: grid;
+      grid-template-columns: 150px 1fr 220px;
+      gap: 18px;
+      padding: 16px 18px;
+      border-bottom: 1px solid #ece9e3;
+      align-items: center;
+    }
+
+    .experience-row:last-child {
+      border-bottom: none;
+    }
+
+    .experience-date {
+      font-size: 10px;
+      color: #666;
+    }
+
+    .experience-role {
+      font-size: 13px;
+    }
+
+    .experience-role strong {
+      font-weight: 700;
+    }
+
+    .experience-focus {
+      text-align: right;
+      font-size: 10px;
+      color: #777;
+    }
+
+    /* ---------------- NEWS + RECOGNITION ---------------- */
+
+    .bottom-section {
+      background: white;
+      border-top: 1px solid var(--line);
+      padding: 58px 0 80px;
+    }
+
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 90px;
+    }
+
+    .bottom-column h2 {
+      font-family: "Libre Baskerville", serif;
+      font-size: 24px;
+      margin: 0 0 23px;
+    }
+
+    .news-item {
+      display: grid;
+      grid-template-columns: 85px 1fr;
+      gap: 18px;
+      margin-bottom: 18px;
+      font-size: 12px;
+    }
+
+    .news-date {
+      color: #777;
+    }
+
+    .recognition-item {
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .recognition-item strong {
+      font-weight: 700;
+    }
+
+    .older-news {
+      margin-top: 18px;
+      display: inline-block;
+      font-size: 11px;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    /* ---------------- FOOTER ---------------- */
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      background: var(--bg);
+      color: #777;
+      font-size: 11px;
+    }
+
+    /* ---------------- MOBILE ---------------- */
+
+    @media (max-width: 900px) {
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .headshot {
+        width: 240px;
+        max-width: 100%;
+      }
+
+      .theme-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-row {
+        grid-template-columns: 100px 1fr;
+      }
+
+      .experience-focus {
+        grid-column: 2;
+        text-align: left;
+      }
+
+      .bottom-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+    }
+
+    @media (max-width: 650px) {
+
+      .container,
+      .nav-inner {
+        width: min(100% - 36px, var(--max-width));
+      }
+
+      .nav-inner {
+        height: auto;
+        padding: 15px 0;
+        flex-direction: column;
+        gap: 14px;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 17px;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a.active::after {
+        bottom: -8px;
+      }
+
+      .hero {
+        padding: 50px 0 60px;
+      }
+
+      .hero-grid {
+        gap: 38px;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .theme-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .experience-focus {
+        grid-column: auto;
+      }
+
+      .news-item {
+        grid-template-columns: 65px 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <!-- Navigation Bar -->
-    <div class="navbar">
-        <a href="index.html">Home</a>
-        <a href="talks.html">Talks and Presentations</a>
-        <a href="service.html">Service</a>
+
+  <!-- ================= NAVIGATION ================= -->
+
+  <nav>
+    <div class="nav-inner">
+
+      <a href="#" class="nav-name">
+        Yalda Daryani
+      </a>
+
+      <div class="nav-links">
+        <a href="#about" class="active">About</a>
+        <a href="#research">Research</a>
+        <a href="#experience">Experience</a>
+        <a href="#talks">Talks</a>
+        <a href="#service">Service</a>
+
+        <a href="cv.pdf" class="cv-button" target="_blank">
+          CV (PDF)
+        </a>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <!-- ================= HERO / ABOUT ================= -->
+
+  <main>
+
+    <section class="hero" id="about">
+
+      <div class="container">
+
+        <div class="hero-grid">
+
+          <div>
+
+            <div class="eyebrow">
+              PhD Student · Social Psychology · USC · Expected 2028
+            </div>
+
+            <h1>
+              I study how human values
+              <span>change across time and cultures</span>
+              <span>— and what large language</span>
+              <span>models are doing to them.</span>
+            </h1>
+
+            <p class="hero-description">
+              Quantitative behavioral scientist working on AI evaluation,
+              trust in AI, and multilingual & cultural safety. My focus is
+              measurement: operationalizing constructs like trust, bias,
+              harm and cultural alignment so evaluations capture what
+              they claim to.
+            </p>
+
+            <div class="internship-note">
+              ◆ Open to Summer 2027 research internships — AI evaluation, audits, sociotechnical research
+            </div>
+
+            <div class="hero-links">
+              <a href="mailto:YOUR_EMAIL@usc.edu">Email</a>
+              <a href="https://scholar.google.com/" target="_blank">Google Scholar</a>
+              <a href="https://github.com/YOUR_USERNAME" target="_blank">GitHub</a>
+              <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+            </div>
+
+          </div>
+
+
+          <!-- HEADSHOT -->
+
+          <div class="headshot">
+
+            <!-- Replace this with your photo:
+            
+            <img
+              src="images/headshot.jpg"
+              alt="Yalda Daryani"
+              style="width:100%;height:100%;object-fit:cover;"
+            >
+
+            -->
+
+            <div class="headshot-placeholder">
+              [Headshot]
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= RESEARCH THEMES ================= -->
+
+    <section class="themes" id="research">
+
+      <div class="container">
+
+        <div class="section-title-row">
+
+          <h2 class="section-title">
+            Research themes
+          </h2>
+
+          <a href="#selected-work" class="section-link">
+            Browse projects →
+          </a>
+
+        </div>
+
+
+        <div class="theme-grid">
+
+          <div class="theme">
+
+            <div class="theme-number">
+              01
+            </div>
+
+            <h3>
+              LLMs & culture
+            </h3>
+
+            <p>
+              How LLMs reshape cultures, and how well they reproduce people
+              outside the Western, English-speaking world.
+            </p>
+
+          </div>
+
+
+          <div class="theme">
+
+            <div class="theme-number">
+              02
+            </div>
+
+            <h3>
+              Trust & reliance on AI
+            </h3>
+
+            <p>
+              When trust in AI is warranted, and how relying on AI changes
+              decision-making and behavior.
+            </p>
+
+          </div>
+
+
+          <div class="theme">
+
+            <div class="theme-number">
+              03
+            </div>
+
+            <h3>
+              Multilingual & cultural safety
+            </h3>
+
+            <p>
+              How safety systems fail users and cause harm, especially in
+              languages other than English.
+            </p>
+
+          </div>
+
+
+          <div class="theme">
+
+            <div class="theme-number">
+              04
+            </div>
+
+            <h3>
+              AI, identity & society
+            </h3>
+
+            <p>
+              Sociotechnical and ethical consequences, including how AI
+              interaction shapes people's sense of self.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= SELECTED WORK ================= -->
+
+    <section class="selected-work" id="selected-work">
+
+      <div class="container">
+
+        <div class="section-title-row">
+
+          <h2 class="section-title">
+            Selected work
+          </h2>
+
+          <a href="#research" class="section-link">
+            All research →
+          </a>
+
+        </div>
+
+
+        <div class="project-grid">
+
+
+          <!-- PROJECT 1 -->
+
+          <article class="project-card">
+
+            <div class="project-image">
+              [Key figure: model vs. WVS trend]
+            </div>
+
+            <div class="project-content">
+
+              <div class="project-meta">
+                arXiv preprint · 2026 · First author
+              </div>
+
+              <h3 class="project-title">
+                [Title] Do frontier LLMs represent how national cultures change?
+              </h3>
+
+              <p class="project-description">
+                Evaluated Claude, GPT, Gemini and Qwen against two decades
+                of World Values Survey data across 40 countries.
+              </p>
+
+              <div class="project-links">
+                <a href="#">Case study</a>
+                <a href="#">Preprint</a>
+                <a href="#">Code</a>
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- PROJECT 2 -->
+
+          <article class="project-card">
+
+            <div class="project-image">
+              [Key figure or diagram]
+            </div>
+
+            <div class="project-content">
+
+              <div class="project-meta">
+                Published · 2025
+              </div>
+
+              <h3 class="project-title">
+                The Homogenizing Engine: AI's Role in Standardizing Culture and the Path to Policy
+              </h3>
+
+              <p class="project-description">
+                [One sentence: the central claim or finding in plain language.]
+              </p>
+
+              <div class="project-links">
+                <a href="#">Case study</a>
+                <a href="#">Paper</a>
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- PROJECT 3 -->
+
+          <article class="project-card">
+
+            <div class="project-image">
+              [Key figure: predicted vs. actual ratings]
+            </div>
+
+            <div class="project-content">
+
+              <div class="project-meta">
+                Under review · Lead researcher
+              </div>
+
+              <h3 class="project-title">
+                When We Get Each Other Wrong: Correcting Moral Misperceptions
+              </h3>
+
+              <p class="project-description">
+                10M+ tweets and three preregistered experiments show
+                a low-cost correction raises intergroup trust.
+              </p>
+
+              <div class="project-links">
+                <a href="#">Case study</a>
+                <a href="#">Code</a>
+                <a href="#">SPSP talk</a>
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= EXPERIENCE ================= -->
+
+    <section class="experience" id="experience">
+
+      <div class="container">
+
+        <div class="section-title-row">
+
+          <h2 class="section-title">
+            Experience
+          </h2>
+
+          <a href="#" class="section-link">
+            Full experience →
+          </a>
+
+        </div>
+
+
+        <div class="experience-list">
+
+
+          <div class="experience-row">
+
+            <div class="experience-date">
+              Summer 2026
+            </div>
+
+            <div class="experience-role">
+              <strong>Google Public Policy Fellow</strong>
+              — Center for Democracy & Technology
+            </div>
+
+            <div class="experience-focus">
+              LLM cultural evaluation · 40 countries
+            </div>
+
+          </div>
+
+
+          <div class="experience-row">
+
+            <div class="experience-date">
+              2026
+            </div>
+
+            <div class="experience-role">
+              <strong>Trustworthy AI Researcher</strong>
+              — Digital Trust Council
+            </div>
+
+            <div class="experience-focus">
+              AI governance & certification
+            </div>
+
+          </div>
+
+
+          <div class="experience-row">
+
+            <div class="experience-date">
+              [Start] — Present
+            </div>
+
+            <div class="experience-role">
+              <strong>Graduate Researcher</strong>
+              — USC Mind & Society Center
+            </div>
+
+            <div class="experience-focus">
+              Agent-based models · AI & identity
+            </div>
+
+          </div>
+
+
+          <div class="experience-row">
+
+            <div class="experience-date">
+              2023 — 2026
+            </div>
+
+            <div class="experience-role">
+              <strong>Graduate Researcher</strong>
+              — USC Morality & Language Lab
+            </div>
+
+            <div class="experience-focus">
+              NLP on 10M+ texts · experiments
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= NEWS + RECOGNITION ================= -->
+
+    <section class="bottom-section" id="talks">
+
+      <div class="container">
+
+        <div class="bottom-grid">
+
+
+          <!-- NEWS -->
+
+          <div class="bottom-column">
+
+            <h2>
+              News
+            </h2>
+
+
+            <div class="news-item">
+
+              <div class="news-date">
+                2026
+              </div>
+
+              <div>
+                First-author preprint on LLMs and national cultural change is now on arXiv.
+              </div>
+
+            </div>
+
+
+            <div class="news-item">
+
+              <div class="news-date">
+                Summer 2026
+              </div>
+
+              <div>
+                Joined the Center for Democracy & Technology as a Google Public Policy Fellow.
+              </div>
+
+            </div>
+
+
+            <div class="news-item">
+
+              <div class="news-date">
+                Feb 2026
+              </div>
+
+              <div>
+                Presented moral misperceptions research at SPSP.
+              </div>
+
+            </div>
+
+
+            <div class="news-item">
+
+              <div class="news-date">
+                Dec 2025
+              </div>
+
+              <div>
+                "The Homogenizing Engine" published.
+              </div>
+
+            </div>
+
+
+            <a href="#" class="older-news">
+              Older news →
+            </a>
+
+          </div>
+
+
+          <!-- RECOGNITION -->
+
+          <div class="bottom-column" id="service">
+
+            <h2>
+              Recognition
+            </h2>
+
+
+            <div class="recognition-item">
+              <strong>Graduate Student Poster Award</strong>, SPSP · 2025
+            </div>
+
+            <div class="recognition-item">
+              <strong>Dornsife Ph.D. Academy Scholarship & Research Fund</strong> · 2024, 2025
+            </div>
+
+            <div class="recognition-item">
+              <strong>Dornsife/Graduate School Fellowship</strong>, USC · 2023
+            </div>
+
+            <div class="recognition-item">
+              <strong>Outstanding Research Award</strong>, SPSP · 2021
+            </div>
+
+            <div class="recognition-item">
+              + 4 departmental grants and travel funds (see CV)
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <div class="container">
+      © 2026 Yalda Daryani
     </div>
 
-    <div class="content">
-        <div class="profile-container">
-            <div class="profile-image">
-                <img src="profile.jpg" alt="Your Name">
-            </div>
-            <div class="profile-content">
-                <h1>Yalda Daryani</h1>
-                <p>
-                 I’m a PhD student in Social Psychology at USC, minoring in Quantitative Methods and Computational Psychology, 
-                    with 6+ years of experience in experimental design, behavioral research, qualitative and quantitative analysis, 
-                    and mentoring. My work bridges academic research and applied behavioral science, drawing on expertise in 
-                    research methods, study design, and statistical modeling to uncover insights into human behavior.
-                <p>
-                    At the Morality and Language Lab, I conduct large-scale projects investigating how people think, communicate, 
-                    and make decisions, combining survey methods, experiments, and advanced analytics. Proficient in R, Python,
-                    and SPSS, I apply statistical, computational, and qualitative approaches to answer complex questions about 
-                    social processes.
-                </p>
-                My goal is to leverage my research expertise to inform user experience, behavioral research, 
-                and evidence-based solutions in applied settings.
-                <div class="social-icons">
-                    <a href="mailto:daryani@usc.edu"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Email"></a>
-                    <a href="https://scholar.google.com/citations?hl=en&user=Ebof6AMAAAAJ&view_op=list_works&gmla=AL3_zihMvBV4s8HqvPJs1Hnf6K3pOL2PR50upt7R6j-Y1M7NBAAUiAILhY3RMC66KG8W6tYmHB1ljtNroOkCTcEh/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Google_Scholar_logo.svg/768px-Google_Scholar_logo.svg.png" alt="Google Scholar"></a>
-                    <a href="https://www.linkedin.com/in/yalda-daryani/"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn"></a>
+  </footer>
 
-                </div>
-            </div>
-        </div>
-
-        <div class="card-container">
-            <div class="card">
-                <h2>AWARDS, GRANTS AND SCHOLARSHIPS</h2>
-                <ul>
-                    <li>2025: Dornsife Ph.D. Academy Scholarship and Research Fund</li>
-                    <li>2025: Graduate Student Poster Award, SPSP</li>
-                    <li>2024: Department of Psychology Research Grant, USC</li>
-                    <li>2024: Department of Psychology Conference Fund, USC</li>
-                    <li>2024: GSG Professional Development Fund, USC</li>
-                    <li>2024: Dornsife Ph.D. Academy Scholarship and Research Fund</li>
-                    <li>2023: Dornsife/Graduate School Fellowship, USC</li>
-                    <li>2021: Outstanding Research Award, SPSP</li>
-                    
-                </ul>
-            </div>
-            <div class="card">
-                <h2>RESEARCH PROJECTS</h2>
-                <p><a href="asymmetric-moral-metaperceptions.html">When We Get Each Other Wrong: Using NLP and Behavioral Experiments to Correct Misperceptions</a><br>2025: Morality and Language Lab, University of Southern California</p>
-                <p><a href="MFTCXplain.html">MFTCXplain: Multilingual Moral Reasoning Benchmark for LLMs</a><br>2025: Morality and Language Lab, University of Southern California</p>
-                <p><a href="attractiveness-bias.html">A Contest Study to Reduce Attractiveness-Based Discrimination in Social Judgment</a><br>2024: University of Tehran</p>
-                <p><a href="semantic-priming.html">Measuring the semantic priming effect across many languages</a><br>2025: Psychological Science Accelerator</p>
-                <p><a href="moral-judgment.html">Global Patterns in Moral Judgment</a><br>2022: Psychological Science Accelerator</p>
-            </div>
-        </div>
-
-        <div class="news-section">
-            <h2>📰 Latest News</h2>
-            <div class="news-item">
-                <p><strong>February 2026</strong> | I will present <a href="asymmetric-moral-metaperceptions.html"><em>"When We Get Each Other Wrong: Using NLP and Behavioral Experiments to Correct Misperceptions"</em></a> at the Annual Convention of the Society for Personality and Social Psychology (SPSP).</p>
-            </div>
-            <div class="news-item">
-                <p><strong> December 2025</strong> | Our Paper <a href="https://journals.sagepub.com/doi/abs/10.1177/23727322251406591"><em>"The Homogenizing Engine: AI's Role in Standardizing Culture and the Path to Policy"</em></a> is now published!.</p>
-            </div>
-            <div class="news-item">
-                <p><strong>July 2025</strong> | Our paper <em>"MFTCXplain: Multilingual Moral Reasoning Benchmark for LLMs"</em> was accepted into EMNLP Findings.</p>
-
-            </div>
-        </div>
-    </div>
 </body>
 </html>
-
-
-
