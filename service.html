@@ -280,6 +280,73 @@
     }
 
 
+    /* RESOURCE LINK (e.g. the advocacy guide) */
+
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      margin-top: 16px;
+      padding: 10px 15px;
+
+      background: var(--accent-light);
+      border: 1px solid #d5e7e4;
+      border-radius: 4px;
+
+      color: var(--accent) !important;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .service-link:hover {
+      background: #d9eae7;
+    }
+
+
+    /* =========================================================
+       PHOTOS INSIDE A SERVICE CARD
+       ========================================================= */
+
+    .service-photos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 12px;
+
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid #ece9e2;
+    }
+
+    .service-photo {
+      margin: 0;
+      display: block;
+    }
+
+    .service-photo img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: center;
+
+      display: block;
+      border-radius: 5px;
+      border: 1px solid #e1ded7;
+      background: #e7e2d8;
+    }
+
+    .service-photo figcaption {
+      margin-top: 7px;
+      font-size: 10px;
+      color: #8a8a8a;
+      line-height: 1.5;
+    }
+
+    a.service-photo:hover figcaption {
+      color: var(--accent);
+    }
+
+
     /* =========================================================
        REVIEWER GRID
        ========================================================= */
@@ -440,6 +507,10 @@
         font-size: 19px;
       }
 
+      .service-photos {
+        grid-template-columns: 1fr 1fr;
+      }
+
       .reviewer-grid {
         grid-template-columns: 1fr;
       }
@@ -515,7 +586,7 @@
       <div class="container">
 
         <div class="eyebrow">
-          Service · Leadership · Mentorship
+          Service · Leadership · Advocacy · Mentorship
         </div>
 
         <h1>
@@ -524,10 +595,11 @@
 
         <p class="service-intro">
           I contribute to academic communities through graduate student
-          leadership, mentorship, and peer review. These roles allow me to
-          represent and support early-career researchers, strengthen the
-          research community, and contribute to the evaluation and
-          dissemination of psychological science.
+          leadership, science advocacy, mentorship, and peer review. These
+          roles allow me to represent and support early-career researchers,
+          make the case for behavioral science beyond the academy, and
+          contribute to the evaluation and dissemination of psychological
+          science.
         </p>
 
       </div>
@@ -585,7 +657,7 @@
             <div class="service-content">
 
               <h3>
-                Dornsife Graduate School Association (DGSA) Representative
+                DGSA Representative
               </h3>
 
               <p class="service-description">
@@ -686,6 +758,201 @@
                 </li>
 
               </ul>
+
+
+              <!-- GASP PHOTOS
+                   Replace the file names and captions below. Add a third
+                   <a class="service-photo"> block if you have one more;
+                   the grid adjusts on its own. -->
+
+              <div class="service-photos">
+
+                <a
+                  class="service-photo"
+                  href="service-images/gasp-1.jpg"
+                  target="_blank"
+                  rel="noopener"
+                >
+
+                  <img
+                    src="service-images/gasp-1.jpg"
+                    alt="GASP department event at USC"
+                  >
+
+                  <figcaption>
+                    GASP Beach Day, 2025
+                  </figcaption>
+
+                </a>
+
+
+                <a
+                  class="service-photo"
+                  href="service-images/gasp-2.jpg"
+                  target="_blank"
+                  rel="noopener"
+                >
+
+                  <img
+                    src="service-images/gasp-2.jpg"
+                    alt="GASP graduate student gathering at USC"
+                  >
+
+                  <figcaption>
+                    GASP Halloween Party, 2025
+                  </figcaption>
+
+                </a>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         SCIENCE ADVOCACY & POLICY ENGAGEMENT
+         ========================================================= -->
+
+    <section class="service-section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <h2>
+            Science advocacy &amp; policy engagement
+          </h2>
+
+          <p>
+            Making the case for behavioral science outside the academy.
+          </p>
+
+        </div>
+
+
+        <div class="service-list">
+
+
+          <!-- FABBS CASE FELLOW -->
+
+          <article class="service-card">
+
+            <div class="service-meta">
+
+              <div class="service-date">
+                2026
+              </div>
+
+              <div class="service-organization">
+                Federation of Associations in Behavioral &amp; Brain
+                Sciences (FABBS)
+              </div>
+
+              <div class="service-type">
+                AAAS CASE Workshop · Washington, DC
+              </div>
+
+            </div>
+
+
+            <div class="service-content">
+
+              <h3>
+                FABBS CASE Fellow
+              </h3>
+
+              <p class="service-description">
+                One of four behavioral science students sponsored by FABBS
+                to attend the AAAS Catalyzing Advocacy in Science and
+                Engineering (CASE) workshop and advocate for federal
+                support of social and behavioral science research.
+              </p>
+
+              <ul>
+
+                <li>
+                  Trained in the federal budget and appropriations
+                  process, committee jurisdiction, and communicating
+                  research to policy audiences.
+                </li>
+
+                <li>
+                  Met with Representative Laura Friedman and Congressman
+                  Lou Correa on Capitol Hill to make the case for
+                  sustained funding of social and behavioral science
+                  research.
+                </li>
+
+                <li>
+                  Wrote and published a field guide translating the
+                  workshop into a practical advocacy resource for
+                  behavioral scientists.
+                </li>
+
+              </ul>
+
+
+              <a
+                class="service-link"
+                href="science-advocacy-guide.html"
+              >
+                Read the guide: From Researcher to Advocate →
+              </a>
+
+
+              <!-- ADVOCACY PHOTOS
+                   Replace the file names and captions below. -->
+
+              <div class="service-photos">
+
+                <a
+                  class="service-photo"
+                  href="service-images/case-hill-visit.jpg"
+                  target="_blank"
+                  rel="noopener"
+                >
+
+                  <img
+                    src="service-images/case-hill-visit.jpg"
+                    alt="Yalda Daryani and fellow students outside Representative Laura Friedman's office on Capitol Hill"
+                  >
+
+                  <figcaption>
+                    Outside Rep. Laura Friedman's office, Capitol Hill
+                  </figcaption>
+
+                </a>
+
+
+                <a
+                  class="service-photo"
+                  href="service-images/case-workshop.jpg"
+                  target="_blank"
+                  rel="noopener"
+                >
+
+                  <img
+                    src="service-images/case-workshop.jpg"
+                    alt="Opening session of the AAAS CASE Workshop"
+                  >
+
+                  <figcaption>
+                    AAAS CASE Workshop, Washington, DC
+                  </figcaption>
+
+                </a>
+
+              </div>
 
             </div>
 
@@ -816,31 +1083,31 @@
               </h3>
 
               <p class="service-description">
-                Mentor undergraduate and master's-level research assistants
-                working in computational social science and natural language
-                processing.
+                Mentored undergraduate and master's-level research
+                assistants working in computational social science and
+                natural language processing.
               </p>
 
               <ul>
 
                 <li>
-                  Supervise research assistants on projects involving
+                  Supervised research assistants on projects involving
                   social science and natural language processing.
                 </li>
 
                 <li>
-                  Guide students through the research process, from
+                  Guided students through the research process, from
                   project design and data collection through analysis
                   and interpretation.
                 </li>
 
                 <li>
-                  Train students in data collection, cleaning, management,
-                  statistical analysis, and coding practices.
+                  Trained students in data collection, cleaning,
+                  management, statistical analysis, and coding practices.
                 </li>
 
                 <li>
-                  Provide feedback on academic writing and research
+                  Provided feedback on academic writing and research
                   communication.
                 </li>
 
@@ -963,8 +1230,8 @@
 
         <p>
           I am interested in contributing to research communities through
-          graduate student leadership, mentorship, peer review, and other
-          forms of academic service.
+          graduate student leadership, science advocacy, mentorship, peer
+          review, and other forms of academic service.
         </p>
 
       </div>
