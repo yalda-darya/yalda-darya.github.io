@@ -346,6 +346,68 @@
       text-underline-offset: 3px;
     }
 
+    /* ================= IN THE MEDIA ================= */
+
+    .media {
+      background: white;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .media-card {
+      display: flex;
+      flex-direction: column;
+
+      background: var(--bg);
+      border: 1px solid #e3e0d9;
+      border-radius: 6px;
+      padding: 20px 22px;
+
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .media-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+      color: inherit;
+    }
+
+    .media-outlet {
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 9px;
+    }
+
+    .media-headline {
+      font-family: "Libre Baskerville", serif;
+      font-size: 15px;
+      line-height: 1.45;
+      margin: 0 0 9px;
+    }
+
+    .media-note {
+      font-size: 12px;
+      line-height: 1.6;
+      color: #666;
+      margin: 0 0 14px;
+    }
+
+    .media-read {
+      margin-top: auto;
+      font-size: 11px;
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
     /* ================= EXPERIENCE ================= */
 
     .experience {
@@ -468,6 +530,10 @@
       }
 
       .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .media-grid {
         grid-template-columns: 1fr;
       }
 
@@ -873,6 +939,118 @@
             </div>
 
           </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= IN THE MEDIA ================= -->
+
+    <section class="media" id="media">
+
+      <div class="container">
+
+        <div class="section-title-row">
+
+          <h2 class="section-title">
+            In the media
+          </h2>
+
+        </div>
+
+
+        <div class="media-grid">
+
+
+          <!-- ================= COVERAGE 1 ================= -->
+
+          <a
+            class="media-card"
+            href="https://dornsife.usc.edu/news/stories/ai-may-promote-cultural-homogenization/"
+            target="_blank"
+            rel="noopener"
+          >
+
+            <div class="media-outlet">
+              USC Dornsife News
+            </div>
+
+            <h3 class="media-headline">
+              AI is changing more than your writing — it may be shaping your worldview
+            </h3>
+
+            <p class="media-note">
+              Coverage of "The Homogenizing Engine" on how AI systems can
+              flatten cultural differences, and what policy can do about it.
+            </p>
+
+            <span class="media-read">
+              Read the story →
+            </span>
+
+          </a>
+
+
+          <!-- ================= COVERAGE 2 ================= -->
+
+          <a
+            class="media-card"
+            href="https://techxplore.com/news/2026-04-ai-worldview.html"
+            target="_blank"
+            rel="noopener"
+          >
+
+            <div class="media-outlet">
+              Tech Xplore · April 2026
+            </div>
+
+            <h3 class="media-headline">
+              AI is changing more than your writing—it may be shaping your worldview, say researchers
+            </h3>
+
+            <p class="media-note">
+              Coverage of "The Homogenizing Engine" and its findings on
+              whose worldview AI systems reproduce.
+            </p>
+
+            <span class="media-read">
+              Read the story →
+            </span>
+
+          </a>
+
+
+          <!-- ================= COVERAGE 3 ================= -->
+
+          <a
+            class="media-card"
+            href="https://spsp.org/news/newsletter-articles/yalda-daryani-develops-field-guide-science-advocacy"
+            target="_blank"
+            rel="noopener"
+          >
+
+            <div class="media-outlet">
+              SPSP Newsletter
+            </div>
+
+            <h3 class="media-headline">
+              Yalda Daryani develops field guide for science advocacy
+            </h3>
+
+            <p class="media-note">
+              SPSP featured and published the science advocacy field guide
+              I wrote after the AAAS CASE Workshop.
+            </p>
+
+            <span class="media-read">
+              Read the story →
+            </span>
+
+          </a>
+
 
         </div>
 
