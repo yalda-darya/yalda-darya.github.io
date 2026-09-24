@@ -185,96 +185,6 @@
 
 
     /* =========================================================
-       FEATURED PRESENTATION
-       ========================================================= */
-
-    .featured-talk {
-      background: var(--paper);
-      border: 1px solid #e1ded7;
-      border-radius: 7px;
-      padding: 30px;
-      margin-bottom: 18px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.025);
-    }
-
-    .featured-label {
-      display: inline-block;
-      background: var(--accent-light);
-      color: var(--accent);
-      border: 1px solid #d5e7e4;
-      border-radius: 4px;
-      padding: 5px 9px;
-      font-size: 9px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 15px;
-      font-weight: 600;
-    }
-
-    .featured-grid {
-      display: grid;
-      grid-template-columns: 1fr 380px;
-      gap: 38px;
-      align-items: start;
-    }
-
-    .talk-meta {
-      font-size: 10px;
-      color: #777;
-      margin-bottom: 11px;
-    }
-
-    .talk-title {
-      font-family: "Libre Baskerville", serif;
-      font-size: 25px;
-      line-height: 1.35;
-      margin: 0 0 13px;
-    }
-
-    .talk-description {
-      color: #5f5f5f;
-      font-size: 13px;
-      line-height: 1.65;
-      margin: 0;
-    }
-
-    .talk-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-top: 18px;
-    }
-
-    .talk-tag {
-      border: 1px solid #d2d0c9;
-      border-radius: 15px;
-      padding: 4px 9px;
-      font-size: 10px;
-      color: #676767;
-    }
-
-
-    /* =========================================================
-       PHOTO GALLERY
-       ========================================================= */
-
-    .photo-gallery {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    .photo-gallery img {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      border-radius: 5px;
-      display: block;
-      background: #e7e2d8;
-    }
-
-
-    /* =========================================================
        YEAR DIVIDER
        ========================================================= */
 
@@ -302,7 +212,10 @@
 
 
     /* =========================================================
-       REGULAR TALK LIST
+       TALK CARDS — one format for every entry
+
+       Columns: meta | content | media
+       Cards without a photo use .talk-card--no-media
        ========================================================= */
 
     .talk-list {
@@ -312,48 +225,32 @@
     }
 
     .talk-card {
-      background: white;
+      background: var(--paper);
       border: 1px solid #e1ded7;
       border-radius: 6px;
-      padding: 23px 26px;
+      padding: 26px 28px;
 
       display: grid;
-      grid-template-columns: 145px 1fr;
-      gap: 28px;
+      grid-template-columns: 150px minmax(0, 1fr) 300px;
+      gap: 30px;
+      align-items: start;
 
       transition:
         transform 0.2s ease,
         box-shadow 0.2s ease;
     }
 
+    .talk-card--no-media {
+      grid-template-columns: 150px minmax(0, 1fr);
+    }
+
     .talk-card:hover {
       transform: translateY(-2px);
-      box-shadow: 0 7px 18px rgba(0,0,0,0.05);
+      box-shadow: 0 7px 18px rgba(0, 0, 0, 0.05);
     }
 
-    .talk-card-photo {
-      grid-column: 1 / -1;
-      width: 100%;
-      height: 260px;
-      overflow: hidden;
-      border-radius: 5px;
-      background: #e7e2d8;
-    }
 
-    .talk-card-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .talk-card-main {
-      grid-column: 1 / -1;
-
-      display: grid;
-      grid-template-columns: 145px 1fr;
-      gap: 28px;
-    }
+    /* LEFT COLUMN — date, venue, location */
 
     .talk-date {
       font-size: 10px;
@@ -375,18 +272,48 @@
       line-height: 1.45;
     }
 
-    .regular-talk-title {
+    .talk-format {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #8a8a8a;
+      border: 1px solid #e1ded7;
+      border-radius: 3px;
+      padding: 3px 7px;
+    }
+
+
+    /* MIDDLE COLUMN — title, description, keywords */
+
+    .talk-title {
       font-family: "Libre Baskerville", serif;
       font-size: 17px;
       line-height: 1.4;
       margin: 0 0 9px;
     }
 
-    .regular-talk-description {
+    .talk-description {
       font-size: 12.5px;
       color: #666;
-      line-height: 1.6;
+      line-height: 1.65;
       margin: 0;
+    }
+
+    .talk-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 14px;
+    }
+
+    .talk-tag {
+      border: 1px solid #d2d0c9;
+      border-radius: 15px;
+      padding: 4px 9px;
+      font-size: 10px;
+      color: #676767;
     }
 
     .award-note {
@@ -401,6 +328,38 @@
       color: var(--accent);
       font-size: 10px;
       font-weight: 600;
+    }
+
+
+    /* RIGHT COLUMN — photo */
+
+    .talk-media {
+      display: block;
+    }
+
+    .talk-media img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 5px;
+      display: block;
+      background: #e7e2d8;
+      border: 1px solid #e1ded7;
+    }
+
+    .talk-media figcaption {
+      margin-top: 7px;
+      font-size: 10px;
+      color: #8a8a8a;
+    }
+
+    a.talk-media:hover figcaption {
+      color: var(--accent);
+    }
+
+    figure.talk-media {
+      margin: 0;
     }
 
 
@@ -421,18 +380,21 @@
        MOBILE
        ========================================================= */
 
-    @media (max-width: 900px) {
+    @media (max-width: 980px) {
 
       .nav-links {
         gap: 18px;
       }
 
-      .featured-grid {
-        grid-template-columns: 1fr;
+      .talk-card,
+      .talk-card--no-media {
+        grid-template-columns: 150px minmax(0, 1fr);
       }
 
-      .photo-gallery {
-        max-width: 600px;
+      .talk-media {
+        grid-column: 1 / -1;
+        order: -1;
+        max-width: 460px;
       }
 
     }
@@ -474,30 +436,15 @@
         font-size: 14px;
       }
 
-      .featured-talk {
-        padding: 22px;
-      }
-
-      .talk-title {
-        font-size: 21px;
-      }
-
-      .talk-card {
-        padding: 0;
-        display: block;
-        overflow: hidden;
-      }
-
-      .talk-card-photo {
-        height: 220px;
-        border-radius: 0;
-      }
-
-      .talk-card-main {
-        display: grid;
+      .talk-card,
+      .talk-card--no-media {
         grid-template-columns: 1fr;
-        gap: 13px;
+        gap: 16px;
         padding: 22px;
+      }
+
+      .talk-media {
+        max-width: none;
       }
 
     }
@@ -536,7 +483,7 @@
         </a>
 
         <a href="talks.html" class="active">
-          Talks & Presentations
+          Talks &amp; Presentations
         </a>
 
         <a href="service.html">
@@ -612,7 +559,7 @@
 
 
         <!-- =====================================================
-             2026 BSPA
+             2026
              ===================================================== -->
 
         <div class="year-divider">
@@ -623,43 +570,63 @@
         <div class="talk-list">
 
 
-          <!-- BSPA 2026 -->
+          <!-- BSPA 2026 — no photo -->
 
-          <article class="talk-card">
+          <article class="talk-card talk-card--no-media">
 
-            <div class="talk-card-main">
+            <div>
 
-              <div>
-
-                <div class="talk-date">
-                  June 7–8, 2026
-                </div>
-
-                <div class="talk-venue">
-                  Behavioral Science &amp; Policy Association
-                  Annual Conference
-                </div>
-
-                <div class="talk-location">
-                  Harvard Kennedy School · Cambridge, MA
-                </div>
-
+              <div class="talk-date">
+                June 7–8, 2026
               </div>
 
+              <div class="talk-venue">
+                Behavioral Science &amp; Policy Association
+                Annual Conference
+              </div>
 
-              <div>
+              <div class="talk-location">
+                Harvard Kennedy School · Cambridge, MA
+              </div>
 
-                <h3 class="regular-talk-title">
-                  The Homogenizing Engine: AI's Role in
-                  Standardizing Culture and the Path to Policy
-                </h3>
+              <div class="talk-format">
+                Talk
+              </div>
 
-                <p class="regular-talk-description">
-                  Presented research on how artificial intelligence systems
-                  may contribute to cultural homogenization and discussed
-                  implications for AI evaluation, cultural diversity,
-                  and policy.
-                </p>
+            </div>
+
+
+            <div>
+
+              <h3 class="talk-title">
+                The Homogenizing Engine: AI's Role in
+                Standardizing Culture and the Path to Policy
+              </h3>
+
+              <p class="talk-description">
+                Presented research on how artificial intelligence systems
+                may contribute to cultural homogenization, and discussed
+                implications for AI evaluation, cultural diversity,
+                and policy.
+              </p>
+
+              <div class="talk-tags">
+
+                <span class="talk-tag">
+                  AI &amp; culture
+                </span>
+
+                <span class="talk-tag">
+                  Cultural homogenization
+                </span>
+
+                <span class="talk-tag">
+                  AI evaluation
+                </span>
+
+                <span class="talk-tag">
+                  Policy
+                </span>
 
               </div>
 
@@ -670,83 +637,94 @@
 
           <!-- SPSP 2026 -->
 
-          <article class="featured-talk">
+          <article class="talk-card">
 
-            <div class="featured-label">
-              Featured · February 2026
-            </div>
+            <div>
 
-            <div class="featured-grid">
-
-
-              <!-- TEXT -->
-
-              <div>
-
-                <div class="talk-meta">
-                  February 28, 2026 · SPSP Annual Convention
-                </div>
-
-                <h2 class="talk-title">
-                  When Perception Meets Reality: How Moral
-                  Metaperceptions Shape Intergroup Relations in
-                  Political Divides
-                </h2>
-
-                <p class="talk-description">
-                  Presented research examining how people believe political
-                  outgroups evaluate their moral values and how these
-                  metaperceptions shape intergroup relationships. The project
-                  combines computational analysis of more than 10 million
-                  tweets with three experimental studies and an intervention
-                  designed to examine whether correcting inaccurate
-                  metaperceptions can change trust and threat perceptions.
-                </p>
-
-                <div class="talk-tags">
-
-                  <span class="talk-tag">
-                    Moral metaperceptions
-                  </span>
-
-                  <span class="talk-tag">
-                    Political polarization
-                  </span>
-
-                  <span class="talk-tag">
-                    NLP
-                  </span>
-
-                  <span class="talk-tag">
-                    Experiments
-                  </span>
-
-                  <span class="talk-tag">
-                    Intergroup relations
-                  </span>
-
-                </div>
-
+              <div class="talk-date">
+                February 28, 2026
               </div>
 
+              <div class="talk-venue">
+                SPSP Annual Convention
+              </div>
 
-              <!-- SPSP PHOTOS -->
+              <div class="talk-location">
+                San Francisco, CA
+              </div>
 
-              <div class="photo-gallery">
+              <div class="talk-format">
+                Talk
+              </div>
 
-                -->
+            </div>
 
-                <img
-                  src="talks-images/spsp26.jpg"
-                  alt="Yalda Daryani presenting at SPSP 2026"
-                >
 
+            <div>
+
+              <h3 class="talk-title">
+                When Perception Meets Reality: How Moral
+                Metaperceptions Shape Intergroup Relations in
+                Political Divides
+              </h3>
+
+              <p class="talk-description">
+                Presented research examining how people believe political
+                outgroups evaluate their moral values and how these
+                metaperceptions shape intergroup relationships. The project
+                combines computational analysis of more than 10 million
+                tweets with three experimental studies and an intervention
+                testing whether correcting inaccurate metaperceptions
+                changes trust and perceived threat.
+              </p>
+
+              <div class="talk-tags">
+
+                <span class="talk-tag">
+                  Moral metaperceptions
+                </span>
+
+                <span class="talk-tag">
+                  Political polarization
+                </span>
+
+                <span class="talk-tag">
+                  NLP
+                </span>
+
+                <span class="talk-tag">
+                  Experiments
+                </span>
+
+                <span class="talk-tag">
+                  Intergroup relations
+                </span>
 
               </div>
 
             </div>
+
+
+            <a
+              class="talk-media"
+              href="talks-images/spsp26.jpg"
+              target="_blank"
+              rel="noopener"
+            >
+
+              <img
+                src="talks-images/spsp26.jpg"
+                alt="Yalda Daryani presenting at SPSP 2026"
+              >
+
+              <figcaption>
+                SPSP 2026 · view full size
+              </figcaption>
+
+            </a>
 
           </article>
+
 
         </div>
 
@@ -766,57 +744,86 @@
 
           <!-- SPSP 2025 -->
 
-          <article class="talk-card talk-card-with-photo">
+          <article class="talk-card">
 
-            <div class="talk-card-photo">
+            <div>
+
+              <div class="talk-date">
+                February 23, 2025
+              </div>
+
+              <div class="talk-venue">
+                SPSP Annual Convention
+              </div>
+
+              <div class="talk-location">
+                Denver, CO
+              </div>
+
+              <div class="talk-format">
+                Poster
+              </div>
+
+            </div>
+
+
+            <div>
+
+              <h3 class="talk-title">
+                Moral Underpinnings of Attitudes Towards Abortion
+              </h3>
+
+              <p class="talk-description">
+                Presented research examining the moral foundations
+                underlying abortion attitudes, using large-scale social
+                media data and natural language processing to examine
+                patterns in moral language and framing.
+              </p>
+
+              <div class="talk-tags">
+
+                <span class="talk-tag">
+                  Moral foundations
+                </span>
+
+                <span class="talk-tag">
+                  NLP
+                </span>
+
+                <span class="talk-tag">
+                  Social media analysis
+                </span>
+
+                <span class="talk-tag">
+                  Framing effects
+                </span>
+
+              </div>
+
+              <div class="award-note">
+                Graduate Student Poster Award
+              </div>
+
+            </div>
+
+
+            <a
+              class="talk-media"
+              href="talks-images/spsp25.jpg"
+              target="_blank"
+              rel="noopener"
+            >
 
               <img
                 src="talks-images/spsp25.jpg"
-                alt="Yalda Daryani presenting at SPSP 2025 in Denver"
+                alt="Yalda Daryani with her poster at SPSP 2025 in Denver"
               >
 
-            </div>
+              <figcaption>
+                SPSP 2025 · view full poster
+              </figcaption>
 
-
-            <div class="talk-card-main">
-
-              <div>
-
-                <div class="talk-date">
-                  February 23, 2025
-                </div>
-
-                <div class="talk-venue">
-                  SPSP Annual Convention
-                </div>
-
-                <div class="talk-location">
-                  Denver, CO
-                </div>
-
-              </div>
-
-
-              <div>
-
-                <h3 class="regular-talk-title">
-                  Moral Underpinnings of Attitudes Towards Abortion
-                </h3>
-
-                <p class="regular-talk-description">
-                  Presented research examining the moral foundations
-                  underlying abortion attitudes using large-scale social
-                  media data and natural language processing to examine
-                  patterns in moral language and framing.
-                </p>
-
-                <div class="award-note">
-                  Graduate Student Poster Award
-                </div>
-
-              </div>
-
-            </div>
+            </a>
 
           </article>
 
@@ -839,53 +846,82 @@
 
           <!-- SPSP 2024 -->
 
-          <article class="talk-card talk-card-with-photo">
+          <article class="talk-card">
 
-            <div class="talk-card-photo">
+            <div>
+
+              <div class="talk-date">
+                February 8, 2024
+              </div>
+
+              <div class="talk-venue">
+                SPSP Annual Convention
+              </div>
+
+              <div class="talk-location">
+                San Diego, CA
+              </div>
+
+              <div class="talk-format">
+                Poster
+              </div>
+
+            </div>
+
+
+            <div>
+
+              <h3 class="talk-title">
+                Cultural Perceptions of Honor
+              </h3>
+
+              <p class="talk-description">
+                Presented research examining cultural differences in
+                perceptions of honor and how these differences can
+                contribute to variation in social judgment and
+                real-world outcomes.
+              </p>
+
+              <div class="talk-tags">
+
+                <span class="talk-tag">
+                  Honor cultures
+                </span>
+
+                <span class="talk-tag">
+                  Cross-cultural psychology
+                </span>
+
+                <span class="talk-tag">
+                  Survey data
+                </span>
+
+                <span class="talk-tag">
+                  Social judgment
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <a
+              class="talk-media"
+              href="talks-images/spsp24.jpg"
+              target="_blank"
+              rel="noopener"
+            >
 
               <img
                 src="talks-images/spsp24.jpg"
-                alt="Yalda Daryani presenting at SPSP 2024 in San Diego"
+                alt="Yalda Daryani with her poster at SPSP 2024 in San Diego"
               >
 
-            </div>
+              <figcaption>
+                SPSP 2024 · view full poster
+              </figcaption>
 
-
-            <div class="talk-card-main">
-
-              <div>
-
-                <div class="talk-date">
-                  February 8, 2024
-                </div>
-
-                <div class="talk-venue">
-                  SPSP Annual Convention
-                </div>
-
-                <div class="talk-location">
-                  San Diego, CA
-                </div>
-
-              </div>
-
-
-              <div>
-
-                <h3 class="regular-talk-title">
-                  Cultural Perceptions of Honor
-                </h3>
-
-                <p class="regular-talk-description">
-                  Presented research examining cultural differences in
-                  perceptions of honor and how these differences can
-                  contribute to variation in social judgment and
-                  real-world outcomes.
-                </p>
-
-              </div>
-
-            </div>
+            </a>
 
           </article>
 
